@@ -1,0 +1,48 @@
+PHOENIX CAPABILITY V4 — TESTE FINAL
+
+Pré-requisito:
+- Phoenix Engine deve estar rodando em http://127.0.0.1:8000
+- Capability V4 + Hotfix 01 já aplicados.
+
+FASE 1
+------
+Na raiz da Phoenix:
+
+    python .\TESTE_FINAL_CAPABILITY_V4.py
+
+O teste:
+1. confirma FREE + 10 docs + 25 MB + 500000 chars;
+2. confirma capability inválida sem licença (fail-closed);
+3. verifica consenso de integridade;
+4. preserva documentos existentes;
+5. preenche SOMENTE as vagas livres até 10/10 com docs temporários;
+6. testa query RAG usando marcador único;
+7. tenta o 11º e exige bloqueio;
+8. testa o chat normal via POST /api/command;
+9. verifica integridade novamente;
+10. apaga somente os documentos temporários;
+11. salva .phoenix_v4_test_checkpoint.json.
+
+Se já houver 10 documentos reais, ele NÃO os apaga. Nesse caso testa o 11º,
+mas avisa que não pôde recriar do zero os passos 1–10.
+
+FASE 2 — RESTART
+----------------
+Reinicie a Phoenix inteira. Depois:
+
+    python .\TESTE_FINAL_CAPABILITY_V4.py --after-restart
+
+O teste exige:
+- plan=free
+- capability_valid=False
+- limites Free intactos
+- /api/licensing/status respondendo
+- consenso RAG íntegro
+
+OPCIONAL
+--------
+Se o LLM estiver propositalmente desligado e você quiser testar só licensing/RAG:
+
+    python .\TESTE_FINAL_CAPABILITY_V4.py --skip-chat
+
+O teste usa apenas urllib da biblioteca padrão; não instala dependências.

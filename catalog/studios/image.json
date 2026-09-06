@@ -1,0 +1,14 @@
+{
+  "id": "image",
+  "name": "Criar Imagens",
+  "icon": "🎨",
+  "description": "Geração de imagens e workflows.",
+  "time": "20-40 min",
+  "space": "25 GB",
+  "min_ram": 16,
+  "rec_vram": 6,
+  "connectors": [
+    "comfyui",
+    "stable_diffusion_cpp"
+  ]
+}

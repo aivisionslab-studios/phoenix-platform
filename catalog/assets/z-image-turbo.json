@@ -1,0 +1,17 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Z-Image-Turbo Q4_K",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/leejet/Z-Image-Turbo-GGUF/resolve/main/z_image_turbo-Q4_K.gguf?download=true"
+  },
+  "filename": "z_image_turbo-Q4_K.gguf",
+  "target_dir": "downloads/images/",
+  "category": "Image",
+  "dependencies": [
+    "flux_vae",
+    "z-image-qwen3-4b"
+  ],
+  "_comment": "Alternativa experimental ao Flux Schnell para 8GB. O AssetManager baixa primeiro o VAE Flux e o encoder Qwen3-4B obrigatórios. Não é o modelo padrão até ser validado fisicamente na RX 580."
+}

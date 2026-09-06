@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX.1 Kontext-dev Q4_K_S GGUF",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/QuantStack/FLUX.1-Kontext-dev-GGUF/resolve/main/flux1-kontext-dev-Q4_K_S.gguf"
+  },
+  "filename": "flux1-kontext-dev-Q4_K_S.gguf",
+  "target_dir": "downloads/images/"
+}

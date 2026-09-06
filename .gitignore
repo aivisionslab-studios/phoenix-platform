@@ -1,0 +1,307 @@
+# ============================================================
+# CREDENCIAIS E SEGREDOS — nunca commitar, nunca subir pra público
+# ============================================================
+data/firebase_service_account.json
+data/config/firestore_credentials.json
+*firebase_service_account*.json
+*service_account*.json
+*.pem
+*.key
+.env
+.env.*
+# PHX-FIX (achado secundário de auditoria externa, Rodada 11 -> 12): `.env.*`
+# acima também casava com `platform_source/.env.example`, que não é segredo
+# nenhum - é o template comentado que o README manda copiar pra `.env` local.
+# Sem esta exceção, um `git add -A` nunca versionaria o exemplo (e um `git
+# status` normal não avisaria disso, já que "ignorado" e "nunca existiu"
+# parecem a mesma coisa até alguém procurar de propósito).
+!platform_source/.env.example
+
+# ============================================================
+# Estado local de consentimento/licença/máquina — é uma escolha da 
+# MÁQUINA de quem roda, não faz parte do código-fonte do projeto.
+# ============================================================
+data/telemetry_consent.flag
+data/license_accepted.flag
+data/config/machine_id.json
+data/machine_id.txt
+# PHX-FIX (auditoria externa 2026-08-20, achado real vindo de fora - "Rodada
+# 15 auditoria externa"): faltava esta variante. data/machine_id.json (SEM
+# "config/" no meio - diferente de data/config/machine_id.json, que já
+# estava coberto acima) é um UUID real de instância de máquina gerado em
+# runtime, mesma categoria dos outros dois arquivos de machine_id, mas com
+# um caminho que a regra anterior não cobria - confirmado escapando do
+# allowlist do `git add -A` de teste feito para investigar o achado.
+data/machine_id.json
+
+# PHX-FIX (auditoria 2026-08-20): preferência de engine de texto é estado
+# de MÁQUINA (ver ResidentManager.get/set_text_engine_preference(), que lê
+# e escreve data/text_engine_preference.json em runtime), não deveria ter
+# ido pro repo. O legado data/engine_preference.json (nome antigo, nunca
+# lido por nenhum código Python - só escrito pelo instalador PowerShell num
+# caminho totalmente diferente, %ProgramData%\Phoenix\) chegou a vazar pra
+# dentro do pacote com `preferred_llm_engine: "ollama"` persistido, o que
+# contradiz o default real (llama.cpp) do Model Registry e pode confundir
+# quem auditar o pacote achando que é a preferência ativa. Removido do
+# repo; ambos os nomes ficam ignorados daqui pra frente.
+data/text_engine_preference.json
+data/engine_preference.json
+
+# ============================================================
+# ChromaDB (banco vetorial local do RAG) — binário, gerado localmente a
+# partir de data/knowledge_base.json. Não precisa (e não deve) ir pro repo.
+# ============================================================
+data/chroma_db/
+
+# ============================================================
+# Bancos de dados de instância — telemetria e estado de máquina real,
+# não fixtures do projeto. Regenerados automaticamente em runtime.
+# ============================================================
+data/hardware.db
+data/knowledge.db
+
+# ============================================================
+# Cache de runtime / logs — gerado em execução, não é código-fonte.
+# ============================================================
+data/models_cache/
+data/logs/
+/logs/
+*.log
+
+# ============================================================
+# Repos de terceiros e Modelos Pesados — clonados/baixados pelo instalador.
+# ============================================================
+repos/
+output/
+*.gguf
+
+# ============================================================
+# Módulos descontinuados — não deve ir pro release público.
+# ============================================================
+_deprecated/
+
+# ============================================================
+# Lixo acidental do Windows Explorer
+# ============================================================
+Novo*Documento*de*Texto*.txt
+*/Novo\(a\)*Documento*de*Texto*.txt
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.venv/
+.audit-venv/
+venv/
+env/
+build/
+dist/
+
+# ============================================================
+# Node.js / Phoenix Studio (apenas se rodar local na raiz)
+# ============================================================
+node_modules/
+web/platform_dist/
+
+# ============================================================
+# Editor / SO
+# ============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# PHX-HARDENING — ARQUIVOS PESSOAIS / LIXO ELETRÔNICO DA RAIZ
+# Estas regras usam "/" no início de propósito: valem SOMENTE para a
+# pasta matriz do repositório e não escondem fixtures/documentação
+# legítimas dentro de docs/, tests/, assets/, catalog/, etc.
+# ============================================================
+
+# Documentos pessoais soltos na raiz
+/*.pdf
+/*.doc
+/*.docx
+/*.xls
+/*.xlsx
+/*.ppt
+/*.pptx
+/*.rtf
+/*.odt
+/*.ods
+/*.odp
+/*.csv
+
+# Imagens/capturas soltas na raiz
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.gif
+/*.bmp
+/*.tif
+/*.tiff
+
+# Áudio/vídeo solto na raiz
+/*.mp3
+/*.wav
+/*.m4a
+/*.flac
+/*.ogg
+/*.mp4
+/*.mkv
+/*.mov
+/*.avi
+/*.webm
+
+# Pacotes de auditoria, builds manuais e arquivos compactados soltos
+/*.zip
+/*.7z
+/*.rar
+/*.tar
+/*.tar.gz
+/*.tgz
+/*.gz
+
+# Dumps/relatórios de execução conhecidos da raiz
+/state_dump.json
+/diagnostic_report.json
+/diagnostic_report*.json
+/*_report.json
+/*_report.txt
+/*_dump.json
+/*_dump.txt
+
+# Artefatos locais de teste/auditoria que não pertencem ao código-fonte
+/prova_teste_watchdog/
+/temp/
+/downloads/
+/output/
+/logs/
+
+# Backups, arquivos de editor e sobras de merge/cópia
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.tmp
+*.temp
+*.swp
+# PHX-FIX (auditoria 2026-08-28, achado do usuário no repo público real:
+# phoenix_kernel/licensing/plans.py.before_hotfix_20260827_194334 tinha
+# entrado no push - o padrão *.bak acima não cobre o sufixo com timestamp
+# que _archive_patches_antigos/APLICAR_HOTFIX_01.ps1 gera como backup de
+# segurança antes de aplicar um hotfix). Backup de hotfix é pra ficar só
+# na árvore de trabalho local de quem aplicou o patch, nunca no repo.
+*.before_hotfix_*
+
+# PHX-FIX (auditoria 2026-08-28, achado GRAVE no repo público real: esta
+# pasta e as duas dentro dela foram publicadas em github.com/aivisionslab-
+# studios/phoenix-engine, mesmo o próprio README_PRIVATE.txt dizendo
+# explicitamente "NÃO coloque... no repositório público" / "NÃO copie...
+# para a distribuição do cliente"). organizar_pasta_phoenix.ps1 já
+# documentava esta pasta como "não tocar" (é referência de servidor
+# legítima pra manter localmente), mas nada garantia que ela ficasse fora
+# de um `git add -A` - só o .gitignore garante isso de verdade. Nenhuma
+# chave privada real estava no conteúdo (a chave vem de variável de
+# ambiente/Secret Manager), mas o esquema inteiro de assinatura de
+# licença (claims, issuer/audience, endpoint) não deveria ser público.
+private_server_reference/
+
+# PHX-FIX (mesma auditoria): docs/PHOENIX_PROJECT_MAP.md é um dump
+# automático (gerado por tools/generate_phoenix_map.py) da árvore inteira
+# do projeto - 19MB/~574 mil linhas, desatualizado (gerado em 2026-07-29).
+# Não tinha segredo real no conteúdo, mas é peso morto que não precisa
+# estar versionado nem público - regenerável a qualquer momento com
+# `python3 tools/generate_phoenix_map.py`.
+docs/PHOENIX_PROJECT_MAP.md
+
+# PHX-FIX (auditoria 2026-08-28, segunda rodada - achado do usuário
+# navegando o repo público real): _archive_patches_antigos/ também foi
+# publicada. Nenhum segredo embutido, mas é bastidor de desenvolvimento
+# (scripts de aplicar/testar hotfixes antigos) e, em especial,
+# LEIA-ME_CAPABILITY_V4_INTEGRADO.md documenta em detalhe a arquitetura do
+# esquema de licenciamento/anti-pirataria e a matriz de teste de tentativas
+# de burlar Free/Pro - informação sensível por motivo de negócio, mesmo
+# sem vazar a chave privada. Mesmo tratamento de private_server_reference/.
+_archive_patches_antigos/
+*.swo
+*~
+*.stackdump
+
+# Cópias automáticas comuns do Windows
+* - Copy.*
+* - Cópia.*
+*Copia de *
+*Cópia de *
+
+# Artefatos de cobertura/testes
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+test-results/
+playwright-report/
+.nox/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Caches/builds adicionais
+.cache/
+.cache/**
+*.cache
+pip-wheel-metadata/
+wheels/
+
+# ============================================================
+# Estado/config local adicional que nunca deve ir para o Git
+# ============================================================
+data/config/machine.json
+data/rag_user_registry.json
+data/.rag_user_registry.key
+data/rag_usage_ledger.json
+data/rag_integrity.manifest
+data/entitlement.json
+
+# Configuração local do SearXNG
+searxng-docker/searxng-phoenix/settings.yml
+searxng-docker/searxng-webui/settings.yml
+
+# ============================================================
+# Estado local / mem ria / perfil desta m quina
+# ============================================================
+data/resident_memory.json
+data/shared_pool_last_pull.json
+phoenix_kernel/knowledge/machine/hardware_profile.json
+
+data/config/firestore_credentials.json
+
+# PHX-FIX (auditoria completa 2026-08-28): data/Outputs/ é saída de runtime
+# do Document Engine (arquivos editados de teste, ex: original_editado_*.txt)
+# - mesma categoria de data/hardware.db, data/machine_id.json etc. acima,
+# nunca deveria acompanhar o repositório.
+data/Outputs/
+
+# PHX-FIX (auditoria completa 2026-08-28, achado durante verificação final):
+# platform_source/test_chat_headers_timeout.mjs cria um wrapper .cjs
+# temporário (platform_source/_test_chat_timeout_wrapper.cjs) pra rodar o
+# server.ts compilado com um dispatcher de teste, e apaga sozinho ao final
+# (fs.rmSync no caminho normal e no catch) - mas se o processo for morto no
+# meio do teste (Ctrl+C, timeout do runner, etc.) o arquivo fica pra trás.
+# Encontrado sujando a árvore de trabalho depois de uma bateria de testes
+# nesta auditoria; não é código-fonte, é só scratch de teste.
+platform_source/_test_chat_timeout_wrapper.cjs
+
+# nunca commitar bundles de patch temporarios
+*.bundle
+
+*.dll
+bin/

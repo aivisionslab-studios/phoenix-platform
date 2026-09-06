@@ -1,0 +1,41 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {"major": 3, "minor": 20, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "windows-rx580-vulkan",
+      "displayName": "Phoenix Windows RX580 Vulkan (stable)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "$env{SystemDrive}/pxb/phxsd",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "SD_VULKAN": "ON",
+        "SD_CUDA": "OFF",
+        "SD_HIPBLAS": "OFF",
+        "SD_METAL": "OFF",
+        "SD_OPENCL": "OFF",
+        "SD_BUILD_EXAMPLES": "OFF",
+        "SD_WEBP": "OFF",
+        "SD_WEBM": "OFF",
+        "SD_BUILD_SHARED_LIBS": "OFF",
+        "SD_BUILD_SHARED_GGML_LIB": "OFF",
+        "GGML_BACKEND_DL": "OFF",
+        "GGML_CPU_ALL_VARIANTS": "OFF",
+        "GGML_NATIVE": "OFF",
+        "CMAKE_CXX_FLAGS": "/bigobj /EHsc",
+        "PHOENIX_BUILD_BRIDGE": "ON",
+        "PHOENIX_STABLE_PROFILE": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-rx580-vulkan-release",
+      "configurePreset": "windows-rx580-vulkan",
+      "configuration": "Release",
+      "targets": ["phoenix_sd_bridge"],
+      "jobs": 4
+    }
+  ]
+}

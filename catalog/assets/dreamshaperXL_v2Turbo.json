@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "DreamShaper XL v2 Turbo",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://civitai.com/api/download/models/251662"
+  },
+  "filename": "dreamshaperXL_v2Turbo.safetensors",
+  "target_dir": "downloads/images/"
+}

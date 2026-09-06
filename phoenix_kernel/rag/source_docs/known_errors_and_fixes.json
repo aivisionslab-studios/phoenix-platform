@@ -1,0 +1,84 @@
+{
+  "memory_type": "rag_reference",
+  "description": "Erros específicos observados nesta stack. Consultar por padrão de mensagem de erro antes de pedir ajuda externa.",
+  "entries": [
+    {
+      "error_signature": "ggml_vulkan: Device memory allocation of size N failed / ErrorOutOfDeviceMemory / alloc_tensor_range failed",
+      "component": "Phoenix Diffusion ou llama.cpp via Vulkan",
+      "cause": "Modelo (ou soma modelo+buffers) excede os 8GB de VRAM da RX 580.",
+      "fix": "Reduzir resolução, usar quantização menor, ou usar --offload-to-cpu / --vae-on-cpu / --clip-on-cpu."
+    },
+    {
+      "error_signature": "get sd version from file failed: '' / new_sd_ctx_t failed / file not found",
+      "component": "Phoenix Diffusion",
+      "cause": "Caminho do arquivo de modelo errado, ou nome de arquivo incorreto (frequentemente typo em copiar/colar).",
+      "fix": "Verificar existência do arquivo com Get-ChildItem/ls antes de rodar o comando de inferência."
+    },
+    {
+      "error_signature": "tensor 'first_stage_model.decoder.conv_in.weight' has wrong shape in model file: got [3,3,16,512], expected [3,3,32,512]",
+      "component": "Phoenix Diffusion — Flux.2",
+      "cause": "VAE incompatível: Flux.2 usa uma arquitetura de VAE diferente do Flux 1. Reaproveitar o ae.safetensors do Flux 1 falha.",
+      "fix": "Baixar o VAE específico do Flux.2 (repositório correto, não o do Flux 1)."
+    },
+    {
+      "error_signature": "unknown tensor 'text_encoders.clip_l...' / 'text_encoders.t5xxl...' em massa no log",
+      "component": "Phoenix Diffusion — Flux.2",
+      "cause": "Os encoders de texto (CLIP/T5) esperados pela arquitetura Flux.2 são diferentes dos usados no Flux 1 — os arquivos safetensors antigos não batem.",
+      "fix": "Usar o pacote de encoders específico do Flux.2, não reaproveitar 'sd35-encoders' ou 'flux-encoders' do Flux 1."
+    },
+    {
+      "error_signature": "new_sd_ctx_t failed com modelo GGUF baixado do city96",
+      "component": "Phoenix Diffusion — Flux 1",
+      "cause": "O arquivo GGUF não corresponde à arquitetura ou aos encoders selecionados pelo perfil.",
+      "fix": "Usar o modelo e os componentes declarados no catálogo Phoenix; não misturar VAE/encoders de famílias diferentes."
+    },
+    {
+      "error_signature": "operator (): got exception: {\"error\":\"code\":400,\"message\":\"Assistant response prefill is incompatible with enable_thinking.\"}",
+      "component": "llama.cpp + OpenWebUI, modelos com thinking mode (ex: Qwen3.5)",
+      "cause": "OpenWebUI injeta um prefill de resposta do assistente que é incompatível com o parâmetro thinking=1 do template Jinja2 do modelo.",
+      "fix": "Desativar prefill de resposta no OpenWebUI, ou usar chamada direta via API/curl em vez da interface."
+    },
+    {
+      "error_signature": "stop processing: n_tokens = <N>, truncated = 1",
+      "component": "llama.cpp — contexto",
+      "cause": "Prompt (ou histórico acumulado + resultados de web search) excedeu o tamanho de contexto ativo.",
+      "fix": "Aumentar --ctx-size explicitamente (ex: 8192), reduzir tamanho do prompt, ou desativar web search para modelos MoE grandes com contexto reduzido pelo fitting automático."
+    },
+    {
+      "error_signature": "stop: cancel task, id_task = <N> (truncated = 0), sem erro aparente no servidor",
+      "component": "OpenWebUI (cliente) + llama-server",
+      "cause": "Timeout do CLIENTE (navegador/interface), não do servidor. O llama-server frequentemente continua gerando corretamente em background.",
+      "fix": "Testar via curl direto com --max-time alto para confirmar que o servidor está saudável antes de investigar mais."
+    },
+    {
+      "error_signature": "PC trava inteiro (tela preta, mouse não responde) ao rodar modelo de difusão grande",
+      "component": "Sistema operacional / RAM",
+      "cause": "Modelo consumiu toda a RAM física disponível (ex: SD 3.5 Large sem offload adequado), causando thrashing severo de memória.",
+      "fix": "NUNCA rodar modelos grandes de difusão sem --offload-to-cpu testado previamente e confirmação de headroom de RAM. Ver machine/model_compatibility_matrix.json."
+    },
+    {
+      "error_signature": "GNOME trava / tela preta / loop de login no Linux",
+      "component": "Ubuntu + ambiente gráfico",
+      "cause": "Partição cheia (0 bytes livres) durante download de modelos grandes corrompeu dependências gráficas.",
+      "fix": "Monitorar espaço em disco antes de downloads grandes de GGUF. Se corromper, reinstalação limpa do Linux é o caminho mais rápido (testado e confirmado nesta máquina)."
+    },
+    {
+      "error_signature": "Legendas/transcrição sem sentido, palavras erradas foneticamente",
+      "component": "whisper.cpp",
+      "cause": "Flag -l (idioma) definida como o idioma de DESTINO em vez do idioma REAL falado no áudio.",
+      "fix": "Sempre usar -l com o idioma de origem do áudio. Para traduzir para outro idioma, transcrever em inglês e usar tradução externa (deep-translator), nunca confiar em --translate para idiomas != inglês."
+    },
+    {
+      "error_signature": "WSL2 não aproveita a GPU para IA",
+      "component": "WSL2 + Vulkan",
+      "cause": "WSL2 não expõe a RX 580 via Vulkan de forma alguma.",
+      "fix": "Usar sempre PowerShell/CMD nativo do Windows para qualquer carga que precise de GPU. WSL2 só serve para tarefas puramente CPU (ex: ComfyUI --cpu)."
+    },
+    {
+      "error_signature": "Ollama oficial via Docker GPU falha nesta máquina",
+      "component": "Ollama + ROCm",
+      "cause": "RX 580 é GCN4/Polaris — sem suporte no ROCm SDK oficial atual.",
+      "fix": "Rodar Ollama na CPU Xeon, ou preferir llama-server nativo compilado com -DGGML_VULKAN=ON."
+    }
+  ]
+}

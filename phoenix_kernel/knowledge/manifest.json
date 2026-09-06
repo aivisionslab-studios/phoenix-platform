@@ -1,0 +1,27 @@
+{
+  "manifest_version": 1,
+  "description": "Índice de tudo que o ResidentManager deve carregar/consultar. intrinsic é sempre carregado; os demais são consultados sob demanda pela intenção detectada.",
+  "load_always": [
+    "intrinsic/phoenix_identity.md",
+    "intrinsic/memory_architecture.md"
+  ],
+  "load_on_demand": {
+    "procedures": [
+      {"file": "procedures/run_phoenix_diffusion.md", "triggers": ["flux", "phoenix diffusion", "stable diffusion", "gerar imagem"]},
+      {"file": "procedures/run_llm_llama_cpp_vulkan.md", "triggers": ["llama-server", "qwen", "rodar llm", "modelo de texto"]},
+      {"file": "procedures/audio_transcription_translation_pipeline.md", "triggers": ["whisper", "transcrever", "legendas", "srt", "traduzir video"]}
+    ],
+    "rag": [
+      {"file": "rag/known_errors_and_fixes.json", "triggers": ["erro", "falhou", "não funciona", "travou", "OOM", "exception"]},
+      {"file": "rag/build_and_runtime_flags_reference.json", "triggers": ["flag", "compilar", "cmake", "comando exato"]},
+      {"file": "rag/audio_translation_script.py", "triggers": ["traduzir srt", "script de tradução"]}
+    ],
+    "machine": [
+      {"file": "machine/hardware_profile.json", "triggers": ["hardware", "gpu", "cpu", "specs desta maquina"]},
+      {"file": "machine/model_compatibility_matrix.json", "triggers": ["qual modelo rodar", "compatibilidade", "cabe na vram"]},
+      {"file": "machine/qwen35b_moe_deep_dive.json", "triggers": ["qwen3.5", "35b", "moe", "modelo grande"]},
+      {"file": "machine/os_comparison_windows_vs_linux.json", "triggers": ["windows ou linux", "qual sistema operacional", "performance os"]},
+      {"file": "machine/phoenix_project_self_audit.json", "triggers": ["avaliar a phoenix", "estado do projeto", "roadmap", "backlog"]}
+    ]
+  }
+}

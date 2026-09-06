@@ -1,0 +1,19 @@
+Phoenix Capability V4 — Hotfix 01
+
+Corrige:
+ImportError: cannot import name 'RAG_PLAN_LIMITS'
+
+Causa:
+A V4 substituiu plans.py e removeu RAG_PLAN_LIMITS, mas
+phoenix_kernel/licensing/__init__.py ainda exporta esse símbolo.
+
+Correção:
+Restaura RAG_PLAN_LIMITS apenas como API de compatibilidade.
+A decisão Free/Pro continua sendo feita pela Capability V4.
+
+Aplicação:
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+  .\APLICAR_HOTFIX_01.ps1
+
+Depois:
+  python .\TESTAR_CAPABILITY_V4.py

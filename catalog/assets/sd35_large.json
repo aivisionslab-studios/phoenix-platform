@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Stable Diffusion 3.5 Large",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/sd3.5_large.safetensors"
+  },
+  "filename": "sd3.5_large.safetensors",
+  "target_dir": "downloads/images/"
+}

@@ -1,0 +1,6 @@
+Arquivos da cadeia existente preservados sem mudança:
+phoenix_kernel/security/rag_integrity.py
+phoenix_kernel/security/rag_usage_ledger.py
+
+Motivo: registry/HMAC e ledger/hash-chain já cumprem seu papel.
+A V4 troca a autoridade comercial sem reescrever essas duas camadas.

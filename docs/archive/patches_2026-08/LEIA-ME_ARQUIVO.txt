@@ -1,0 +1,9 @@
+Esta pasta reúne scripts e notas de patches/hotfixes de agosto de 2026
+(Capability V4, testes manuais de modelo Gemma vs Qwen3, timeout do Gemma)
+que já foram aplicados ao código real do projeto - conferido na auditoria
+completa de 2026-08-28 (ver AUDITORIA_COMPLETA_2026-08-28.md na raiz do
+projeto, ou o histórico de commits, seção "Limpeza da auditoria").
+
+Mantidos aqui só como registro histórico do raciocínio por trás de cada
+mudança - não são necessários pra rodar o projeto, e nenhum código ativo
+depende deles.

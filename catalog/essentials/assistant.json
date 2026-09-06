@@ -1,0 +1,15 @@
+{
+  "id": "assistant",
+  "name": "Assistente Pessoal",
+  "icon": "🧠",
+  "description": "IA para estudos e produtividade com RAG.",
+  "time": "20-40 min",
+  "space": "15 GB",
+  "min_ram": 16,
+  "rec_vram": 6,
+  "connectors": [
+    "ollama",
+    "open_webui",
+    "chromadb"
+  ]
+}

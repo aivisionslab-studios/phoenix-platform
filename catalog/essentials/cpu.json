@@ -1,0 +1,14 @@
+{
+  "id": "cpu",
+  "name": "Modo CPU Only",
+  "icon": "🖥️",
+  "description": "Para computadores sem GPU dedicada.",
+  "time": "10 min",
+  "space": "5 GB",
+  "min_ram": 4,
+  "rec_vram": 0,
+  "connectors": [
+    "ollama",
+    "open_webui"
+  ]
+}

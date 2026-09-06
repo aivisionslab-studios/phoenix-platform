@@ -1,0 +1,13 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX VAE (oficial black-forest-labs - requer login/licenca no Hugging Face)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors"
+  },
+  "filename": "ae_mirror.safetensors",
+  "target_dir": "downloads/vae/",
+  "requires_auth": true,
+  "_comment": "PHX-FIX (auditoria 2026-08-20, Secao 14, RODADA 17 -> RODADA 18): esta entrada guardava o mesmo link nao-oficial (camenduru/FLUX.1-dev) que virou o novo flux_vae.json - agora essa duplicata sumiu e este arquivo passou a guardar a fonte OFICIAL (black-forest-labs/FLUX.1-schnell). Confirmado via pagina real do Hugging Face que esse repo E gated (\"You need to agree to share your contact information to access this model\") apesar de licenciado apache-2.0 - marcado 'requires_auth: true' de proposito: o AssetManager.get_asset() nunca tenta a requisicao HTTP pra um catalogo assim (ver Engine/provisioning/asset_manager.py), evitando a tentativa 401 garantida e devolvendo uma mensagem clara pedindo download manual autenticado. Existe como alternativa documentada pra quem prefere a fonte oficial da Black Forest Labs (com garantia de manutencao/uptime oficial) em vez do mirror comunitario nao-oficial de flux_vae.json."
+}

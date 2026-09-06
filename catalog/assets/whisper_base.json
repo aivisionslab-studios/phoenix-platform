@@ -1,0 +1,14 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Whisper Base (STT, multilingual)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin?download=true"
+  },
+  "filename": "ggml-base.bin",
+  "target_dir": "downloads/audio/",
+  "category": "Audio",
+  "notes": "Modelo base multilingual (~142MB). Bom equilíbrio velocidade/precisão em CPU. Para português, prefira medium mas base funciona bem para transcrição simples.",
+  "_comment": "PHX-FIX (auditoria 2026-08-20, achado #6): target_dir era 'B:\\Phoenix\\...' hardcoded (só funciona se o workspace estiver de fato no drive B:). Agora relativo + 'category':'Audio' explícito (o default de AssetManager._resolve_target_dir() é 'Image'), resolvido de verdade via PhoenixPaths.get_category_path('Audio') - o mesmo lugar onde whisper.py._find_model() procura."
+}

@@ -1,0 +1,180 @@
+{
+  "memory_type": "machine_experience",
+  "entity": "aivisionslab_studio_rig",
+  "description": "Resultados reais e testados de modelos de imagem, texto e áudio nesta RX 580 8GB. Consultar antes de sugerir um modelo/config ao usuário.",
+  "rule_of_thumb": {
+    "flux_vram_ceiling": "Modelo Flux (diffusion) deve ter ≤ ~5GB no arquivo GGUF para não estourar VRAM da RX 580 (8GB total, resto ocupado por text encoders/VAE).",
+    "max_resolution_flux_q3": "768x768 é o teto viável com Flux Q3_K_S (28 steps, offload de VAE/CLIP para CPU).",
+    "sd35_large_warning": "SD 3.5 Large trava a máquina inteira (não só a GPU) por exaustão de RAM — NUNCA sugerir sem --offload-to-cpu testado e headroom de RAM confirmado."
+  },
+  "image_models": [
+    {
+      "model": "SDXL 1.0",
+      "resolution": "1024x1024",
+      "result": "success",
+      "time_seconds": 357,
+      "vram_gb": 6.4
+    },
+    {
+      "model": "SD 3.5 Medium (clip only)",
+      "resolution": "512x512",
+      "result": "success",
+      "time_seconds": 110,
+      "vram_gb": 6.7
+    },
+    {
+      "model": "SD 3.5 Medium (--offload-to-cpu)",
+      "resolution": "512x512",
+      "result": "success",
+      "time_seconds": 123,
+      "vram_gb": 0
+    },
+    {
+      "model": "SD 3.5 Medium (--offload-to-cpu)",
+      "resolution": "1024x1024",
+      "result": "success",
+      "time_seconds": 1332,
+      "vram_gb": 0
+    },
+    {
+      "model": "Flux1-dev Q4_K_S",
+      "resolution": "512x512",
+      "steps": 20,
+      "result": "success",
+      "time_seconds": 705
+    },
+    {
+      "model": "Flux1-dev Q4_K_S",
+      "resolution": "512x512",
+      "steps": 50,
+      "result": "success",
+      "time_seconds": 1660
+    },
+    {
+      "model": "Flux1-dev Q3_K_S",
+      "resolution": "768x768",
+      "steps": 28,
+      "result": "success",
+      "time_seconds": 2253,
+      "notes": "get_learned_condition 25.17s, sampling 2177s, decode 49.6s. Diffusion model 4991MB RAM."
+    },
+    {
+      "model": "Flux1-dev Q4_K_S",
+      "resolution": "768x768+",
+      "result": "fail",
+      "error": "OOM no compute buffer da Vulkan (ggml_vulkan alloc_tensor_range failed)"
+    },
+    {
+      "model": "Flux1-dev Q8_0",
+      "resolution": "512x512",
+      "result": "fail",
+      "error": "Diffusion model sozinho ocupa 12.1GB RAM / tentativa de alocar buffer de 1.06GB na Vulkan falhou — OOM. Total params 21.5GB.",
+      "vram_needed_estimate_gb": 12.7
+    },
+    {
+      "model": "Flux1-kontext-dev Q4_K_S",
+      "result": "fail",
+      "error": "Arquivo não encontrado no disco (nome/caminho incorreto) — não é limitação de hardware, é erro de usuário/download."
+    },
+    {
+      "model": "Flux.2-dev Q4_K_S",
+      "result": "fail",
+      "error": "VAE incompatível: 'first_stage_model.decoder.conv_in.weight' got shape [3,3,16,512], expected [3,3,32,512]. Flux.2 requer VAE específico (diferente do VAE do Flux 1), e centenas de tensores do CLIP/T5 aparecem como 'unknown tensor' — arquitetura de encoders mudou.",
+      "action_required": "Baixar o VAE dedicado do Flux.2, não reutilizar o VAE 'ae.safetensors' do Flux 1."
+    },
+    {
+      "model": "Juggernaut XL (SDXL checkpoint)",
+      "resolution": "1024x1024",
+      "result": "not_tested",
+      "error": "Arquivo não encontrado no disco (nome incorreto)."
+    },
+    {
+      "model": "SD 3.5 Large",
+      "resolution": "512x512",
+      "result": "critical_fail",
+      "error": "Consumiu toda a RAM do sistema e travou a máquina inteira (tela preta, mouse travado). Placa de vídeo NÃO deslogou no Windows, mas o sistema ficou inutilizável.",
+      "severity": "high",
+      "action_required": "Não recomendar SD 3.5 Large nesta máquina sem confirmação explícita de headroom de RAM e supervisão do usuário."
+    },
+    {
+      "model": "Flux1-schnell Q4_K (Linux, Mesa RADV)",
+      "steps": 4,
+      "resolution": "512x512",
+      "result": "success",
+      "time_seconds": 95,
+      "sampling_time_seconds": 52,
+      "os": "Ubuntu 26.04",
+      "notes": "Requer --vae-tiling obrigatório, senão decode do VAE estoura memória física e trava o GNOME. Evitar --backend vulkan0 explícito neste modelo no Linux (gera bug de contexto perdido)."
+    }
+  ],
+  "text_models": [
+    {
+      "model": "Qwen3 4B GGUF",
+      "layers_offloaded": 99,
+      "os": "Windows",
+      "tokens_per_sec": "15-17"
+    },
+    {
+      "model": "Qwen3 4B GGUF",
+      "layers_offloaded": 99,
+      "os": "Linux (Mesa RADV)",
+      "tokens_per_sec": 35,
+      "notes": "2x mais rápido que Windows para modelos que cabem inteiros na GPU."
+    },
+    {
+      "model": "Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive Q6_K",
+      "size_gb": 26.55,
+      "architecture": "MoE, 256 experts, 8 ativos/token (~3B params ativos)",
+      "os": "Windows",
+      "max_layers_gpu": 41,
+      "tokens_per_sec_generation": "5.57-5.64",
+      "tokens_per_sec_prompt_eval": "34.13-40.00",
+      "context_used": 4096,
+      "gpu_temp_max_c": 80,
+      "vram_used_gb": "6.2-7.2",
+      "ram_used_gb": "30.7-31.8 (até 98% do sistema)",
+      "notes": "llama.cpp faz fitting automático (sem -ngl manual): reduz contexto de 262144→4096, move os 256 experts MoE para RAM via mmap (~26.8GB), mantém 41 camadas densas + saída na VRAM (~5.15GB). Ver machine/qwen35b_moe_deep_dive.json para detalhes completos."
+    },
+    {
+      "model": "Qwen3.5-35B Q4_K_M",
+      "size_gb": 21.17,
+      "os": "Windows",
+      "tokens_per_sec_generation": "6.42-6.65",
+      "gpu_temp_max_c": 74,
+      "context_size_tested": 8192,
+      "notes": "Superior ao Q6_K nesta máquina: mais rápido, mais frio (10°C a menos), menos swap em HDD porque libera ~5GB extras de RAM física."
+    },
+    {
+      "model": "Qwen3.6 35B",
+      "os": "Windows",
+      "tokens_per_sec": 7.62,
+      "max_layers_gpu": 10
+    },
+    {
+      "model": "Qwen3.6 35B",
+      "os": "Linux (Mesa RADV)",
+      "tokens_per_sec": 5.18,
+      "max_layers_gpu": 20,
+      "notes": "Empate técnico com Windows: Linux permite 2x mais camadas na GPU mas Windows é mais rápido por camada."
+    }
+  ],
+  "audio_models": [
+    {
+      "model": "whisper.cpp large-v3-turbo",
+      "size_gb": 1.6,
+      "os": "Windows",
+      "vram_gb": 2.6,
+      "test_audio_duration_s": 106,
+      "time_taken_s": 307,
+      "speedup_vs_cpu": "~150x"
+    },
+    {
+      "model": "whisper.cpp large-v3-turbo",
+      "os": "Linux (Mesa RADV)",
+      "vram_gb": 1.6,
+      "test_audio_duration_s": 106,
+      "time_taken_s": 23.58,
+      "notes": "Absurdamente superior ao Windows para essa carga (307s → 23.58s para o mesmo áudio)."
+    }
+  ]
+}

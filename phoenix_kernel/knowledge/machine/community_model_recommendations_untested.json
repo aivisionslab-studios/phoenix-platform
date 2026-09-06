@@ -1,0 +1,75 @@
+{
+  "memory_type": "community_reference",
+  "source_type": "third_party_review",
+  "source_description": "Transcrição de vídeo do canal 'ViktorKav' comparando 13 LLMs pequenos, reduzidos a 3 recomendações por faixa de VRAM. Fornecida pelo usuário em 2026-08-21.",
+  "confidence_note": "IMPORTANTE - NÃO confundir com model_compatibility_matrix.json: aquele arquivo é resultado de testes REAIS feitos NESTA máquina (aivisionslab_studio_rig, RX 580 8GB). Este arquivo é uma referência de TERCEIROS, sobre hardware genérico, nunca testada na máquina do usuário. Antes de sugerir qualquer modelo daqui como pronto pra uso, rodar pelo menos um teste local e, se confirmar, mover a entrada pra model_compatibility_matrix.json com resultado real.",
+  "relevance_to_current_rig": "A máquina cadastrada em hardware_profile.json tem RX 580 8GB VRAM - ou seja, ela cai exatamente na faixa 'vram_tier_8gb' abaixo (Ling-3.0-tiny). As entradas de 4GB e 16GB são referência para OUTRAS máquinas que a Phoenix venha a rodar (ideia do usuário: Phoenix reconhecer cada máquina como única e trocar de modelo/split CPU-GPU-híbrido conforme o hardware detectado), não para este rig.",
+  "cross_cutting_findings": [
+    {
+      "finding": "agent_system_prompt_overhead",
+      "description": "O prompt de sistema do próprio agente/harness consome uma fatia fixa da janela de contexto ANTES de qualquer trabalho real - Claude Code ~23000 tokens, OpenCode ~7000, Codex ~8800. Numa GPU de 4GB com um modelo pequeno carregado, pode sobrar so ~7000 tokens de janela: um harness pesado pode deixar ZERO espaço pra tarefa (o vídeo testou G9v3-3B dentro do Claude Code e obteve 0 tokens gerados em 6/6 tentativas; o mesmo modelo num harness mais leve funcionou normalmente a 66 tok/s).",
+      "action_required": "Ao calcular o orçamento de contexto pra um modelo local pequeno, o ReasoningEngine/ResidentManager da Phoenix precisa subtrair o próprio system prompt do agente do contexto total do modelo ANTES de decidir se a tarefa cabe - não assumir a janela cheia do model card."
+    },
+    {
+      "finding": "real_vram_less_than_spec",
+      "description": "VRAM real disponível é menor que o valor nominal da placa por causa do overhead do SO/compositor de desktop (varia com resolução do monitor - HD vs 4K - e apps abertos).",
+      "action_required": "hardware_engine (telemetria) deveria ler VRAM livre em tempo real no momento da decisão, não só a capacidade nominal da GPU, ao calcular _get_vram_budget_mb() em resident_manager.py."
+    }
+  ],
+  "vram_tier_4gb": {
+    "model": "G9v3-3B",
+    "publisher": "ai9stars",
+    "architecture": "denso, 3B params, focado em tool-calling",
+    "quantization": "GGUF Q4_K_M",
+    "size_gib": 1.77,
+    "source_url": "https://huggingface.co/bartowski/ai9stars_G9v3-3B-GGUF",
+    "video_test_results": {
+      "tool_selection_and_chained_calls": "48/48 acertos, em ambos os modos de raciocínio (ligado e desligado)",
+      "long_document_needle_in_haystack_130k_tokens": "com raciocínio LIGADO: achou em só 2/6 tentativas, e levou 12.5 minutos na primeira consulta. Com raciocínio DESLIGADO: 6/6.",
+      "context_window_reality": "card anuncia 131k tokens de contexto, mas janela útil recomendada numa placa de 4GB é 8k-16k; com documento grande carregado o uso de VRAM pode chegar a 8.4GB - ou seja, NÃO cabe de fato num orçamento estrito de 4GB sob carga.",
+      "portuguese_support": "card declara só inglês/chinês; degradou muito quando testado em português no vídeo."
+    },
+    "recommendation": "Rodar com raciocínio DESLIGADO para uso em automação/tool-calling. Não recomendado para documentos longos nem para uso em português.",
+    "tested_on_this_rig": false
+  },
+  "vram_tier_8gb": {
+    "model": "Ling-3.0-tiny",
+    "publisher": "Inclusion AI / Ant Group",
+    "architecture": "MoE (muitos parâmetros totais, poucos ativos por token)",
+    "quantization_options": [
+      {"quant": "Q4_K_M", "size_gib": 4.49, "context_approx": 12000},
+      {"quant": "IQ4_XS", "size_gib": 3.99, "context_approx": 19000}
+    ],
+    "source_url": "https://huggingface.co/bloomer010/Ling-3.0-tiny-GGUF",
+    "video_test_results": {
+      "agentic_use_index": "melhor da faixa de VRAM testada - mais que 2x o segundo colocado",
+      "chained_task_4_steps": "com raciocínio LIGADO (default de fábrica): completa só 5/10 vezes, morrendo em silêncio no meio da cadeia (resposta vazia) quando falha - nunca erra, só fica em silêncio. Com raciocínio DESLIGADO: 10/10, custo de tokens quase idêntico.",
+      "portuguese_support": "bom - 6/6 corretas num teste de planilha de horas com regra de exclusão",
+      "vram_reality": "card anuncia 8.3GB de pico em 8k de contexto; medido no vídeo apenas 4.6GB"
+    },
+    "recommendation": "Rodar com raciocínio DESLIGADO para automação multi-etapas. O comportamento de 'falha silenciosa em vez de resposta errada' é considerado uma vantagem para pipelines automatizados (não contamina passos seguintes com dado errado) - mas exige que o código que consome a resposta trate string vazia como falha explícita, não como sucesso vazio.",
+    "tested_on_this_rig": false,
+    "notes_for_this_rig": "Esta é a entrada mais diretamente relevante pro aivisionslab_studio_rig (RX 580 = 8GB VRAM). Antes de adotar: testar localmente e comparar tok/s e qualidade contra o Qwen3.5-35B-A3B (MoE, já testado e documentado em model_compatibility_matrix.json) - aquele já é conhecido e audita bem nesta máquina."
+  },
+  "vram_tier_16gb": {
+    "model": "Qwen3.8-27B",
+    "publisher": "unsloth (verificar nome exato do repo antes de usar - texto da fonte usa 'Qwen3.' com ponto, possivelmente 'Qwen3.5' ou nomenclatura de família similar)",
+    "architecture": "denso, 27B params",
+    "quantization": "IQ4_XS",
+    "size_gib": 14.6,
+    "context_approx": 32000,
+    "source_url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
+    "video_test_results": {
+      "code_index": 68,
+      "agentic_index": 51,
+      "comparison_vs_30b_glm_family": "venceu um competidor de 30B ('GLM') no mesmo benchmark de debug: 4.5min/26 turnos vs ~7min/51 turnos, apesar de ser menor (27B vs 30B) - o modelo maior precisa de quantização mais agressiva pra caber em 16GB",
+      "quantization_comparison": [
+        {"quant": "Q4_K_M", "quality_pct": 99.97, "size_gib": 17, "fits_16gb": false},
+        {"quant": "IQ4_XS", "quality_pct": 99.2, "size_gib": 14.6, "fits_16gb": true, "recommended": true},
+        {"quant": "NVFP4", "quality_pct": "96-97", "size_gib": 14.6, "fits_16gb": true, "recommended": false, "notes": "mesmo tamanho do IQ4_XS mas 3-5% menos qualidade"}
+      ]
+    },
+    "recommendation": "IQ4_XS é o quant recomendado. Relevante só se a Phoenix vier a rodar numa máquina com GPU de 16GB (não é o caso do aivisionslab_studio_rig hoje) - ver ideia do usuário de detecção automática de hardware por máquina.",
+    "tested_on_this_rig": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "memory_type": "machine_experience",
+  "topic": "Windows 10/11 (driver AMD oficial) vs Ubuntu 26.04 nativo (Mesa RADV) para a mesma RX 580 8GB",
+  "date": "2026-06",
+  "comparison_table": [
+    {"scenario": "LLM (Qwen3 4B GGUF) @ 99 camadas", "windows": "~15-17 tok/s", "linux_mesa_radv": "~35 tok/s", "winner": "Linux (2x mais rápido)"},
+    {"scenario": "LLM grande (Qwen3.6 35B) @ camadas máx.", "windows": "7.62 tok/s (max 10 camadas)", "linux_mesa_radv": "5.18 tok/s (max 20 camadas)", "winner": "Empate técnico (Linux cabe mais camadas, Windows mais rápido por camada)"},
+    {"scenario": "Stable Diffusion (Dreamshaper8, 50 steps)", "windows": "~72s (1.44s/it)", "linux_mesa_radv": "~85s (1.65s/it)", "winner": "Windows (mais estável por driver)"},
+    {"scenario": "Flux Schnell (4 steps, 512x512)", "windows": "~84s (OOM em 1024x1024)", "linux_mesa_radv": "~52s sampling (total 95s)", "winner": "Linux (melhor swap de VRAM)"},
+    {"scenario": "whisper.cpp large-v3-turbo (áudio 106s)", "windows": "307s, VRAM 2.6GB", "linux_mesa_radv": "23.58s, VRAM 1.6GB", "winner": "Linux (absurdamente superior)"}
+  ],
+  "conclusion": "Para carga de LLM puro e whisper.cpp, Linux nativo com Mesa RADV é dramaticamente superior. Para Stable Diffusion, Windows é mais estável (menos variação de tempo). Recomendação: usar Linux para servir texto/áudio em produção nesta máquina; Windows aceitável para geração de imagem se não houver alternativa.",
+  "linux_specific_notes": [
+    "WSL2 NUNCA expõe a RX 580 via Vulkan — irrelevante para GPU compute. Só serve para tarefas puramente CPU.",
+    "ROCm oficial não suporta mais GCN4/Polaris (RX 580). Não tentar rodar Ollama oficial via Docker GPU — vai falhar. Usar Ollama na CPU Xeon OU llama-server nativo compilado com Vulkan.",
+    "Para Flux no Linux, --vae-tiling é obrigatório, senão o decode do VAE estoura memória física e derruba o ambiente gráfico GNOME inteiro (não só o processo).",
+    "Evitar --backend vulkan0 explícito com modelos pesados no Linux — gera bugs de contexto perdido."
+  ]
+}

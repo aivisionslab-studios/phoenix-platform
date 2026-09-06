@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX T5XXL FP8 Encoder",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors"
+  },
+  "filename": "t5xxl_fp8_e4m3fn.safetensors",
+  "target_dir": "downloads/encoders/"
+}

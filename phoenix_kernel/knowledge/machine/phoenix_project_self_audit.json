@@ -1,0 +1,58 @@
+{
+  "memory_type": "project_experience",
+  "topic": "Autoavaliação da arquitetura e implementação da Phoenix 5.0",
+  "date": "avaliação registrada em 2026",
+  "scores": {
+    "arquitetura": 9.7,
+    "engenharia_software": 9.3,
+    "bootstrap": 9.8,
+    "kernel": 9.2,
+    "hal": 9.4,
+    "api": 9.1,
+    "reasoning_engine": 8.8,
+    "services_engine": 8.7,
+    "resident_manager": 9.0,
+    "organizacao_projeto": 8.9
+  },
+  "strengths": [
+    "Separação clara entre Bootstrap, Kernel, HAL, API e UI.",
+    "Pipeline cognitivo bem definido: Knowledge → Reasoning → Planning → Provisioning → Execution.",
+    "Mission Kernel usando dataclasses + enums, contratos explícitos entre PowerShell e Python.",
+    "Bootstrap baseado em contratos em vez de scripts mágicos (verifica PowerShell, Git, Docker, Python, Node, FFmpeg, VS Build Tools, OCR, PowerToys, browsers, workspace, venv, repositórios, containers, modelos, API, Health Check).",
+    "HAL cobrindo Windows e Linux.",
+    "Execução baseada em aprovação explícita do usuário (Resident Manager pensa, mostra, espera aprovação, depois executa)."
+  ],
+  "improvement_backlog": [
+    {
+      "priority": "high",
+      "item": "Substituir @app.on_event() pelo mecanismo lifespan do FastAPI para eliminar avisos de depreciação."
+    },
+    {
+      "priority": "high",
+      "item": "Tratar melhor os códigos de retorno do winget: diferenciar claramente 'já instalado', 'instalado', 'falhou', 'reinicialização necessária' e 'requer intervenção do usuário' em vez de marcar tudo genericamente como OK."
+    },
+    {
+      "priority": "medium",
+      "item": "Reduzir volume de polling em /api/state (dezenas de GET repetidos nos logs). Avaliar migração para WebSocket ou Server-Sent Events."
+    },
+    {
+      "priority": "low",
+      "item": "Remover gradualmente DeprecationWarning e SyntaxWarning de bibliotecas quando houver alternativas/atualizações disponíveis."
+    },
+    {
+      "priority": "medium",
+      "item": "Reavaliar periodicamente se a coexistência de core/ e phoenix_kernel/core/ ainda é a melhor divisão, ou se parte pode ser consolidada sem perder clareza."
+    }
+  ],
+  "next_maturity_leap": "Consolidar o Reasoning Engine com o modelo híbrido de memória (intrínseco + procedural + RAG + máquina descrito nesta mesma pasta), expandir o catálogo de missões (Blueprint Catalog) e aumentar cobertura de testes end-to-end em máquinas limpas Windows e Linux. Quando essa camada cognitiva estiver validada em cenários reais, a Phoenix deixa de ser um orquestrador de instalação e se aproxima de um engenheiro autônomo de infraestrutura local.",
+  "services_engine_roadmap": [
+    "instalar (já existe)",
+    "atualizar",
+    "remover",
+    "migrar",
+    "reparar",
+    "validar",
+    "rollback",
+    "resolver conflitos"
+  ]
+}

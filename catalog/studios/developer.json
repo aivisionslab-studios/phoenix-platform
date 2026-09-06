@@ -1,0 +1,17 @@
+{
+  "id": "developer",
+  "name": "Ambiente Dev",
+  "icon": "💻",
+  "description": "Ferramentas de programação e IA.",
+  "time": "15-20 min",
+  "space": "10 GB",
+  "min_ram": 8,
+  "rec_vram": 0,
+  "connectors": [
+    "vscode",
+    "git",
+    "python",
+    "docker",
+    "ollama"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "_comment": "PHX-FIX (auditoria 2026-08-20, achado #6): este arquivo é lido só por ModelManager (phoenix_kernel/models/model_manager.py), e ModelManager.download_model() só é chamado hoje com 'qwen3:8b' (ver kernel.py). Modelos de IMAGEM (Flux/SDXL/etc.) são provisionados por Engine.provisioning.asset_manager.AssetManager a partir de catalog/assets/*.json - NUNCA por este arquivo. Uma entrada 'flux' morta (nunca chamada, apontando pra outro repo/arquivo/quantização - flux1-schnell-Q4_0.gguf de lllab/flux_gguf - diferente do Flux.1-schnell Q4_K_M real, de unsloth/FLUX.1-schnell-GGUF, declarado em catalog/models.json e catalog/assets/flux.json) foi removida daqui pra não confundir uma futura auditoria/dev achando que este é o catálogo de verdade pra imagem. PHX-NEW (auditoria 2026-08-20, 'Whisper model provisioning'): entrada 'whisper-base' adicionada - achado real confirmado em máquina de produção: whisper.cpp compila e /api/transcribe existe, mas o instalador nunca baixava o modelo STT (ggml-base.bin), então toda transcrição falhava com 'Nenhum modelo Whisper encontrado' até o usuário baixar manualmente. Ver Kernel._ensure_default_stt_model() em kernel.py - dispara este download em background no boot, mesmo padrão não-bloqueante do _ensure_default_model() (LLM padrão).",
+  "qwen3:8b": {
+    "name": "Qwen3 8B (Ollama)",
+    "url": "ollama://qwen3:8b",
+    "type": "llm"
+  },
+  "whisper-base": {
+    "name": "Whisper ggml-base (STT)",
+    "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin",
+    "type": "stt",
+    "destination_folder": "Audio",
+    "filename": "ggml-base.bin"
+  }
+}

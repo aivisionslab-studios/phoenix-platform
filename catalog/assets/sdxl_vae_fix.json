@@ -1,0 +1,12 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "SDXL VAE Fix (sdxl-vae-fp16-fix)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors"
+  },
+  "filename": "sdxl_vae-fp16-fix.safetensors",
+  "target_dir": "downloads/images/",
+  "_comment": "VAE SDXL obrigatório para o perfil sdxl-checkpoint do Phoenix Diffusion. O filename local permanece sdxl_vae-fp16-fix.safetensors para descoberta compatível; sem ele, a bridge bloqueia o carregamento com erro claro."
+}

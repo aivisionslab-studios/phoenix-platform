@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX.1-dev Q8_0 GGUF",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf"
+  },
+  "filename": "flux1-dev-Q8_0.gguf",
+  "target_dir": "downloads/images/"
+}

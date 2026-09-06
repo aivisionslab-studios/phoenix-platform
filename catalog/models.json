@@ -1,0 +1,192 @@
+{
+  "_comment": "Catálogo de capacidades da Phoenix Engine (ModelRegistry - Fase 2). Cada modelo declara 'roles' (que capacidades ele cobre) e opcionalmente aparece em 'default_for_roles' (qual role ele resolve quando ninguém pede um modelo específico). O ModelRegistry (phoenix_kernel/models/registry.py) lê este arquivo. IMPORTANTE: este arquivo é DIFERENTE de catalog/downloads.json (usado pelo ModelManager para URLs de download) e de catalog/assets/*.json (usado pelo AssetManager) - os três NUNCA devem compartilhar o mesmo caminho de arquivo, isso já causou a perda silenciosa deste catálogo uma vez.",
+  "roles": [
+    "chat",
+    "reasoning",
+    "code",
+    "document_understanding",
+    "vision",
+    "image_generation",
+    "speech_synthesis",
+    "speech_to_text"
+  ],
+  "models": [
+    {
+      "id": "qwen3:8b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "chat",
+        "reasoning",
+        "document_understanding"
+      ],
+      "default_for_roles": [
+        "chat",
+        "reasoning",
+        "document_understanding"
+      ],
+      "file_patterns": [
+        "qwen3-8b",
+        "qwen3_8b",
+        "qwen3:8b"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo de texto padrão da Phoenix. Roda em CPU por decisão de design (GPU fica livre para imagem) - vram_mb_estimate=0 reflete isso."
+    },
+    {
+      "id": "qwen2.5-coder:32b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "code"
+      ],
+      "default_for_roles": [
+        "code"
+      ],
+      "file_patterns": [
+        "qwen2.5-coder",
+        "qwen2_5-coder",
+        "coder-32b"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Alternativa para tarefas de código - referenciada no SYSTEM_PROMPT do ReasoningEngine, ainda não baixada por padrão."
+    },
+    {
+      "id": "qwen3:8b",
+      "runtime": "ollama",
+      "roles": [
+        "chat",
+        "reasoning"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "ollama"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Mesmo modelo do default (qwen3:8b), servido via Ollama (Docker, porta 11434) em vez do llama.cpp nativo com Vulkan - mais lento (overhead do Ollama), mas funciona como segunda opção se o build Vulkan do llama.cpp falhar nesta máquina, ou por preferência do usuário. Nunca é o default_for_roles - só é resolvido quando o usuário troca explicitamente a preferência de engine de texto (ver ResidentManager.set_text_engine_preference(), que passa hint='ollama' pro ModelRegistry.resolve()). Pressupõe que 'qwen3:8b' já foi baixado no Ollama local (ex: 'docker exec ollama ollama pull qwen3:8b', o mesmo fallback que install/common.ps1 já faz se a compilação Vulkan falhar)."
+    },
+    {
+      "id": "deepseek-r1:8b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "reasoning"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "deepseek-r1",
+        "deepseek_r1"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Alternativa para raciocínio complexo - não é default (qwen3:8b continua sendo o default de 'reasoning')."
+    },
+    {
+      "id": "minicpmv",
+      "runtime": "vision",
+      "roles": [
+        "vision"
+      ],
+      "default_for_roles": [
+        "vision"
+      ],
+      "file_patterns": [
+        "minicpm-v",
+        "minicpmv",
+        "minicpm_v"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Único modelo de visão da Golden Baseline. Roteia pro driver 'vision' (MiniCPM-V via llama-mtmd-cli). PHX-FIX (2026-08-28): antes declarava vram_mb_estimate=6500 (tratado como runtime GPU-pesado em _vram_guard) - desatualizado desde que a Política de roteamento de hardware definitiva (ver README) passou a forçar -ngl 0 (CPU) neste driver, deixando a GPU 100% reservada pra geração de imagem. 0 reflete o comportamento real hoje; se o driver algum dia ganhar suporte a offload de GPU, este valor precisa voltar a refletir isso."
+    },
+    {
+      "id": "flux",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "flux"
+      ],
+      "vram_mb_estimate": 6500,
+      "notes": "PHX-FIX (auditoria Claude, 2026-09-05): NÃO é mais default. Duas investigações independentes (esta e a sessão que corrigiu a reserva de VRAM -1.7GB) confirmaram crash nativo 0xC0000005 em TODOS os 4 placements de fallback (hybrid-cpu-gpu, auto-fit, hybrid-streaming, text-encoder-disk), incluindo o mais conservador (quase tudo em CPU/RAM) - não é falta de memória, é incompatibilidade real do kernel Vulkan do Flux/DiT com a RX 580 (Polaris/GCN4, sem matrix cores, sem fp16 nativo). Continua disponível como opção manual (hint='flux'), mas nunca deve ser escolhido automaticamente."
+    },
+    {
+      "id": "sdxl",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [
+        "image_generation"
+      ],
+      "file_patterns": [
+        "sdxl",
+        "xl-base",
+        "xl_base"
+      ],
+      "vram_mb_estimate": 6400,
+      "notes": "PHX-FIX (auditoria Claude, 2026-09-05): agora É o default de geração de imagem — Flux crasha de forma nativa e reproduzível em todos os placements testados nesta GPU (ver notas do id='flux'). SDXL roda sem crash na RX 580."
+    },
+    {
+      "id": "z-image-turbo",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "z-image",
+        "z_image",
+        "z image"
+      ],
+      "vram_mb_estimate": 5200,
+      "notes": "Alternativa moderna experimental para GPU de 8GB. Usa z_image_turbo-Q4_K.gguf, VAE Flux e Qwen3-4B-Instruct-2507-Q4_K_M; perfil nativo com 8 steps, CFG 1 e fallback híbrido suportado (pesos/encoder/VAE em CPU, diffusion Vulkan, streaming de blocos se necessário). Não é default até passar no teste físico da RX 580."
+    },
+    {
+      "id": "sd15",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "dreamshaper",
+        "sd15",
+        "sd-1",
+        "sd1.5",
+        "sd_1_5"
+      ],
+      "vram_mb_estimate": 2000,
+      "notes": "Alternativa de imagem mais leve - não é default."
+    },
+    {
+      "id": "whisper-base",
+      "runtime": "whisper",
+      "roles": [
+        "speech_to_text"
+      ],
+      "default_for_roles": [
+        "speech_to_text"
+      ],
+      "file_patterns": [
+        "ggml-base",
+        "whisper-base",
+        "whisper_base"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo base multilingual (~142MB). Roda em CPU. Default de transcrição."
+    },
+    {
+      "id": "whisper-medium",
+      "runtime": "whisper",
+      "roles": [
+        "speech_to_text"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "ggml-medium",
+        "whisper-medium",
+        "whisper_medium"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo medium Q5 (~515MB). Melhor precisão para português."
+    }
+  ]
+}

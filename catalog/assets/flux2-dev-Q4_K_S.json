@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX.2-dev Q4_K_S GGUF",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/city96/FLUX.2-dev-gguf/resolve/main/flux2-dev-Q4_K_S.gguf"
+  },
+  "filename": "flux2-dev-Q4_K_S.gguf",
+  "target_dir": "downloads/images/"
+}

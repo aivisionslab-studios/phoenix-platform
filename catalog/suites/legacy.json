@@ -1,0 +1,15 @@
+{
+  "id": "legacy",
+  "name": "RX 580 Revival",
+  "icon": "💾",
+  "description": "Otimizado para Polaris (Vulkan).",
+  "time": "20-30 min",
+  "space": "15 GB",
+  "min_ram": 8,
+  "rec_vram": 4,
+  "connectors": [
+    "vulkan_sdk",
+    "llama_cpp",
+    "stable_diffusion_cpp"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "full",
+  "name": "Plataforma Completa",
+  "icon": "🚀",
+  "description": "Instala tudo que a máquina suporta.",
+  "time": "60+ min",
+  "space": "50+ GB",
+  "min_ram": 16,
+  "rec_vram": 6,
+  "connectors": [
+    "ollama",
+    "open_webui",
+    "comfyui",
+    "whisper_cpp",
+    "searxng",
+    "chromadb"
+  ]
+}

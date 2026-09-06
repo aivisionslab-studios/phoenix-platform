@@ -1,0 +1,7838 @@
+[
+  {
+    "file": "api_server.py",
+    "imports": [
+      "os",
+      "time",
+      "platform",
+      "threading",
+      "webbrowser",
+      "importlib",
+      "fastapi",
+      "fastapi.responses",
+      "pathlib",
+      "pydantic",
+      "phoenix_kernel.kernel",
+      "phoenix_kernel.cloud_sync",
+      "uvicorn"
+    ],
+    "classes": [
+      "CommandRequest",
+      "InstallReq"
+    ],
+    "functions": [
+      "startup_event",
+      "shutdown_event",
+      "get_index",
+      "health_check",
+      "get_state",
+      "get_hardware_all",
+      "handle_command",
+      "get_missions",
+      "resolve_mission",
+      "install_mission",
+      "get_license",
+      "accept_license",
+      "get_telemetry_consent",
+      "accept_telemetry_consent",
+      "decline_telemetry_consent",
+      "trigger_telemetry_sync",
+      "open_browser"
+    ],
+    "calls": [
+      "FastAPI",
+      "PhoenixKernel",
+      "monotonic",
+      "import_module",
+      "on_event",
+      "on_event",
+      "get",
+      "get",
+      "get",
+      "get",
+      "post",
+      "get",
+      "get",
+      "post",
+      "get",
+      "post",
+      "get",
+      "post",
+      "post",
+      "post",
+      "Path",
+      "FileResponse",
+      "exists",
+      "makedirs",
+      "grant_consent",
+      "revoke_consent",
+      "open_new",
+      "print",
+      "print",
+      "start",
+      "boot",
+      "shutdown",
+      "exists",
+      "HTTPException",
+      "python_version",
+      "get_state",
+      "HTTPException",
+      "get_all_hardware_sensors",
+      "process_command",
+      "list",
+      "dirname",
+      "open",
+      "write",
+      "has_consent",
+      "has_consent",
+      "run",
+      "monotonic",
+      "strip",
+      "values",
+      "resolve_package",
+      "HTTPException",
+      "HTTPException",
+      "install_package",
+      "open",
+      "read",
+      "sync_knowledge_base",
+      "sync_knowledge_base",
+      "get_state",
+      "sync_machine_state",
+      "Timer",
+      "print",
+      "str",
+      "str",
+      "str",
+      "str"
+    ],
+    "instantiates": [
+      "FastAPI",
+      "PhoenixKernel",
+      "Path",
+      "FileResponse",
+      "HTTPException",
+      "HTTPException",
+      "HTTPException",
+      "HTTPException"
+    ],
+    "inherits": [
+      "BaseModel",
+      "BaseModel"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "generate_phoenix_map.py",
+    "imports": [
+      "pathlib",
+      "ast",
+      "datetime"
+    ],
+    "classes": [],
+    "functions": [
+      "scan_files",
+      "extract_python_info",
+      "create_markdown"
+    ],
+    "calls": [
+      "Path",
+      "rglob",
+      "scan_files",
+      "print",
+      "create_markdown",
+      "any",
+      "is_file",
+      "parse",
+      "walk",
+      "open",
+      "write",
+      "write",
+      "write",
+      "write",
+      "append",
+      "read_text",
+      "isinstance",
+      "relative_to",
+      "write",
+      "extract_python_info",
+      "write",
+      "isinstance",
+      "write",
+      "sorted",
+      "write",
+      "write",
+      "append",
+      "isinstance",
+      "now",
+      "set",
+      "write",
+      "write",
+      "write",
+      "append",
+      "append",
+      "isinstance",
+      "relative_to",
+      "append"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "install_phoenix_kernel.py",
+    "imports": [
+      "__future__",
+      "argparse",
+      "pathlib"
+    ],
+    "classes": [],
+    "functions": [
+      "install",
+      "main"
+    ],
+    "calls": [
+      "resolve",
+      "items",
+      "print",
+      "print",
+      "print",
+      "ArgumentParser",
+      "add_argument",
+      "parse_args",
+      "install",
+      "main",
+      "mkdir",
+      "exists",
+      "write_text",
+      "print",
+      "print",
+      "Path"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_models_migration.py",
+    "imports": [
+      "json",
+      "os",
+      "shutil",
+      "hashlib",
+      "platform",
+      "pathlib",
+      "datetime",
+      "sys",
+      "phoenix_kernel.models.model_scanner",
+      "phoenix_kernel.paths",
+      "phoenix_kernel.models.inventory"
+    ],
+    "classes": [],
+    "functions": [
+      "log",
+      "backup_file",
+      "create_folder_structure",
+      "migrate_existing_models",
+      "update_catalog",
+      "patch_drivers",
+      "generate_report",
+      "discover_workspace",
+      "main"
+    ],
+    "calls": [
+      "resolve",
+      "append",
+      "print",
+      "items",
+      "iterdir",
+      "mkdir",
+      "backup_file",
+      "log",
+      "exists",
+      "exists",
+      "write_text",
+      "print",
+      "exists",
+      "mkdir",
+      "print",
+      "print",
+      "print",
+      "print",
+      "print",
+      "mkdir",
+      "backup_file",
+      "write_text",
+      "log",
+      "print",
+      "discover_workspace",
+      "print",
+      "create_folder_structure",
+      "print",
+      "migrate_existing_models",
+      "print",
+      "mkdir",
+      "backup_file",
+      "write_text",
+      "log",
+      "print",
+      "backup_file",
+      "write_text",
+      "log",
+      "print",
+      "update_catalog",
+      "print",
+      "patch_drivers",
+      "print",
+      "print",
+      "generate_report",
+      "print",
+      "print",
+      "print",
+      "main",
+      "exists",
+      "is_file",
+      "with_suffix",
+      "mkdir",
+      "log",
+      "mkdir",
+      "log",
+      "exists",
+      "write_text",
+      "exists",
+      "log",
+      "lower",
+      "any",
+      "log",
+      "open",
+      "dump",
+      "exists",
+      "backup_file",
+      "read_text",
+      "backup_file",
+      "read_text",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "join",
+      "system",
+      "Path",
+      "Path",
+      "Path",
+      "exists",
+      "write_text",
+      "log",
+      "exists",
+      "write_text",
+      "insert",
+      "scan_all",
+      "len",
+      "refresh",
+      "log",
+      "Path",
+      "exists",
+      "copy2",
+      "log",
+      "mkdir",
+      "log",
+      "exists",
+      "write_text",
+      "log",
+      "is_file",
+      "lower",
+      "mkdir",
+      "exists",
+      "exists",
+      "log",
+      "write_text",
+      "log",
+      "log",
+      "write_text",
+      "log",
+      "log",
+      "append",
+      "append",
+      "append",
+      "append",
+      "append",
+      "open",
+      "load",
+      "get",
+      "exists",
+      "print",
+      "str",
+      "str",
+      "get_models_base",
+      "print",
+      "print",
+      "log",
+      "upper",
+      "log",
+      "move",
+      "log",
+      "find",
+      "find",
+      "isoformat",
+      "len",
+      "len",
+      "len",
+      "len",
+      "len",
+      "len",
+      "print",
+      "str",
+      "str",
+      "log",
+      "find",
+      "find",
+      "len",
+      "now"
+    ],
+    "instantiates": [
+      "Path",
+      "Path",
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_runtime_migration.py",
+    "imports": [
+      "os",
+      "re",
+      "shutil",
+      "pathlib",
+      "datetime"
+    ],
+    "classes": [],
+    "functions": [
+      "log",
+      "backup_file",
+      "ensure_dir",
+      "write_file",
+      "rename_numbered_dirs",
+      "fix_imports",
+      "create_runtime_architecture",
+      "generate_report"
+    ],
+    "calls": [
+      "cwd",
+      "append",
+      "print",
+      "mkdir",
+      "backup_file",
+      "ensure_dir",
+      "log",
+      "iterdir",
+      "walk",
+      "write_file",
+      "write_file",
+      "write_file",
+      "write_file",
+      "write_file",
+      "write_file",
+      "write_file",
+      "ensure_dir",
+      "write_file",
+      "print",
+      "print",
+      "rename_numbered_dirs",
+      "fix_imports",
+      "create_runtime_architecture",
+      "generate_report",
+      "print",
+      "exists",
+      "is_file",
+      "with_suffix",
+      "open",
+      "write",
+      "exists",
+      "log",
+      "exists",
+      "ensure_dir",
+      "ensure_dir",
+      "open",
+      "write",
+      "write",
+      "items",
+      "write",
+      "write",
+      "write",
+      "write",
+      "exists",
+      "copy2",
+      "log",
+      "is_dir",
+      "match",
+      "sub",
+      "exists",
+      "endswith",
+      "exists",
+      "write_file",
+      "upper",
+      "strip",
+      "relative_to",
+      "iterdir",
+      "rmdir",
+      "log",
+      "rename",
+      "log",
+      "write",
+      "write",
+      "move",
+      "Path",
+      "sub",
+      "sub",
+      "isoformat",
+      "write",
+      "str",
+      "str",
+      "open",
+      "read",
+      "backup_file",
+      "log",
+      "log",
+      "open",
+      "write",
+      "now",
+      "title",
+      "len",
+      "relative_to",
+      "replace"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "setup_environment.py",
+    "imports": [
+      "os",
+      "json",
+      "pathlib"
+    ],
+    "classes": [],
+    "functions": [
+      "create_file",
+      "create_dir"
+    ],
+    "calls": [
+      "print",
+      "print",
+      "print",
+      "create_file",
+      "create_file",
+      "create_file",
+      "create_file",
+      "print",
+      "print",
+      "Path",
+      "mkdir",
+      "write_text",
+      "print",
+      "mkdir",
+      "print",
+      "create_dir",
+      "dumps",
+      "dumps",
+      "Path"
+    ],
+    "instantiates": [
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "setup_platform.py",
+    "imports": [
+      "__future__",
+      "subprocess",
+      "sys",
+      "pathlib"
+    ],
+    "classes": [],
+    "functions": [
+      "_run",
+      "is_platform_built",
+      "is_node_installed",
+      "install_node_via_winget",
+      "build_platform"
+    ],
+    "calls": [
+      "Path",
+      "print",
+      "run",
+      "exists",
+      "print",
+      "_run",
+      "print",
+      "is_platform_built",
+      "_run",
+      "_run",
+      "build_platform",
+      "print",
+      "run",
+      "print",
+      "exists",
+      "is_node_installed",
+      "exists",
+      "Path",
+      "install_node_via_winget",
+      "join"
+    ],
+    "instantiates": [
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/cloud_sync.py",
+    "imports": [
+      "asyncio",
+      "json",
+      "logging",
+      "os",
+      "socket",
+      "uuid",
+      "pathlib",
+      "phoenix_kernel.paths",
+      "google.cloud",
+      "google.oauth2",
+      "google.cloud",
+      "google.cloud",
+      "google.cloud",
+      "google.cloud"
+    ],
+    "classes": [
+      "FirestoreSync"
+    ],
+    "functions": [
+      "has_consent",
+      "grant_consent",
+      "revoke_consent",
+      "get_or_create_machine_id",
+      "__init__",
+      "_get_client",
+      "sync_knowledge_base",
+      "_sync_kb_blocking",
+      "sync_machine_state",
+      "_sync_state_blocking",
+      "add_log",
+      "_add_log_blocking",
+      "shutdown"
+    ],
+    "calls": [
+      "getLogger",
+      "exists",
+      "mkdir",
+      "write_text",
+      "exists",
+      "exists",
+      "str",
+      "mkdir",
+      "write_text",
+      "unlink",
+      "strip",
+      "uuid4",
+      "get_or_create_machine_id",
+      "get",
+      "get",
+      "Client",
+      "get_running_loop",
+      "isinstance",
+      "get_running_loop",
+      "get_running_loop",
+      "loads",
+      "from_service_account_info",
+      "get",
+      "has_consent",
+      "run_in_executor",
+      "exists",
+      "open",
+      "load",
+      "_get_client",
+      "collection",
+      "batch",
+      "set",
+      "info",
+      "has_consent",
+      "run_in_executor",
+      "_get_client",
+      "document",
+      "set",
+      "get",
+      "has_consent",
+      "run_in_executor",
+      "_get_client",
+      "document",
+      "add",
+      "has_consent",
+      "_get_client",
+      "document",
+      "set",
+      "read_text",
+      "exists",
+      "from_service_account_file",
+      "get",
+      "from_service_account_file",
+      "get",
+      "get",
+      "set",
+      "commit",
+      "error",
+      "add",
+      "debug",
+      "exists",
+      "FileNotFoundError",
+      "str",
+      "document",
+      "document",
+      "commit",
+      "batch",
+      "document",
+      "collection",
+      "gethostname",
+      "get",
+      "get",
+      "collection",
+      "collection",
+      "collection",
+      "Path",
+      "loads",
+      "loads",
+      "collection",
+      "read_text",
+      "read_text",
+      "collection",
+      "collection",
+      "Path"
+    ],
+    "instantiates": [
+      "FileNotFoundError",
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [
+      "socket.gethostname"
+    ],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/kernel.py",
+    "imports": [
+      "asyncio",
+      "importlib",
+      "logging",
+      "pathlib",
+      "core.events.bus",
+      "core.kernel.kernel",
+      "core.domain.machine",
+      "phoenix_kernel.state",
+      "phoenix_kernel.cloud_sync",
+      "setup_platform",
+      "core.domain.execution",
+      "phoenix_kernel.paths"
+    ],
+    "classes": [
+      "PhoenixKernel",
+      "Profile"
+    ],
+    "functions": [
+      "__init__",
+      "boot",
+      "_ensure_default_model",
+      "_cloud_sync_loop",
+      "shutdown"
+    ],
+    "calls": [
+      "getLogger",
+      "EventBus",
+      "PlatformKernel",
+      "import_module",
+      "DiscoveryEngine",
+      "import_module",
+      "BudgetEngine",
+      "import_module",
+      "TelemetryEngine",
+      "import_module",
+      "ServicesEngine",
+      "import_module",
+      "import_module",
+      "import_module",
+      "ModelsEngine",
+      "StateEngine",
+      "import_module",
+      "PlannerEngine",
+      "set_knowledge_engine",
+      "import_module",
+      "RuntimeEngine",
+      "import_module",
+      "ValidationEngine",
+      "import_module",
+      "LogsEngine",
+      "import_module",
+      "SecurityEngine",
+      "import_module",
+      "ResidentManager",
+      "import_module",
+      "ApiEngine",
+      "print",
+      "Profile",
+      "MachineContext",
+      "set_context",
+      "set_context",
+      "add_event",
+      "print",
+      "set_context",
+      "print",
+      "add_event",
+      "print",
+      "BootPlan",
+      "print",
+      "build_platform",
+      "add_event",
+      "print",
+      "add_event",
+      "print",
+      "add_event",
+      "FirestoreSync",
+      "discover_hardware",
+      "initialize",
+      "initialize",
+      "_ensure_default_model",
+      "start",
+      "add_event",
+      "print",
+      "add_event",
+      "print",
+      "start_supervised",
+      "add_event",
+      "try_start_server",
+      "print",
+      "create_task",
+      "get_category_path",
+      "exists",
+      "print",
+      "add_event",
+      "print",
+      "sync_knowledge_base",
+      "stop",
+      "cancel",
+      "shutdown",
+      "warning",
+      "_cloud_sync_loop",
+      "import_module",
+      "ModelManager",
+      "create_task",
+      "has_consent",
+      "shutdown",
+      "download_model",
+      "error",
+      "sleep",
+      "get_state",
+      "sync_machine_state",
+      "add_event",
+      "error",
+      "add_event"
+    ],
+    "instantiates": [
+      "EventBus",
+      "PlatformKernel",
+      "StateEngine",
+      "Profile",
+      "MachineContext",
+      "BootPlan",
+      "FirestoreSync",
+      "ModelManager"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "plannerengine",
+      "apiengine",
+      "runtimeengine",
+      "residentmanager",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/paths.py",
+    "imports": [
+      "__future__",
+      "json",
+      "platform",
+      "pathlib"
+    ],
+    "classes": [
+      "PhoenixPaths"
+    ],
+    "functions": [
+      "_load_manifest",
+      "get_workspace",
+      "get_models_base",
+      "get_category_path",
+      "get_model_path",
+      "get_cache_dir",
+      "get_temp_dir",
+      "get_downloads_dir",
+      "get_outputs_dir",
+      "get_inventory_db"
+    ],
+    "calls": [
+      "exists",
+      "Path",
+      "resolve",
+      "system",
+      "Path",
+      "Path",
+      "get",
+      "is_absolute",
+      "resolve",
+      "get_workspace",
+      "get_models_base",
+      "get_category_path",
+      "open",
+      "load",
+      "str",
+      "get_workspace",
+      "get_workspace",
+      "get_workspace",
+      "get_workspace",
+      "Path",
+      "resolve",
+      "_load_manifest",
+      "Path",
+      "get_workspace",
+      "Path"
+    ],
+    "instantiates": [
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/state.py",
+    "imports": [
+      "asyncio",
+      "logging"
+    ],
+    "classes": [
+      "StateEngine"
+    ],
+    "functions": [
+      "__init__",
+      "set_context",
+      "get_state"
+    ],
+    "calls": [
+      "getLogger",
+      "evaluate_machine",
+      "get_live_metrics",
+      "get_environment_status",
+      "get_model_and_rag_status",
+      "gather",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "list"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "tests/test_mission_kernel.py",
+    "imports": [
+      "pytest",
+      "phoenix_kernel.core.models",
+      "phoenix_kernel.core.enums",
+      "phoenix_kernel.core.planner",
+      "phoenix_kernel.core.kernel",
+      "phoenix_kernel.core.exceptions"
+    ],
+    "classes": [],
+    "functions": [
+      "test_planner_creates_mission_with_correct_steps",
+      "test_kernel_registers_mission_and_sets_waiting_approval",
+      "test_kernel_approves_active_mission",
+      "test_kernel_rejects_active_mission",
+      "test_kernel_approve_without_active_mission_raises_error",
+      "test_to_dict_serialization",
+      "test_each_mission_has_unique_id",
+      "test_registered_mission_is_same_instance",
+      "test_status_is_serialized_as_string",
+      "test_step_parameters_are_serialized",
+      "test_step_action_is_enum_instance",
+      "test_metadata_is_serialized",
+      "test_parameters_default_to_empty_dict"
+    ],
+    "calls": [
+      "MissionPlanner",
+      "create",
+      "isinstance",
+      "MissionKernel",
+      "MissionPlanner",
+      "create",
+      "register",
+      "MissionKernel",
+      "MissionPlanner",
+      "create",
+      "register",
+      "approve_active_mission",
+      "MissionKernel",
+      "MissionPlanner",
+      "create",
+      "register",
+      "reject_active_mission",
+      "MissionKernel",
+      "MissionPlanner",
+      "create",
+      "to_dict",
+      "MissionPlanner",
+      "create",
+      "create",
+      "MissionPlanner",
+      "MissionKernel",
+      "create",
+      "register",
+      "Mission",
+      "to_dict",
+      "isinstance",
+      "MissionPlanner",
+      "create",
+      "to_dict",
+      "MissionPlanner",
+      "create",
+      "isinstance",
+      "Mission",
+      "to_dict",
+      "MissionStep",
+      "len",
+      "get_active",
+      "get_active",
+      "raises",
+      "approve_active_mission",
+      "len"
+    ],
+    "instantiates": [
+      "MissionPlanner",
+      "MissionKernel",
+      "MissionPlanner",
+      "MissionKernel",
+      "MissionPlanner",
+      "MissionKernel",
+      "MissionPlanner",
+      "MissionKernel",
+      "MissionPlanner",
+      "MissionPlanner",
+      "MissionPlanner",
+      "MissionKernel",
+      "Mission",
+      "MissionPlanner",
+      "MissionPlanner",
+      "Mission",
+      "MissionStep"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission",
+      "kernel"
+    ]
+  },
+  {
+    "file": "tools/setup_firestore.py",
+    "imports": [
+      "pathlib",
+      "json",
+      "platform",
+      "socket",
+      "uuid",
+      "google.cloud",
+      "google.oauth2"
+    ],
+    "classes": [],
+    "functions": [
+      "load_machine_id",
+      "create_example",
+      "connect",
+      "bootstrap"
+    ],
+    "calls": [
+      "mkdir",
+      "exists",
+      "str",
+      "write_text",
+      "exists",
+      "write_text",
+      "from_service_account_file",
+      "Client",
+      "create_example",
+      "load_machine_id",
+      "connect",
+      "set",
+      "set",
+      "set",
+      "print",
+      "print",
+      "print",
+      "print",
+      "print",
+      "bootstrap",
+      "resolve",
+      "uuid4",
+      "dumps",
+      "dumps",
+      "exists",
+      "print",
+      "print",
+      "loads",
+      "document",
+      "gethostname",
+      "node",
+      "system",
+      "release",
+      "python_version",
+      "document",
+      "document",
+      "Path",
+      "read_text",
+      "gethostname",
+      "collection",
+      "collection",
+      "collection",
+      "document",
+      "document",
+      "collection",
+      "collection"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [
+      "socket.gethostname",
+      "socket.gethostname"
+    ],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/agent.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IAgentSDK"
+    ],
+    "functions": [
+      "execute_task"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/backup.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IBackupSDK"
+    ],
+    "functions": [
+      "create_backup",
+      "restore_backup",
+      "list_backups"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/benchmark.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IBenchmarkSDK"
+    ],
+    "functions": [
+      "run_runtime_benchmark",
+      "run_disk_benchmark",
+      "get_last_results"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/config.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IConfigurationSDK"
+    ],
+    "functions": [
+      "get"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/connector.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IConnectorSDK"
+    ],
+    "functions": [
+      "call",
+      "list_connectors",
+      "check_health"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/engine.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.engine"
+    ],
+    "classes": [
+      "IEngine"
+    ],
+    "functions": [
+      "descriptor",
+      "initialize",
+      "shutdown",
+      "health"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/experience.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IExperienceSDK"
+    ],
+    "functions": [
+      "record_execution",
+      "get_best_runtime",
+      "get_stats"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/gateway.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IGatewaySDK"
+    ],
+    "functions": [
+      "start_server",
+      "stop_server"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/hardware.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.machine",
+      "core.domain.telemetry",
+      "core.domain.hardware"
+    ],
+    "classes": [
+      "IHardwareSDK"
+    ],
+    "functions": [
+      "discover",
+      "get_profile",
+      "get_telemetry",
+      "get_events",
+      "subscribe"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/installer.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "IInstallerSDK"
+    ],
+    "functions": [
+      "install",
+      "uninstall",
+      "repair",
+      "list_installed"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/knowledge.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IKnowledgeSDK"
+    ],
+    "functions": [
+      "add_document",
+      "search",
+      "clear"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/mission.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.workflows"
+    ],
+    "classes": [
+      "IMissionSDK"
+    ],
+    "functions": [
+      "list_available_missions",
+      "create_mission",
+      "execute_mission"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "core/contracts/model.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.models"
+    ],
+    "classes": [
+      "IModelSDK"
+    ],
+    "functions": [
+      "list_installed",
+      "list_available",
+      "download",
+      "get_path",
+      "delete"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/notification.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "INotificationSDK"
+    ],
+    "functions": [
+      "send_notification"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/observability.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IObservabilitySDK"
+    ],
+    "functions": [
+      "log_event",
+      "get_platform_health",
+      "get_logs",
+      "get_event_history"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/pipeline.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.workflows"
+    ],
+    "classes": [
+      "IPipelineSDK"
+    ],
+    "functions": [
+      "execute_pipeline"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/plugin.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IPluginManagerSDK"
+    ],
+    "functions": [
+      "list_plugins",
+      "enable_plugin",
+      "disable_plugin",
+      "install_plugin"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/rules.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.machine",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "IRulesSDK"
+    ],
+    "functions": [
+      "evaluate",
+      "recommend_models"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/runtime.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.execution",
+      "core.domain.runtime"
+    ],
+    "classes": [
+      "IRuntimeSDK"
+    ],
+    "functions": [
+      "list_runtimes",
+      "start",
+      "stop",
+      "status",
+      "execute",
+      "pull_model",
+      "embed",
+      "describe_image"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/scheduler.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "ISchedulerSDK"
+    ],
+    "functions": [
+      "schedule_mission",
+      "list_schedules",
+      "cancel_schedule"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/security.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "ISecuritySDK"
+    ],
+    "functions": [
+      "store_secret",
+      "get_secret",
+      "delete_secret",
+      "get_or_create_api_key"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/storage.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "pathlib"
+    ],
+    "classes": [
+      "IStorageSDK"
+    ],
+    "functions": [
+      "get_fastest_drive",
+      "get_workspace_path",
+      "get_models_path",
+      "get_disk_info",
+      "ensure_directory",
+      "get_free_space_gb"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/updater.py",
+    "imports": [
+      "__future__",
+      "typing"
+    ],
+    "classes": [
+      "IUpdaterSDK"
+    ],
+    "functions": [
+      "check_for_updates",
+      "apply_update"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/workflow.py",
+    "imports": [
+      "__future__",
+      "typing",
+      "core.domain.workflows"
+    ],
+    "classes": [
+      "IWorkflowSDK"
+    ],
+    "functions": [
+      "execute"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/contracts/__init__.py",
+    "imports": [
+      "engine",
+      "hardware",
+      "runtime",
+      "rules",
+      "installer",
+      "connector",
+      "model",
+      "workflow",
+      "knowledge",
+      "agent",
+      "mission",
+      "security",
+      "observability",
+      "storage",
+      "benchmark",
+      "gateway",
+      "pipeline",
+      "notification",
+      "scheduler",
+      "backup",
+      "updater",
+      "plugin",
+      "config",
+      "experience"
+    ],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "core/domain/configuration.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "typing"
+    ],
+    "classes": [
+      "UserPreferences",
+      "Policies"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/engine.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "enum",
+      "uuid"
+    ],
+    "classes": [
+      "HealthStatus",
+      "Capability",
+      "EngineDescriptor"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field",
+      "field",
+      "now"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "StrEnum"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/execution.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "enum",
+      "typing",
+      "uuid"
+    ],
+    "classes": [
+      "ExecutionStatus",
+      "ExecutionPlan",
+      "ExecutionResult"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "str",
+      "now",
+      "uuid4"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "StrEnum"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "executionplan"
+    ]
+  },
+  {
+    "file": "core/domain/hardware.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "typing"
+    ],
+    "classes": [
+      "HardwareDescriptor",
+      "HardwareEvent"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "now"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/machine.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "typing",
+      "hashlib"
+    ],
+    "classes": [
+      "MachineDNA",
+      "MachineProfile",
+      "MachineContext"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "now",
+      "now"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/models.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "pathlib"
+    ],
+    "classes": [
+      "ModelDescriptor",
+      "InstalledModel"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/provision.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "typing"
+    ],
+    "classes": [
+      "ProvisionItem",
+      "ProvisionPlan"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/runtime.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "enum",
+      "typing"
+    ],
+    "classes": [
+      "RuntimeState",
+      "RuntimeDescriptor",
+      "RuntimeStatus"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "StrEnum"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/telemetry.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "typing"
+    ],
+    "classes": [
+      "TelemetrySample",
+      "TelemetrySnapshot"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "now"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/domain/workflows.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "enum",
+      "typing",
+      "uuid"
+    ],
+    "classes": [
+      "TaskStatus",
+      "Task",
+      "Workflow",
+      "Mission"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "str",
+      "str",
+      "now",
+      "str",
+      "now",
+      "uuid4",
+      "uuid4",
+      "uuid4"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "StrEnum"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "core/domain/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/events/base.py",
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "typing",
+      "uuid"
+    ],
+    "classes": [
+      "Event",
+      "Command"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass",
+      "dataclass",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "str",
+      "now",
+      "str",
+      "now",
+      "uuid4",
+      "uuid4"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/events/bus.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "logging",
+      "collections",
+      "typing",
+      "base"
+    ],
+    "classes": [
+      "EventBus"
+    ],
+    "functions": [
+      "__init__",
+      "set_persistence_callback",
+      "publish",
+      "subscribe",
+      "send",
+      "register_command",
+      "get_history"
+    ],
+    "calls": [
+      "getLogger",
+      "defaultdict",
+      "deque",
+      "Lock",
+      "append",
+      "get",
+      "append",
+      "get",
+      "get",
+      "ValueError",
+      "handler",
+      "list",
+      "_persistence_callback",
+      "error",
+      "handler",
+      "error"
+    ],
+    "instantiates": [
+      "ValueError"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/events/types.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/events/__init__.py",
+    "imports": [
+      "base",
+      "bus"
+    ],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/kernel/kernel.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "logging",
+      "typing",
+      "core.contracts.engine",
+      "core.domain.engine",
+      "core.events.bus",
+      "registry",
+      "lifecycle"
+    ],
+    "classes": [
+      "PlatformKernel"
+    ],
+    "functions": [
+      "__init__",
+      "register_engine",
+      "resolve",
+      "get_config",
+      "initialize",
+      "shutdown",
+      "health",
+      "is_running"
+    ],
+    "calls": [
+      "getLogger",
+      "ServiceRegistry",
+      "EventBus",
+      "LifecycleManager",
+      "register_engine",
+      "resolve",
+      "get",
+      "info",
+      "info",
+      "info",
+      "info",
+      "initialize_all",
+      "list",
+      "shutdown_all",
+      "health_check_all",
+      "keys",
+      "list_engines"
+    ],
+    "instantiates": [
+      "ServiceRegistry",
+      "EventBus",
+      "LifecycleManager"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "core/kernel/lifecycle.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "core.contracts.engine",
+      "core.domain.engine",
+      "registry"
+    ],
+    "classes": [
+      "LifecycleManager"
+    ],
+    "functions": [
+      "__init__",
+      "initialize_all",
+      "shutdown_all",
+      "health_check_all"
+    ],
+    "calls": [
+      "getLogger",
+      "list",
+      "clear",
+      "clear",
+      "keys",
+      "resolve",
+      "resolve",
+      "resolve",
+      "info",
+      "append",
+      "insert",
+      "info",
+      "list_engines",
+      "initialize",
+      "error",
+      "shutdown",
+      "error",
+      "health"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/kernel/plugin_base.py",
+    "imports": [
+      "__future__",
+      "abc",
+      "core.kernel.plugin_context"
+    ],
+    "classes": [
+      "AIVisionsPlugin"
+    ],
+    "functions": [
+      "id",
+      "name",
+      "version",
+      "author",
+      "initialize",
+      "shutdown"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "core/kernel/plugin_context.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "typing",
+      "core.events.bus",
+      "core.kernel.registry"
+    ],
+    "classes": [
+      "PluginContext"
+    ],
+    "functions": [
+      "__init__",
+      "resolve"
+    ],
+    "calls": [
+      "resolve"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "core/kernel/plugin_loader.py",
+    "imports": [
+      "__future__",
+      "importlib.util",
+      "logging",
+      "pathlib",
+      "core.kernel.kernel",
+      "sys"
+    ],
+    "classes": [],
+    "functions": [
+      "load_plugins"
+    ],
+    "calls": [
+      "getLogger",
+      "Path",
+      "info",
+      "glob",
+      "exists",
+      "mkdir",
+      "info",
+      "resolve",
+      "str",
+      "insert",
+      "startswith",
+      "resolve",
+      "absolute",
+      "str",
+      "spec_from_file_location",
+      "module_from_spec",
+      "exec_module",
+      "hasattr",
+      "absolute",
+      "info",
+      "register",
+      "warning",
+      "error"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "core/kernel/registry.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "typing",
+      "core.contracts.engine",
+      "core.domain.engine"
+    ],
+    "classes": [
+      "ServiceRegistry"
+    ],
+    "functions": [
+      "__init__",
+      "register_engine",
+      "resolve",
+      "get_descriptor",
+      "list_engines",
+      "unregister_engine"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "get",
+      "get",
+      "dict",
+      "pop",
+      "pop"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/kernel/__init__.py",
+    "imports": [
+      "kernel",
+      "registry",
+      "lifecycle"
+    ],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "core/shared/logging.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "pathlib"
+    ],
+    "classes": [],
+    "functions": [
+      "setup_file_logging"
+    ],
+    "calls": [
+      "mkdir",
+      "Formatter",
+      "FileHandler",
+      "setFormatter",
+      "setLevel",
+      "getLogger",
+      "addHandler",
+      "info"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "core/shared/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/engine.py",
+    "imports": [
+      "logging",
+      "interfaces",
+      "phoenix_kernel.intelligence.web_search"
+    ],
+    "classes": [
+      "ApiEngine"
+    ],
+    "functions": [
+      "__init__",
+      "set_context",
+      "process_command"
+    ],
+    "calls": [
+      "getLogger",
+      "lower",
+      "startswith",
+      "startswith",
+      "startswith",
+      "startswith",
+      "add_event",
+      "strip",
+      "add_event",
+      "add_event",
+      "add_event",
+      "strip",
+      "add_event",
+      "split",
+      "lower",
+      "lower",
+      "get_recent_logs",
+      "analyze_machine",
+      "process_intent",
+      "approve_and_execute",
+      "search_web",
+      "get_state",
+      "get_model_and_rag_status",
+      "add_event",
+      "len",
+      "join",
+      "validate_system",
+      "check_integrity",
+      "join",
+      "strip",
+      "plan_inference",
+      "execute",
+      "get",
+      "list_packages",
+      "install_service",
+      "get",
+      "get",
+      "get",
+      "get",
+      "install_package",
+      "str"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "IApiService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "apiengine",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/api/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/interfaces.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IApiService"
+    ],
+    "functions": [
+      "process_command"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/engine.py",
+    "imports": [
+      "logging",
+      "typing",
+      "interfaces"
+    ],
+    "classes": [
+      "BudgetEngine"
+    ],
+    "functions": [
+      "__init__",
+      "evaluate_machine"
+    ],
+    "calls": [
+      "getLogger",
+      "get",
+      "info",
+      "get",
+      "min",
+      "get",
+      "int"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "IBudgetService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "IBudgetService"
+    ],
+    "functions": [
+      "evaluate_machine"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/contracts/connector_contract.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IConnector"
+    ],
+    "functions": [
+      "install",
+      "check",
+      "status"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/contracts/service_contract.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IService"
+    ],
+    "functions": [
+      "start",
+      "stop",
+      "health"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/contracts/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/core/enums.py",
+    "imports": [
+      "enum"
+    ],
+    "classes": [
+      "MissionAction",
+      "MissionStatus"
+    ],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "str",
+      "Enum",
+      "str",
+      "Enum"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/core/event_bus.py",
+    "imports": [
+      "logging",
+      "collections"
+    ],
+    "classes": [
+      "EventBus"
+    ],
+    "functions": [
+      "__init__",
+      "subscribe",
+      "publish"
+    ],
+    "calls": [
+      "getLogger",
+      "defaultdict",
+      "append",
+      "append",
+      "info",
+      "get",
+      "handler",
+      "error"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/core/exceptions.py",
+    "imports": [],
+    "classes": [
+      "MissionError",
+      "NoActiveMissionError"
+    ],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "Exception",
+      "MissionError"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/core/models.py",
+    "imports": [
+      "dataclasses",
+      "typing",
+      "datetime",
+      "uuid",
+      "enums"
+    ],
+    "classes": [
+      "MissionStep",
+      "Mission"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "calls": [
+      "field",
+      "field",
+      "field",
+      "field",
+      "field",
+      "asdict",
+      "isoformat",
+      "str",
+      "now",
+      "uuid4"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/core/planner.py",
+    "imports": [
+      "logging",
+      "models",
+      "enums"
+    ],
+    "classes": [
+      "MissionPlanner"
+    ],
+    "functions": [
+      "_step",
+      "create"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "Mission",
+      "append",
+      "MissionStep",
+      "lower",
+      "lower",
+      "_step",
+      "append",
+      "append",
+      "enumerate",
+      "lower",
+      "lower",
+      "_step",
+      "_step",
+      "get"
+    ],
+    "instantiates": [
+      "Mission",
+      "MissionStep"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/core/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/engine.py",
+    "imports": [
+      "interfaces"
+    ],
+    "classes": [
+      "Engine"
+    ],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "IEngine"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/interfaces.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IEngine"
+    ],
+    "functions": [
+      "initialize"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/discovery_core.py",
+    "imports": [
+      "psutil",
+      "platform",
+      "hashlib",
+      "shutil",
+      "subprocess",
+      "re",
+      "os",
+      "tempfile",
+      "time",
+      "dataclasses",
+      "typing",
+      "json",
+      "json",
+      "dataclasses",
+      "wmi",
+      "wmi",
+      "json"
+    ],
+    "classes": [
+      "CPUInfo",
+      "GPUInfo",
+      "MemoryInfo",
+      "StorageDeviceInfo",
+      "HardwareSnapshot",
+      "MachineIdentity",
+      "HardwareDiscoveryCore"
+    ],
+    "functions": [
+      "__init__",
+      "_get_gpu_raw",
+      "_get_vram_via_dxdiag",
+      "_save_vram_cache",
+      "_get_physical_disks_raw",
+      "_get_storage_raw",
+      "discover",
+      "_compute_identity",
+      "machine_identity",
+      "hardware_hash"
+    ],
+    "calls": [
+      "field",
+      "field",
+      "field",
+      "field",
+      "join",
+      "join",
+      "_get_physical_disks_raw",
+      "virtual_memory",
+      "_get_gpu_raw",
+      "CPUInfo",
+      "HardwareSnapshot",
+      "_compute_identity",
+      "lower",
+      "upper",
+      "asdict",
+      "pop",
+      "WMI",
+      "Win32_VideoController",
+      "gettempdir",
+      "exists",
+      "gettempdir",
+      "exists",
+      "run",
+      "range",
+      "split",
+      "lower",
+      "exists",
+      "WMI",
+      "MSFT_PhysicalDisk",
+      "disk_partitions",
+      "append",
+      "get",
+      "append",
+      "type",
+      "str",
+      "join",
+      "hexdigest",
+      "getattr",
+      "getattr",
+      "append",
+      "remove",
+      "sleep",
+      "exists",
+      "open",
+      "read",
+      "exists",
+      "open",
+      "dump",
+      "getattr",
+      "append",
+      "disk_usage",
+      "StorageDeviceInfo",
+      "lower",
+      "GPUInfo",
+      "processor",
+      "cpu_count",
+      "cpu_count",
+      "MemoryInfo",
+      "_get_storage_raw",
+      "join",
+      "hexdigest",
+      "int",
+      "_get_vram_via_dxdiag",
+      "open",
+      "load",
+      "exists",
+      "strip",
+      "lower",
+      "search",
+      "remove",
+      "open",
+      "load",
+      "get",
+      "get",
+      "lower",
+      "lower",
+      "lower",
+      "lower",
+      "MachineIdentity",
+      "sha256",
+      "getsize",
+      "split",
+      "lower",
+      "int",
+      "_save_vram_cache",
+      "int",
+      "getattr",
+      "get",
+      "get",
+      "abs",
+      "round",
+      "round",
+      "round",
+      "get",
+      "int",
+      "sha256",
+      "range",
+      "encode",
+      "lower",
+      "group",
+      "getattr",
+      "which",
+      "encode",
+      "splitlines",
+      "dumps",
+      "strip"
+    ],
+    "instantiates": [
+      "CPUInfo",
+      "HardwareSnapshot",
+      "StorageDeviceInfo",
+      "GPUInfo",
+      "MemoryInfo",
+      "MachineIdentity"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/discovery_engine.py",
+    "imports": [
+      "asyncio",
+      "logging",
+      "typing",
+      "interfaces",
+      "discovery_core"
+    ],
+    "classes": [
+      "DiscoveryEngine"
+    ],
+    "functions": [
+      "__init__",
+      "discover_hardware",
+      "get_machine_id"
+    ],
+    "calls": [
+      "getLogger",
+      "HardwareDiscoveryCore",
+      "info",
+      "get_running_loop",
+      "any",
+      "info",
+      "run_in_executor",
+      "append",
+      "hasattr",
+      "hasattr",
+      "hasattr",
+      "hasattr",
+      "hasattr"
+    ],
+    "instantiates": [
+      "HardwareDiscoveryCore"
+    ],
+    "inherits": [
+      "IDiscoveryService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/engine.py",
+    "imports": [
+      "asyncio",
+      "logging",
+      "platform",
+      "typing",
+      "interfaces",
+      "providers.factory"
+    ],
+    "classes": [
+      "DiscoveryEngine"
+    ],
+    "functions": [
+      "__init__",
+      "discover_hardware"
+    ],
+    "calls": [
+      "getLogger",
+      "get_discovery_provider",
+      "info",
+      "get_running_loop",
+      "run_in_executor",
+      "system",
+      "release",
+      "machine"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "IDiscoveryService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "IDiscoveryService"
+    ],
+    "functions": [
+      "discover_hardware"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/install/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/intelligence/interfaces.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IResidentManager"
+    ],
+    "functions": [
+      "analyze_machine"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "residentmanager"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/intelligence/knowledge_engine.py",
+    "imports": [
+      "__future__",
+      "json",
+      "pathlib",
+      "typing",
+      "memory_loader",
+      "memory_loader"
+    ],
+    "classes": [
+      "RagBackend",
+      "KnowledgeEngine"
+    ],
+    "functions": [
+      "query",
+      "upsert",
+      "__init__",
+      "initialize",
+      "load_intrinsic_memory",
+      "get_execution_recipe",
+      "get_machine_context",
+      "search_rag",
+      "reingest_rag_sources",
+      "build_context",
+      "_render_section",
+      "record_experience"
+    ],
+    "calls": [
+      "MemoryLoader",
+      "load_intrinsic",
+      "load_manifest",
+      "lower",
+      "load_manifest",
+      "lower",
+      "query",
+      "load_rag_source_docs",
+      "upsert",
+      "len",
+      "load_intrinsic_memory",
+      "append",
+      "get_execution_recipe",
+      "get_machine_context",
+      "search_rag",
+      "join",
+      "join",
+      "loads",
+      "append",
+      "write_text",
+      "Path",
+      "any",
+      "any",
+      "RuntimeError",
+      "_render_section",
+      "append",
+      "append",
+      "join",
+      "append",
+      "append",
+      "read_text",
+      "dumps",
+      "append",
+      "append",
+      "_render_section",
+      "_render_section",
+      "setdefault",
+      "load_procedure",
+      "load_machine_file",
+      "dumps"
+    ],
+    "instantiates": [
+      "MemoryLoader",
+      "Path",
+      "RuntimeError"
+    ],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/intelligence/memory_loader.py",
+    "imports": [
+      "__future__",
+      "json",
+      "re",
+      "dataclasses",
+      "pathlib",
+      "typing"
+    ],
+    "classes": [
+      "MemoryCard",
+      "MemoryLoader"
+    ],
+    "functions": [
+      "source_id",
+      "matches",
+      "__init__",
+      "load_manifest",
+      "load_intrinsic",
+      "load_procedure",
+      "load_all_procedures",
+      "load_machine_file",
+      "load_all_machine",
+      "load_rag_source_docs",
+      "_parse_markdown",
+      "_parse_json",
+      "_parse_plain",
+      "_parse_simple_yaml"
+    ],
+    "calls": [
+      "compile",
+      "field",
+      "field",
+      "str",
+      "join",
+      "any",
+      "Path",
+      "Path",
+      "load_manifest",
+      "_parse_markdown",
+      "load_manifest",
+      "_parse_json",
+      "load_manifest",
+      "sorted",
+      "read_text",
+      "match",
+      "list",
+      "MemoryCard",
+      "loads",
+      "isinstance",
+      "MemoryCard",
+      "read_text",
+      "MemoryCard",
+      "splitlines",
+      "loads",
+      "append",
+      "load_procedure",
+      "load_machine_file",
+      "glob",
+      "_parse_simple_yaml",
+      "strip",
+      "get",
+      "get",
+      "read_text",
+      "get",
+      "get",
+      "get",
+      "partition",
+      "lower",
+      "read_text",
+      "_parse_markdown",
+      "append",
+      "group",
+      "get",
+      "dumps",
+      "strip",
+      "strip",
+      "startswith",
+      "endswith",
+      "strip",
+      "lower",
+      "_parse_json",
+      "append",
+      "group",
+      "isinstance",
+      "strip",
+      "lower",
+      "_parse_plain",
+      "split",
+      "strip",
+      "strip",
+      "strip",
+      "strip"
+    ],
+    "instantiates": [
+      "Path",
+      "Path",
+      "MemoryCard",
+      "MemoryCard",
+      "MemoryCard"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/intelligence/reasoning_engine.py",
+    "imports": [
+      "json",
+      "logging",
+      "asyncio",
+      "phoenix_kernel.core.models",
+      "phoenix_kernel.core.enums",
+      "phoenix_kernel.intelligence.web_search",
+      "phoenix_kernel.intelligence.knowledge_engine",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "ReasoningEngine"
+    ],
+    "functions": [
+      "__init__",
+      "_log",
+      "_get_hardware_context",
+      "plan_mission"
+    ],
+    "calls": [
+      "getLogger",
+      "KnowledgeEngine",
+      "_log",
+      "_get_hardware_context",
+      "_log",
+      "_log",
+      "get_running_loop",
+      "ExecutionPlan",
+      "getattr",
+      "get",
+      "get",
+      "search_web",
+      "run_in_executor",
+      "_log",
+      "_log",
+      "time",
+      "_log",
+      "info",
+      "loads",
+      "get",
+      "get",
+      "enumerate",
+      "Mission",
+      "_log",
+      "lower",
+      "add_event",
+      "execute",
+      "time",
+      "_log",
+      "_log",
+      "upper",
+      "append",
+      "_log",
+      "_log",
+      "upper",
+      "get_state_sync",
+      "get_state_sync",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "join",
+      "MissionAction",
+      "MissionStep",
+      "get",
+      "warning",
+      "len",
+      "str",
+      "get",
+      "get",
+      "type",
+      "get"
+    ],
+    "instantiates": [
+      "KnowledgeEngine",
+      "ExecutionPlan",
+      "Mission",
+      "MissionAction",
+      "MissionStep"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "mission",
+      "executionplan",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/intelligence/web_search.py",
+    "imports": [
+      "logging",
+      "httpx"
+    ],
+    "classes": [],
+    "functions": [
+      "search_web"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "AsyncClient",
+      "raise_for_status",
+      "json",
+      "get",
+      "info",
+      "join",
+      "error",
+      "get",
+      "get",
+      "get",
+      "append"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [
+      "httpx.AsyncClient"
+    ],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/intelligence/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/engine.py",
+    "imports": [
+      "asyncio",
+      "urllib.request",
+      "json",
+      "logging",
+      "typing",
+      "interfaces"
+    ],
+    "classes": [
+      "ModelsEngine"
+    ],
+    "functions": [
+      "__init__",
+      "set_knowledge_engine",
+      "get_model_and_rag_status",
+      "check_models"
+    ],
+    "calls": [
+      "getLogger",
+      "get_running_loop",
+      "run_in_executor",
+      "warning",
+      "run_in_executor",
+      "urlopen",
+      "loads",
+      "decode",
+      "get",
+      "read"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "IModelsService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "IModelsService"
+    ],
+    "functions": [
+      "get_model_and_rag_status"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/inventory.py",
+    "imports": [
+      "__future__",
+      "json",
+      "pathlib",
+      "datetime",
+      "phoenix_kernel.paths",
+      "phoenix_kernel.models.model_scanner"
+    ],
+    "classes": [
+      "ModelInventory"
+    ],
+    "functions": [
+      "get_db_path",
+      "refresh",
+      "load",
+      "find"
+    ],
+    "calls": [
+      "Path",
+      "get_db_path",
+      "mkdir",
+      "len",
+      "get_db_path",
+      "load",
+      "get",
+      "get_inventory_db",
+      "scan_all",
+      "open",
+      "dump",
+      "exists",
+      "open",
+      "load",
+      "len",
+      "isoformat",
+      "lower",
+      "lower",
+      "now"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/models/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/model_manager.py",
+    "imports": [
+      "os",
+      "json",
+      "logging",
+      "asyncio",
+      "httpx",
+      "pathlib",
+      "phoenix_kernel.paths"
+    ],
+    "classes": [
+      "ModelManager"
+    ],
+    "functions": [
+      "__init__",
+      "download_model",
+      "_download_components"
+    ],
+    "calls": [
+      "getLogger",
+      "get",
+      "get",
+      "get",
+      "get_models_base",
+      "mkdir",
+      "exists",
+      "with_suffix",
+      "info",
+      "get",
+      "exists",
+      "error",
+      "open",
+      "load",
+      "error",
+      "startswith",
+      "replace",
+      "split",
+      "get",
+      "info",
+      "rename",
+      "info",
+      "AsyncClient",
+      "items",
+      "create_subprocess_exec",
+      "communicate",
+      "error",
+      "info",
+      "_download_components",
+      "AsyncClient",
+      "_download_components",
+      "error",
+      "exists",
+      "get",
+      "exists",
+      "with_suffix",
+      "info",
+      "resolve",
+      "stream",
+      "raise_for_status",
+      "unlink",
+      "get",
+      "rename",
+      "info",
+      "open",
+      "aiter_bytes",
+      "stream",
+      "raise_for_status",
+      "error",
+      "exists",
+      "Path",
+      "write",
+      "open",
+      "aiter_bytes",
+      "unlink",
+      "write"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [
+      "httpx.AsyncClient",
+      "httpx.AsyncClient"
+    ],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/models/model_scanner.py",
+    "imports": [
+      "__future__",
+      "hashlib",
+      "pathlib",
+      "datetime",
+      "phoenix_kernel.paths"
+    ],
+    "classes": [
+      "ModelScanner"
+    ],
+    "functions": [
+      "scan_all",
+      "_record",
+      "_hash"
+    ],
+    "calls": [
+      "sorted",
+      "stat",
+      "sha256",
+      "exists",
+      "iterdir",
+      "sorted",
+      "get",
+      "round",
+      "isoformat",
+      "_hash",
+      "get_models_base",
+      "Path",
+      "startswith",
+      "iterdir",
+      "rglob",
+      "str",
+      "str",
+      "lower",
+      "open",
+      "range",
+      "hexdigest",
+      "is_dir",
+      "startswith",
+      "relative_to",
+      "fromtimestamp",
+      "read",
+      "update",
+      "is_dir",
+      "is_file",
+      "append",
+      "get_models_base",
+      "lower",
+      "_record"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/models/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/engine.py",
+    "imports": [
+      "logging",
+      "core.domain.machine",
+      "core.domain.execution",
+      "interfaces",
+      "knowledge_engine",
+      "evaluator"
+    ],
+    "classes": [
+      "PlannerEngine"
+    ],
+    "functions": [
+      "__init__",
+      "set_context",
+      "initialize",
+      "plan_inference",
+      "resolve_package"
+    ],
+    "calls": [
+      "getLogger",
+      "KnowledgeEngine",
+      "RuleEvaluator",
+      "copy",
+      "initialize",
+      "evaluate"
+    ],
+    "instantiates": [
+      "KnowledgeEngine",
+      "RuleEvaluator"
+    ],
+    "inherits": [
+      "IPlannerService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "plannerengine"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/planner/evaluator.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "re",
+      "core.domain.machine",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "RuleEvaluator"
+    ],
+    "functions": [
+      "__init__",
+      "evaluate"
+    ],
+    "calls": [
+      "getLogger",
+      "ExecutionPlan",
+      "len",
+      "get",
+      "get",
+      "search",
+      "info",
+      "ExecutionPlan",
+      "info",
+      "ExecutionPlan",
+      "query_knowledge",
+      "warning",
+      "group",
+      "get",
+      "get",
+      "get",
+      "get",
+      "info"
+    ],
+    "instantiates": [
+      "ExecutionPlan",
+      "ExecutionPlan",
+      "ExecutionPlan"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionplan"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/planner/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/interfaces.py",
+    "imports": [
+      "abc",
+      "core.domain.machine",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "IPlannerService"
+    ],
+    "functions": [
+      "initialize",
+      "plan_inference"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/knowledge_engine.py",
+    "imports": [
+      "__future__",
+      "json",
+      "pathlib",
+      "typing",
+      "phoenix_kernel.intelligence.memory_loader",
+      "intelligence.memory_loader"
+    ],
+    "classes": [
+      "RagBackend",
+      "KnowledgeEngine"
+    ],
+    "functions": [
+      "query",
+      "upsert",
+      "__init__",
+      "initialize",
+      "get_document_count",
+      "load_intrinsic_memory",
+      "get_execution_recipe",
+      "get_machine_context",
+      "search_rag",
+      "query_knowledge",
+      "reingest_rag_sources",
+      "build_context",
+      "_render_section",
+      "record_experience"
+    ],
+    "calls": [
+      "MemoryLoader",
+      "load_intrinsic",
+      "load_manifest",
+      "lower",
+      "load_manifest",
+      "lower",
+      "query",
+      "search_rag",
+      "load_rag_source_docs",
+      "upsert",
+      "len",
+      "load_intrinsic_memory",
+      "append",
+      "get_execution_recipe",
+      "get_machine_context",
+      "search_rag",
+      "join",
+      "join",
+      "loads",
+      "append",
+      "write_text",
+      "Path",
+      "hasattr",
+      "any",
+      "any",
+      "RuntimeError",
+      "_render_section",
+      "append",
+      "append",
+      "join",
+      "append",
+      "append",
+      "read_text",
+      "dumps",
+      "count",
+      "hasattr",
+      "hasattr",
+      "count",
+      "append",
+      "append",
+      "_render_section",
+      "_render_section",
+      "setdefault",
+      "load_procedure",
+      "load_machine_file",
+      "dumps"
+    ],
+    "instantiates": [
+      "MemoryLoader",
+      "Path",
+      "RuntimeError"
+    ],
+    "inherits": [
+      "Protocol"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/planner/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/approval_engine.py",
+    "imports": [
+      "logging"
+    ],
+    "classes": [
+      "ApprovalEngine"
+    ],
+    "functions": [
+      "__init__",
+      "request_approval",
+      "get_pending",
+      "approve_and_clear",
+      "reject"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "info"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/decision_engine.py",
+    "imports": [
+      "logging"
+    ],
+    "classes": [
+      "DecisionEngine"
+    ],
+    "functions": [
+      "__init__",
+      "create_plan"
+    ],
+    "calls": [
+      "getLogger",
+      "get"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/interfaces.py",
+    "imports": [
+      "abc"
+    ],
+    "classes": [
+      "IResidentManager"
+    ],
+    "functions": [
+      "process_intent",
+      "execute_plan",
+      "get_status"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "residentmanager"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/resident/memory.py",
+    "imports": [
+      "json",
+      "pathlib"
+    ],
+    "classes": [
+      "ResidentMemory"
+    ],
+    "functions": [
+      "__init__",
+      "_load",
+      "save",
+      "add_history",
+      "update_machine"
+    ],
+    "calls": [
+      "Path",
+      "mkdir",
+      "_load",
+      "exists",
+      "write_text",
+      "append",
+      "save",
+      "save",
+      "loads",
+      "dumps",
+      "read_text"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/research_connector.py",
+    "imports": [
+      "logging",
+      "asyncio"
+    ],
+    "classes": [
+      "ResearchConnector"
+    ],
+    "functions": [
+      "search"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "get",
+      "lower",
+      "sleep",
+      "get",
+      "get",
+      "get"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/resident_manager.py",
+    "imports": [
+      "asyncio",
+      "logging",
+      "importlib",
+      "re",
+      "time",
+      "datetime",
+      "interfaces",
+      "phoenix_kernel.intelligence.reasoning_engine",
+      "phoenix_kernel.core.enums",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "ResidentManager"
+    ],
+    "functions": [
+      "__init__",
+      "analyze_machine",
+      "_check_device_alerts",
+      "_thermal_guard",
+      "process_intent",
+      "approve_and_execute",
+      "_execute_mission_background",
+      "get_status",
+      "execute_plan"
+    ],
+    "calls": [
+      "getLogger",
+      "import_module",
+      "import_module",
+      "ReasoningEngine",
+      "info",
+      "get",
+      "get",
+      "get_running_loop",
+      "_check_device_alerts",
+      "create_task",
+      "monotonic",
+      "add_event",
+      "add_event",
+      "ModelManager",
+      "get_state",
+      "query_knowledge",
+      "get",
+      "get_running_loop",
+      "_check_device_alerts",
+      "plan_mission",
+      "to_dict",
+      "_execute_mission_background",
+      "monotonic",
+      "add_event",
+      "info",
+      "add_event",
+      "monotonic",
+      "run_in_executor",
+      "warning",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "join",
+      "get",
+      "get",
+      "len",
+      "run_in_executor",
+      "warning",
+      "getattr",
+      "monotonic",
+      "get",
+      "get",
+      "get",
+      "append",
+      "add_event",
+      "get",
+      "len",
+      "get",
+      "add_event",
+      "error",
+      "append",
+      "get_environment_status",
+      "lower",
+      "add_event",
+      "add_event",
+      "lower",
+      "lower",
+      "install_service",
+      "install_service",
+      "add_event",
+      "add_event",
+      "str",
+      "lower",
+      "lower",
+      "download_model",
+      "add_event",
+      "add_event",
+      "lower",
+      "add_event",
+      "add_event",
+      "add_event",
+      "get",
+      "add_event",
+      "get",
+      "start",
+      "add_event",
+      "get",
+      "ExecutionPlan",
+      "add_event",
+      "add_event",
+      "add_event",
+      "hasattr",
+      "stop",
+      "hasattr",
+      "add_event",
+      "_thermal_guard",
+      "execute",
+      "add_event"
+    ],
+    "instantiates": [
+      "ReasoningEngine",
+      "ModelManager",
+      "ExecutionPlan"
+    ],
+    "inherits": [
+      "IResidentManager"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionplan",
+      "residentmanager",
+      "mission",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/resident/tools.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/resident/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/engine.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "inspect",
+      "logging",
+      "pathlib",
+      "typing",
+      "core.contracts.engine",
+      "core.contracts.runtime",
+      "core.domain.engine",
+      "core.domain.execution",
+      "core.domain.runtime",
+      "core.events.bus",
+      "core.events.base",
+      "core.kernel.kernel",
+      "drivers.llama_cpp",
+      "drivers.sd_cpp",
+      "drivers.whisper",
+      "drivers.piper",
+      "drivers.comfyui"
+    ],
+    "classes": [
+      "RuntimeEngine"
+    ],
+    "functions": [
+      "_call_driver_start",
+      "__init__",
+      "descriptor",
+      "initialize",
+      "shutdown",
+      "health",
+      "list_runtimes",
+      "start",
+      "stop",
+      "status",
+      "execute",
+      "pull_model",
+      "embed",
+      "describe_image",
+      "_watchdog_loop"
+    ],
+    "calls": [
+      "getLogger",
+      "signature",
+      "len",
+      "start",
+      "set",
+      "EngineDescriptor",
+      "LlamaCppDriver",
+      "create_task",
+      "list",
+      "tuple",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "get",
+      "start",
+      "hasattr",
+      "resolve",
+      "hasattr",
+      "resolve",
+      "Path",
+      "get_all",
+      "SdCppDriver",
+      "WhisperDriver",
+      "PiperDriver",
+      "ComfyUIDriver",
+      "_watchdog_loop",
+      "cancel",
+      "append",
+      "_call_driver_start",
+      "add",
+      "stop",
+      "discard",
+      "RuntimeStatus",
+      "status",
+      "ExecutionResult",
+      "execute",
+      "warning",
+      "pull_model",
+      "embed",
+      "describe_image",
+      "get_workspace_path",
+      "error",
+      "stop",
+      "RuntimeDescriptor",
+      "start",
+      "warning",
+      "ExecutionResult",
+      "hasattr",
+      "start",
+      "hasattr",
+      "start",
+      "hasattr",
+      "start",
+      "list",
+      "Capability",
+      "publish",
+      "publish",
+      "sleep",
+      "get",
+      "Event",
+      "Event",
+      "status",
+      "stop",
+      "_call_driver_start",
+      "discard"
+    ],
+    "instantiates": [
+      "EngineDescriptor",
+      "LlamaCppDriver",
+      "Path",
+      "SdCppDriver",
+      "WhisperDriver",
+      "PiperDriver",
+      "ComfyUIDriver",
+      "RuntimeStatus",
+      "ExecutionResult",
+      "RuntimeDescriptor",
+      "ExecutionResult",
+      "Capability",
+      "Event",
+      "Event"
+    ],
+    "inherits": [
+      "IEngine",
+      "IRuntimeSDK"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "comfyui",
+      "runtimeengine",
+      "whisper",
+      "executionresult",
+      "kernel",
+      "piper"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/interfaces.py",
+    "imports": [
+      "abc",
+      "core.domain.execution"
+    ],
+    "classes": [
+      "IRuntimeService"
+    ],
+    "functions": [
+      "initialize",
+      "shutdown",
+      "execute"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/runtime_engine OLD.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "inspect",
+      "logging",
+      "typing",
+      "core.contracts.engine",
+      "core.contracts.runtime",
+      "core.domain.engine",
+      "core.domain.execution",
+      "core.domain.runtime",
+      "core.events.bus",
+      "core.events.base",
+      "core.kernel.kernel",
+      "drivers.ollama",
+      "drivers.llama_cpp",
+      "drivers.sd_cpp",
+      "drivers.whisper",
+      "drivers.piper",
+      "drivers.comfyui",
+      "pathlib"
+    ],
+    "classes": [
+      "RuntimeEngine"
+    ],
+    "functions": [
+      "_call_driver_start",
+      "__init__",
+      "descriptor",
+      "initialize",
+      "shutdown",
+      "health",
+      "list_runtimes",
+      "start",
+      "stop",
+      "status",
+      "execute",
+      "pull_model",
+      "embed",
+      "describe_image",
+      "_watchdog_loop"
+    ],
+    "calls": [
+      "getLogger",
+      "signature",
+      "len",
+      "start",
+      "set",
+      "EngineDescriptor",
+      "OllamaDriver",
+      "LlamaCppDriver",
+      "create_task",
+      "list",
+      "tuple",
+      "get",
+      "get",
+      "get",
+      "get",
+      "ExecutionResult",
+      "get",
+      "get",
+      "get",
+      "start",
+      "hasattr",
+      "resolve",
+      "hasattr",
+      "resolve",
+      "Path",
+      "get_all",
+      "SdCppDriver",
+      "WhisperDriver",
+      "PiperDriver",
+      "ComfyUIDriver",
+      "_watchdog_loop",
+      "cancel",
+      "append",
+      "_call_driver_start",
+      "add",
+      "stop",
+      "discard",
+      "RuntimeStatus",
+      "status",
+      "ExecutionResult",
+      "warning",
+      "info",
+      "get",
+      "pull_model",
+      "embed",
+      "describe_image",
+      "get_workspace_path",
+      "warning",
+      "stop",
+      "RuntimeDescriptor",
+      "start",
+      "warning",
+      "warning",
+      "execute",
+      "ExecutionPlan",
+      "hasattr",
+      "start",
+      "hasattr",
+      "start",
+      "hasattr",
+      "start",
+      "list",
+      "Capability",
+      "publish",
+      "publish",
+      "execute",
+      "execute",
+      "sleep",
+      "get",
+      "Event",
+      "Event",
+      "start",
+      "status",
+      "stop",
+      "_call_driver_start",
+      "discard"
+    ],
+    "instantiates": [
+      "EngineDescriptor",
+      "OllamaDriver",
+      "LlamaCppDriver",
+      "ExecutionResult",
+      "Path",
+      "SdCppDriver",
+      "WhisperDriver",
+      "PiperDriver",
+      "ComfyUIDriver",
+      "RuntimeStatus",
+      "ExecutionResult",
+      "RuntimeDescriptor",
+      "ExecutionPlan",
+      "Capability",
+      "Event",
+      "Event"
+    ],
+    "inherits": [
+      "IEngine",
+      "IRuntimeSDK"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "comfyui",
+      "runtimeengine",
+      "whisper",
+      "executionresult",
+      "ollama",
+      "executionplan",
+      "kernel",
+      "piper"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/engine.py",
+    "imports": [
+      "os",
+      "logging",
+      "typing",
+      "interfaces",
+      "ctypes"
+    ],
+    "classes": [
+      "SecurityEngine"
+    ],
+    "functions": [
+      "__init__",
+      "check_integrity"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "IsUserAnAdmin"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "ISecurityService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "ISecurityService"
+    ],
+    "functions": [
+      "check_integrity"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/catalog.py",
+    "imports": [
+      "json",
+      "logging",
+      "pathlib"
+    ],
+    "classes": [
+      "CatalogEngine"
+    ],
+    "functions": [
+      "__init__",
+      "_load_connectors",
+      "_load_packages",
+      "get_package",
+      "get_connector",
+      "list_packages"
+    ],
+    "calls": [
+      "getLogger",
+      "Path",
+      "_load_connectors",
+      "_load_packages",
+      "get",
+      "get",
+      "join",
+      "exists",
+      "glob",
+      "append",
+      "open",
+      "load",
+      "error",
+      "exists",
+      "append",
+      "append",
+      "get",
+      "values",
+      "open",
+      "load",
+      "error",
+      "get",
+      "upper",
+      "get",
+      "get",
+      "get"
+    ],
+    "instantiates": [
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/engine.py",
+    "imports": [
+      "asyncio",
+      "shutil",
+      "urllib.request",
+      "json",
+      "logging",
+      "pathlib",
+      "typing",
+      "interfaces",
+      "provisioning",
+      "package_manager"
+    ],
+    "classes": [
+      "ServicesEngine"
+    ],
+    "functions": [
+      "_find_engine_binary",
+      "__init__",
+      "get_environment_status",
+      "install_service",
+      "install_package",
+      "check"
+    ],
+    "calls": [
+      "getLogger",
+      "exists",
+      "exists",
+      "which",
+      "ProvisioningManager",
+      "PackageManager",
+      "get_running_loop",
+      "get_running_loop",
+      "run_in_executor",
+      "run_in_executor",
+      "install_package",
+      "_find_engine_binary",
+      "_find_engine_binary",
+      "which",
+      "which",
+      "urlopen",
+      "Path",
+      "Path"
+    ],
+    "instantiates": [
+      "ProvisioningManager",
+      "PackageManager",
+      "Path",
+      "Path"
+    ],
+    "inherits": [
+      "IServicesService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/install_target.py",
+    "imports": [
+      "os",
+      "psutil",
+      "subprocess",
+      "logging",
+      "json"
+    ],
+    "classes": [
+      "InstallTargetSelector"
+    ],
+    "functions": [
+      "__init__",
+      "_get_disk_priorities",
+      "get_best_workspace_path",
+      "get_apps_path"
+    ],
+    "calls": [
+      "getLogger",
+      "_get_disk_priorities",
+      "disk_partitions",
+      "join",
+      "join",
+      "join",
+      "makedirs",
+      "makedirs",
+      "info",
+      "join",
+      "run",
+      "get_best_workspace_path",
+      "strip",
+      "loads",
+      "run",
+      "debug",
+      "disk_usage",
+      "get",
+      "isinstance",
+      "upper",
+      "lower",
+      "strip",
+      "loads",
+      "upper",
+      "isinstance",
+      "upper",
+      "upper",
+      "str",
+      "str",
+      "get",
+      "get",
+      "str",
+      "str",
+      "get",
+      "get"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "IServicesService"
+    ],
+    "functions": [
+      "get_environment_status"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/lmstudio_service.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "sys",
+      "httpx",
+      "subprocess"
+    ],
+    "classes": [],
+    "functions": [
+      "is_running",
+      "is_cli_installed",
+      "try_start_server"
+    ],
+    "calls": [
+      "run",
+      "is_running",
+      "is_cli_installed",
+      "sleep",
+      "is_running",
+      "AsyncClient",
+      "create_subprocess_exec",
+      "wait_for",
+      "get",
+      "wait"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [
+      "httpx.AsyncClient"
+    ],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/package_manager.py",
+    "imports": [
+      "json",
+      "logging",
+      "asyncio",
+      "pathlib",
+      "provisioning",
+      "catalog"
+    ],
+    "classes": [
+      "PackageManager"
+    ],
+    "functions": [
+      "__init__",
+      "_find_package",
+      "list_packages",
+      "install_package"
+    ],
+    "calls": [
+      "getLogger",
+      "Path",
+      "CatalogEngine",
+      "ProvisioningManager",
+      "_find_package",
+      "info",
+      "get",
+      "get_running_loop",
+      "exists",
+      "list",
+      "append",
+      "join",
+      "open",
+      "load",
+      "info",
+      "append",
+      "join",
+      "exists",
+      "glob",
+      "run_in_executor",
+      "append",
+      "get",
+      "get",
+      "upper",
+      "open",
+      "load",
+      "get",
+      "get"
+    ],
+    "instantiates": [
+      "Path",
+      "CatalogEngine",
+      "ProvisioningManager"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/platform_process.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "os",
+      "sys",
+      "pathlib"
+    ],
+    "classes": [],
+    "functions": [
+      "is_available",
+      "_stream_log",
+      "_supervise",
+      "start_supervised",
+      "stop"
+    ],
+    "calls": [
+      "Path",
+      "Path",
+      "exists",
+      "create_task",
+      "rstrip",
+      "add_event",
+      "copy",
+      "str",
+      "add_event",
+      "_supervise",
+      "terminate",
+      "cancel",
+      "readline",
+      "add_event",
+      "_stream_log",
+      "wait",
+      "add_event",
+      "sleep",
+      "decode",
+      "create_subprocess_exec",
+      "add_event",
+      "wait_for",
+      "kill",
+      "str",
+      "wait"
+    ],
+    "instantiates": [
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/provisioning.py",
+    "imports": [
+      "os",
+      "subprocess",
+      "urllib.request",
+      "logging",
+      "sys",
+      "pathlib",
+      "catalog"
+    ],
+    "classes": [
+      "ProvisioningManager"
+    ],
+    "functions": [
+      "__init__",
+      "install",
+      "_install_docker",
+      "_install_git",
+      "_install_winget",
+      "_install_pip"
+    ],
+    "calls": [
+      "getLogger",
+      "CatalogEngine",
+      "get_connector",
+      "get",
+      "get",
+      "get",
+      "append",
+      "get",
+      "exists",
+      "next",
+      "get",
+      "get",
+      "_install_docker",
+      "extend",
+      "extend",
+      "get",
+      "run",
+      "run",
+      "Path",
+      "run",
+      "run",
+      "run",
+      "info",
+      "mkdir",
+      "run",
+      "run",
+      "_install_git",
+      "append",
+      "run",
+      "run",
+      "_install_winget",
+      "get",
+      "str",
+      "str",
+      "str",
+      "items",
+      "_install_pip",
+      "lower",
+      "str",
+      "str"
+    ],
+    "instantiates": [
+      "CatalogEngine",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/shared/hardware_provider.py",
+    "imports": [
+      "platform",
+      "subprocess",
+      "logging",
+      "clr",
+      "HardwareMonitor.Hardware"
+    ],
+    "classes": [],
+    "functions": [
+      "get_all_hardware_sensors",
+      "get_gpu_sensors",
+      "_get_win_computer",
+      "_get_windows_hardware",
+      "_get_windows_gpu",
+      "_run_cmd",
+      "_get_linux_hardware",
+      "_get_linux_gpu"
+    ],
+    "calls": [
+      "getLogger",
+      "lower",
+      "lower",
+      "_get_win_computer",
+      "_get_win_computer",
+      "split",
+      "split",
+      "split",
+      "_run_cmd",
+      "split",
+      "_get_windows_hardware",
+      "_get_windows_gpu",
+      "Computer",
+      "Open",
+      "run",
+      "strip",
+      "strip",
+      "append",
+      "split",
+      "split",
+      "system",
+      "_get_linux_hardware",
+      "system",
+      "_get_linux_gpu",
+      "error",
+      "Update",
+      "error",
+      "Update",
+      "_run_cmd",
+      "_run_cmd",
+      "_run_cmd",
+      "strip",
+      "append",
+      "len",
+      "append",
+      "_run_cmd",
+      "open",
+      "append",
+      "getattr",
+      "Update",
+      "str",
+      "str",
+      "float",
+      "append",
+      "float",
+      "int",
+      "str",
+      "append",
+      "append",
+      "float",
+      "split",
+      "len",
+      "len",
+      "strip",
+      "str",
+      "str",
+      "append",
+      "float",
+      "split",
+      "split",
+      "float",
+      "append",
+      "split",
+      "float",
+      "get",
+      "str",
+      "float",
+      "read",
+      "float",
+      "get",
+      "split",
+      "split",
+      "split",
+      "split"
+    ],
+    "instantiates": [
+      "Computer"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/shared/models.py",
+    "imports": [
+      "dataclasses",
+      "typing"
+    ],
+    "classes": [
+      "CPUInfo",
+      "GPUInfo",
+      "MemoryInfo",
+      "StorageInfo",
+      "MotherboardInfo",
+      "HardwareSnapshot",
+      "TelemetrySnapshot"
+    ],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/shared/storage.py",
+    "imports": [
+      "os",
+      "json",
+      "logging",
+      "pathlib"
+    ],
+    "classes": [
+      "StorageManager"
+    ],
+    "functions": [
+      "__init__",
+      "_load_config",
+      "get_workspace",
+      "get_models_path",
+      "get_apps_path",
+      "get_rag_path"
+    ],
+    "calls": [
+      "getLogger",
+      "StorageManager",
+      "_load_config",
+      "warning",
+      "get",
+      "get",
+      "mkdir",
+      "join",
+      "mkdir",
+      "get",
+      "mkdir",
+      "Path",
+      "Path",
+      "exists",
+      "str",
+      "get",
+      "resolve",
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "get",
+      "open",
+      "load",
+      "info",
+      "error",
+      "Path"
+    ],
+    "instantiates": [
+      "StorageManager",
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/shared/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/core.py",
+    "imports": [
+      "logging",
+      "threading",
+      "platform",
+      "os",
+      "glob",
+      "json",
+      "re",
+      "subprocess",
+      "clr",
+      "HardwareMonitor.Hardware"
+    ],
+    "classes": [],
+    "functions": [
+      "_amd_gpu_cards",
+      "_read_sysfs_int",
+      "_gpu_name_linux",
+      "_lmsensors_devices",
+      "_parse_lsblk_size_gb",
+      "_disk_temps_by_device",
+      "_storage_devices_linux",
+      "_get_all_hardware_sensors_linux",
+      "_get_gpu_static_specs_linux",
+      "_get_gpu_sensors_linux",
+      "_get_computer",
+      "_log_diagnostic_once",
+      "_collect_sensors",
+      "get_all_hardware_sensors",
+      "get_gpu_static_specs",
+      "get_gpu_sensors"
+    ],
+    "calls": [
+      "getLogger",
+      "Lock",
+      "system",
+      "sorted",
+      "items",
+      "match",
+      "float",
+      "get",
+      "round",
+      "glob",
+      "_disk_temps_by_device",
+      "get",
+      "_amd_gpu_cards",
+      "extend",
+      "extend",
+      "_amd_gpu_cards",
+      "_amd_gpu_cards",
+      "_get_computer",
+      "_log_diagnostic_once",
+      "_get_computer",
+      "_get_computer",
+      "_log_diagnostic_once",
+      "glob",
+      "join",
+      "run",
+      "splitlines",
+      "run",
+      "loads",
+      "items",
+      "strip",
+      "group",
+      "upper",
+      "_read_sysfs_int",
+      "join",
+      "glob",
+      "run",
+      "loads",
+      "get",
+      "_parse_lsblk_size_gb",
+      "get",
+      "_read_sysfs_int",
+      "_read_sysfs_int",
+      "_read_sysfs_int",
+      "glob",
+      "_lmsensors_devices",
+      "_storage_devices_linux",
+      "_read_sysfs_int",
+      "append",
+      "_read_sysfs_int",
+      "_read_sysfs_int",
+      "glob",
+      "Computer",
+      "Open",
+      "list",
+      "info",
+      "str",
+      "append",
+      "_get_all_hardware_sensors_linux",
+      "_get_gpu_static_specs_linux",
+      "_get_gpu_sensors_linux",
+      "exists",
+      "open",
+      "int",
+      "isinstance",
+      "items",
+      "append",
+      "join",
+      "join",
+      "basename",
+      "startswith",
+      "get",
+      "startswith",
+      "get",
+      "append",
+      "append",
+      "append",
+      "join",
+      "append",
+      "join",
+      "append",
+      "join",
+      "append",
+      "join",
+      "_read_sysfs_int",
+      "append",
+      "join",
+      "join",
+      "float",
+      "join",
+      "join",
+      "_read_sysfs_int",
+      "warning",
+      "warning",
+      "error",
+      "warning",
+      "float",
+      "open",
+      "strip",
+      "strip",
+      "isinstance",
+      "match",
+      "append",
+      "group",
+      "open",
+      "strip",
+      "basename",
+      "glob",
+      "strip",
+      "append",
+      "_gpu_name_linux",
+      "setattr",
+      "get",
+      "warning",
+      "strip",
+      "get",
+      "join",
+      "realpath",
+      "basename",
+      "get",
+      "float",
+      "_gpu_name_linux",
+      "int",
+      "len",
+      "Update",
+      "_collect_sensors",
+      "Update",
+      "append",
+      "Update",
+      "read",
+      "endswith",
+      "isinstance",
+      "group",
+      "float",
+      "get",
+      "read",
+      "append",
+      "getattr",
+      "debug",
+      "str",
+      "str",
+      "str",
+      "read",
+      "split",
+      "get",
+      "Update",
+      "_collect_sensors",
+      "int",
+      "str",
+      "append",
+      "str",
+      "float",
+      "float",
+      "float",
+      "float",
+      "str"
+    ],
+    "instantiates": [
+      "Computer"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/engine.py",
+    "imports": [
+      "asyncio",
+      "logging",
+      "psutil",
+      "typing",
+      "interfaces",
+      "providers.factory"
+    ],
+    "classes": [
+      "TelemetryEngine"
+    ],
+    "functions": [
+      "__init__",
+      "get_live_metrics",
+      "collect"
+    ],
+    "calls": [
+      "getLogger",
+      "get_telemetry_provider",
+      "get_running_loop",
+      "get_metrics",
+      "run_in_executor",
+      "int",
+      "virtual_memory"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "ITelemetryService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "ITelemetryService"
+    ],
+    "functions": [
+      "get_live_metrics"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/config.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/engine.py",
+    "imports": [
+      "asyncio",
+      "psutil",
+      "logging",
+      "typing",
+      "interfaces"
+    ],
+    "classes": [
+      "ValidationEngine"
+    ],
+    "functions": [
+      "__init__",
+      "validate_system",
+      "check"
+    ],
+    "calls": [
+      "getLogger",
+      "get_running_loop",
+      "info",
+      "virtual_memory",
+      "run_in_executor",
+      "int",
+      "cpu_count"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "IValidationService"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/exceptions.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/interfaces.py",
+    "imports": [
+      "abc",
+      "typing"
+    ],
+    "classes": [
+      "IValidationService"
+    ],
+    "functions": [
+      "validate_system"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/models.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/api/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/budget/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/dashboard/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/providers/base.py",
+    "imports": [
+      "abc",
+      "phoenix_kernel.shared.models"
+    ],
+    "classes": [
+      "IDiscoveryProvider"
+    ],
+    "functions": [
+      "discover"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/discovery/providers/factory.py",
+    "imports": [
+      "platform",
+      "windows",
+      "linux"
+    ],
+    "classes": [],
+    "functions": [
+      "get_discovery_provider"
+    ],
+    "calls": [
+      "lower",
+      "NotImplementedError",
+      "WindowsDiscoveryProvider",
+      "system",
+      "LinuxDiscoveryProvider"
+    ],
+    "instantiates": [
+      "NotImplementedError",
+      "WindowsDiscoveryProvider",
+      "LinuxDiscoveryProvider"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/providers/linux.py",
+    "imports": [
+      "glob",
+      "os",
+      "re",
+      "json",
+      "shutil",
+      "subprocess",
+      "logging",
+      "base",
+      "phoenix_kernel.shared.models",
+      "psutil",
+      "psutil"
+    ],
+    "classes": [
+      "LinuxDiscoveryProvider"
+    ],
+    "functions": [
+      "_run",
+      "_get_cpu_info",
+      "_get_memory_info",
+      "_classify_vendor",
+      "_clean_pci_name",
+      "_get_gpu_info",
+      "_get_storage_info",
+      "_get_motherboard_info",
+      "discover"
+    ],
+    "calls": [
+      "getLogger",
+      "CPUInfo",
+      "lower",
+      "strip",
+      "_run",
+      "splitlines",
+      "sorted",
+      "_run",
+      "MotherboardInfo",
+      "run",
+      "cpu_count",
+      "MemoryInfo",
+      "findall",
+      "strip",
+      "append",
+      "glob",
+      "which",
+      "append",
+      "loads",
+      "get",
+      "_get_gpu_info",
+      "HardwareSnapshot",
+      "debug",
+      "open",
+      "warning",
+      "cpu_count",
+      "warning",
+      "MemoryInfo",
+      "sub",
+      "len",
+      "_clean_pci_name",
+      "_clean_pci_name",
+      "GPUInfo",
+      "lower",
+      "get",
+      "append",
+      "warning",
+      "open",
+      "open",
+      "startswith",
+      "int",
+      "_classify_vendor",
+      "open",
+      "debug",
+      "get",
+      "round",
+      "StorageInfo",
+      "strip",
+      "strip",
+      "_get_cpu_info",
+      "_get_memory_info",
+      "_get_storage_info",
+      "_get_motherboard_info",
+      "strip",
+      "open",
+      "int",
+      "any",
+      "lower",
+      "startswith",
+      "strip",
+      "int",
+      "get",
+      "strip",
+      "read",
+      "read",
+      "virtual_memory",
+      "int",
+      "MemoryInfo",
+      "upper",
+      "split",
+      "read",
+      "split",
+      "get"
+    ],
+    "instantiates": [
+      "CPUInfo",
+      "MotherboardInfo",
+      "MemoryInfo",
+      "HardwareSnapshot",
+      "MemoryInfo",
+      "GPUInfo",
+      "StorageInfo",
+      "MemoryInfo"
+    ],
+    "inherits": [
+      "IDiscoveryProvider"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/discovery/providers/windows.py",
+    "imports": [
+      "os",
+      "shutil",
+      "logging",
+      "platform",
+      "base",
+      "phoenix_kernel.shared.models",
+      "wmi",
+      "psutil",
+      "importlib",
+      "wmi"
+    ],
+    "classes": [
+      "WindowsDiscoveryProvider"
+    ],
+    "functions": [
+      "_get_cpu_info",
+      "_get_memory_info",
+      "_classify_vendor",
+      "_get_gpu_info",
+      "_get_storage_and_motherboard",
+      "discover"
+    ],
+    "calls": [
+      "getLogger",
+      "CPUInfo",
+      "lower",
+      "MotherboardInfo",
+      "processor",
+      "WMI",
+      "Win32_Processor",
+      "cpu_count",
+      "MemoryInfo",
+      "import_module",
+      "get_gpu_static_specs",
+      "WMI",
+      "Win32_DiskDrive",
+      "Win32_BaseBoard",
+      "_get_cpu_info",
+      "_get_memory_info",
+      "_get_gpu_info",
+      "_get_storage_and_motherboard",
+      "HardwareSnapshot",
+      "strip",
+      "getattr",
+      "getattr",
+      "warning",
+      "warning",
+      "MemoryInfo",
+      "which",
+      "get",
+      "append",
+      "warning",
+      "strip",
+      "getattr",
+      "str",
+      "str",
+      "append",
+      "MotherboardInfo",
+      "warning",
+      "int",
+      "GPUInfo",
+      "StorageInfo",
+      "round",
+      "getattr",
+      "getattr",
+      "upper",
+      "upper",
+      "upper",
+      "upper",
+      "any",
+      "getattr",
+      "get",
+      "_classify_vendor",
+      "getattr",
+      "getattr",
+      "getattr",
+      "virtual_memory",
+      "int"
+    ],
+    "instantiates": [
+      "CPUInfo",
+      "MotherboardInfo",
+      "MemoryInfo",
+      "HardwareSnapshot",
+      "MemoryInfo",
+      "MotherboardInfo",
+      "GPUInfo",
+      "StorageInfo"
+    ],
+    "inherits": [
+      "IDiscoveryProvider"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/discovery/providers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/discovery/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/install/connectors/connectors.py",
+    "imports": [
+      "subprocess",
+      "urllib.request",
+      "logging"
+    ],
+    "classes": [
+      "WingetConnector",
+      "DockerConnector",
+      "GitConnector"
+    ],
+    "functions": [
+      "install",
+      "_is_docker_running",
+      "install",
+      "install"
+    ],
+    "calls": [
+      "getLogger",
+      "get",
+      "get",
+      "get",
+      "get",
+      "items",
+      "append",
+      "get",
+      "run",
+      "run",
+      "_is_docker_running",
+      "extend",
+      "extend",
+      "extend",
+      "run",
+      "run",
+      "run",
+      "get",
+      "get",
+      "str",
+      "str",
+      "str"
+    ],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/install/connectors/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/models/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/planner/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/rag/source_docs/audio_translation_script.py",
+    "imports": [
+      "deep_translator"
+    ],
+    "classes": [],
+    "functions": [
+      "traduzir_srt"
+    ],
+    "calls": [
+      "split",
+      "print",
+      "traduzir_srt",
+      "open",
+      "read",
+      "split",
+      "open",
+      "write",
+      "strip",
+      "len",
+      "join",
+      "translate",
+      "append",
+      "join",
+      "GoogleTranslator"
+    ],
+    "instantiates": [
+      "GoogleTranslator"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/builders/base_builder.py",
+    "imports": [
+      "abc",
+      "typing",
+      "phoenix_kernel.runtime.contracts.model_contracts"
+    ],
+    "classes": [
+      "ICommandBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/builders/flux_builder.py",
+    "imports": [
+      "typing",
+      "base_builder",
+      "phoenix_kernel.runtime.contracts.model_contracts"
+    ],
+    "classes": [
+      "FluxBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "calls": [
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "str",
+      "MissingComponent",
+      "exists"
+    ],
+    "instantiates": [
+      "MissingComponent"
+    ],
+    "inherits": [
+      "ICommandBuilder"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/builders/registry.py",
+    "imports": [
+      "typing",
+      "base_builder",
+      "phoenix_kernel.runtime.contracts.model_contracts",
+      "flux_builder",
+      "sd15_builder"
+    ],
+    "classes": [
+      "BuilderRegistry"
+    ],
+    "functions": [
+      "register",
+      "get"
+    ],
+    "calls": [
+      "register",
+      "register",
+      "get",
+      "builder_cls",
+      "BuilderNotSupported"
+    ],
+    "instantiates": [
+      "BuilderNotSupported"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/builders/sd15_builder.py",
+    "imports": [
+      "typing",
+      "base_builder",
+      "phoenix_kernel.runtime.contracts.model_contracts"
+    ],
+    "classes": [
+      "SD15Builder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "calls": [
+      "str",
+      "str",
+      "str",
+      "str"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "ICommandBuilder"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/builders/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/contracts/model_contracts.py",
+    "imports": [
+      "enum",
+      "dataclasses",
+      "pathlib",
+      "typing"
+    ],
+    "classes": [
+      "ModelArchitecture",
+      "GenerationProfile",
+      "ModelDescriptor",
+      "RuntimeCapabilities",
+      "PhoenixRuntimeError",
+      "ExecutableNotFound",
+      "ModelNotFound",
+      "MissingComponent",
+      "BuilderNotSupported",
+      "GenerationFailed",
+      "CatalogInconsistency"
+    ],
+    "functions": [],
+    "calls": [
+      "dataclass"
+    ],
+    "instantiates": [],
+    "inherits": [
+      "Enum",
+      "Exception",
+      "PhoenixRuntimeError",
+      "PhoenixRuntimeError",
+      "PhoenixRuntimeError",
+      "PhoenixRuntimeError",
+      "PhoenixRuntimeError",
+      "PhoenixRuntimeError"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/contracts/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/comfyui.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "core.domain.execution",
+      "core.domain.runtime"
+    ],
+    "classes": [
+      "ComfyUIDriver"
+    ],
+    "functions": [
+      "__init__",
+      "name",
+      "start",
+      "stop",
+      "status",
+      "execute"
+    ],
+    "calls": [
+      "getLogger",
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "instantiates": [
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "comfyui"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/llama_cpp.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "logging",
+      "json",
+      "os",
+      "httpx",
+      "pathlib",
+      "datetime",
+      "core.domain.execution",
+      "core.domain.runtime",
+      "phoenix_kernel.paths",
+      "shutil"
+    ],
+    "classes": [
+      "LlamaCppDriver"
+    ],
+    "functions": [
+      "__init__",
+      "name",
+      "_find_executable",
+      "_find_model_file",
+      "_check_health",
+      "start",
+      "stop",
+      "status",
+      "execute"
+    ],
+    "calls": [
+      "getLogger",
+      "exists",
+      "lower",
+      "get_category_path",
+      "list",
+      "_find_model_file",
+      "_find_executable",
+      "info",
+      "RuntimeStatus",
+      "get",
+      "get",
+      "str",
+      "which",
+      "which",
+      "exists",
+      "glob",
+      "error",
+      "error",
+      "copy",
+      "str",
+      "range",
+      "error",
+      "terminate",
+      "RuntimeStatus",
+      "get",
+      "get",
+      "get",
+      "get",
+      "ExecutionResult",
+      "replace",
+      "AsyncClient",
+      "create_subprocess_exec",
+      "stop",
+      "error",
+      "wait",
+      "_check_health",
+      "_check_health",
+      "ExecutionResult",
+      "AsyncClient",
+      "raise_for_status",
+      "json",
+      "ExecutionResult",
+      "get",
+      "Path",
+      "str",
+      "str",
+      "_check_health",
+      "info",
+      "error",
+      "sleep",
+      "start",
+      "post",
+      "get",
+      "now",
+      "now",
+      "resolve",
+      "stat",
+      "read",
+      "split",
+      "Path",
+      "decode",
+      "get",
+      "str"
+    ],
+    "instantiates": [
+      "RuntimeStatus",
+      "RuntimeStatus",
+      "ExecutionResult",
+      "ExecutionResult",
+      "ExecutionResult",
+      "Path",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [
+      "httpx.AsyncClient",
+      "httpx.AsyncClient"
+    ],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/ollama.py",
+    "imports": [
+      "__future__",
+      "asyncio",
+      "logging",
+      "urllib.request",
+      "json",
+      "datetime",
+      "typing",
+      "core.domain.execution",
+      "core.domain.runtime",
+      "base64",
+      "pathlib"
+    ],
+    "classes": [
+      "OllamaDriver"
+    ],
+    "functions": [
+      "name",
+      "start",
+      "stop",
+      "status",
+      "execute",
+      "pull_model",
+      "embed",
+      "describe_image",
+      "check",
+      "req",
+      "req_exec",
+      "req_exec",
+      "req_exec"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "encode",
+      "info",
+      "encode",
+      "get_running_loop",
+      "RuntimeStatus",
+      "get_running_loop",
+      "get",
+      "ExecutionResult",
+      "encode",
+      "Request",
+      "get_running_loop",
+      "encode",
+      "Request",
+      "get_running_loop",
+      "exists",
+      "open",
+      "decode",
+      "Request",
+      "get_running_loop",
+      "run_in_executor",
+      "RuntimeStatus",
+      "dumps",
+      "Request",
+      "run_in_executor",
+      "error",
+      "ExecutionResult",
+      "run_in_executor",
+      "error",
+      "run_in_executor",
+      "error",
+      "dumps",
+      "run_in_executor",
+      "error",
+      "get",
+      "urlopen",
+      "loads",
+      "get",
+      "now",
+      "now",
+      "dumps",
+      "urlopen",
+      "dumps",
+      "urlopen",
+      "get",
+      "Path",
+      "b64encode",
+      "urlopen",
+      "get",
+      "urlopen",
+      "decode",
+      "read",
+      "str",
+      "get",
+      "max",
+      "str",
+      "loads",
+      "get",
+      "read",
+      "decode",
+      "get",
+      "loads",
+      "read",
+      "decode",
+      "read"
+    ],
+    "instantiates": [
+      "RuntimeStatus",
+      "ExecutionResult",
+      "RuntimeStatus",
+      "ExecutionResult",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "ollama"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/piper.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "pathlib",
+      "core.domain.execution",
+      "core.domain.runtime"
+    ],
+    "classes": [
+      "PiperDriver"
+    ],
+    "functions": [
+      "__init__",
+      "name",
+      "start",
+      "stop",
+      "status",
+      "execute"
+    ],
+    "calls": [
+      "getLogger",
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "instantiates": [
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "piper"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/sd_cpp.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "platform",
+      "pathlib",
+      "datetime",
+      "core.domain.execution",
+      "core.domain.runtime",
+      "phoenix_kernel.runtime.contracts.model_contracts",
+      "phoenix_kernel.runtime.pipeline.catalog_pipeline",
+      "phoenix_kernel.runtime.builders.registry",
+      "phoenix_kernel.runtime.executors.subprocess_executor",
+      "phoenix_kernel.paths",
+      "phoenix_kernel.paths"
+    ],
+    "classes": [
+      "SdCppDriver"
+    ],
+    "functions": [
+      "_find_model_file",
+      "_find_component",
+      "__init__",
+      "name",
+      "_find_executable",
+      "start",
+      "stop",
+      "status",
+      "execute"
+    ],
+    "calls": [
+      "getLogger",
+      "lower",
+      "get_category_path",
+      "list",
+      "get_category_path",
+      "list",
+      "get",
+      "ExecutableNotFound",
+      "exists",
+      "rglob",
+      "exists",
+      "rglob",
+      "RuntimeCapabilities",
+      "_find_executable",
+      "_find_executable",
+      "RuntimeStatus",
+      "_find_executable",
+      "load",
+      "validate",
+      "resolve_paths",
+      "validate_disk",
+      "mkdir",
+      "get",
+      "get",
+      "build",
+      "GenerationFailed",
+      "replace",
+      "system",
+      "exists",
+      "RuntimeStatus",
+      "str",
+      "run",
+      "exists",
+      "ExecutionResult",
+      "error",
+      "ExecutionResult",
+      "error",
+      "ExecutionResult",
+      "str",
+      "strftime",
+      "now",
+      "now",
+      "split",
+      "resolve",
+      "str",
+      "str",
+      "now",
+      "Path"
+    ],
+    "instantiates": [
+      "ExecutableNotFound",
+      "RuntimeCapabilities",
+      "RuntimeStatus",
+      "GenerationFailed",
+      "RuntimeStatus",
+      "ExecutionResult",
+      "ExecutionResult",
+      "ExecutionResult",
+      "Path"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/drivers/whisper.py",
+    "imports": [
+      "__future__",
+      "logging",
+      "pathlib",
+      "core.domain.execution",
+      "core.domain.runtime"
+    ],
+    "classes": [
+      "WhisperDriver"
+    ],
+    "functions": [
+      "__init__",
+      "name",
+      "start",
+      "stop",
+      "status",
+      "execute"
+    ],
+    "calls": [
+      "getLogger",
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "instantiates": [
+      "RuntimeStatus",
+      "ExecutionResult"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "executionresult",
+      "whisper"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/executors/subprocess_executor.py",
+    "imports": [
+      "asyncio",
+      "logging",
+      "typing",
+      "phoenix_kernel.runtime.contracts.model_contracts"
+    ],
+    "classes": [
+      "SubprocessExecutor"
+    ],
+    "functions": [
+      "run"
+    ],
+    "calls": [
+      "getLogger",
+      "info",
+      "create_subprocess_exec",
+      "wait_for",
+      "GenerationFailed",
+      "kill",
+      "GenerationFailed",
+      "join",
+      "communicate",
+      "wait",
+      "decode"
+    ],
+    "instantiates": [
+      "GenerationFailed",
+      "GenerationFailed"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/executors/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/pipeline/catalog_pipeline.py",
+    "imports": [
+      "json",
+      "pathlib",
+      "phoenix_kernel.runtime.contracts.model_contracts"
+    ],
+    "classes": [
+      "CatalogLoader",
+      "CatalogValidator",
+      "PathResolver",
+      "FileValidator"
+    ],
+    "functions": [
+      "load",
+      "validate",
+      "resolve_paths",
+      "validate_disk"
+    ],
+    "calls": [
+      "get",
+      "get",
+      "items",
+      "get",
+      "get",
+      "GenerationProfile",
+      "ModelDescriptor",
+      "exists",
+      "ModelNotFound",
+      "open",
+      "load",
+      "ModelNotFound",
+      "CatalogInconsistency",
+      "CatalogInconsistency",
+      "get",
+      "ModelArchitecture",
+      "exists",
+      "MissingComponent",
+      "get",
+      "CatalogInconsistency",
+      "get",
+      "get",
+      "get",
+      "get"
+    ],
+    "instantiates": [
+      "GenerationProfile",
+      "ModelDescriptor",
+      "ModelNotFound",
+      "ModelNotFound",
+      "CatalogInconsistency",
+      "CatalogInconsistency",
+      "ModelArchitecture",
+      "MissingComponent",
+      "CatalogInconsistency"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/runtime/pipeline/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/registry/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/runtime/validators/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/security/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/services/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/providers/base.py",
+    "imports": [
+      "abc",
+      "phoenix_kernel.shared.models"
+    ],
+    "classes": [
+      "ITelemetryProvider"
+    ],
+    "functions": [
+      "get_metrics"
+    ],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [
+      "ABC"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/telemetry/providers/factory.py",
+    "imports": [
+      "platform",
+      "windows",
+      "linux"
+    ],
+    "classes": [],
+    "functions": [
+      "get_telemetry_provider"
+    ],
+    "calls": [
+      "lower",
+      "NotImplementedError",
+      "WindowsTelemetryProvider",
+      "system",
+      "LinuxTelemetryProvider"
+    ],
+    "instantiates": [
+      "NotImplementedError",
+      "WindowsTelemetryProvider",
+      "LinuxTelemetryProvider"
+    ],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/providers/linux.py",
+    "imports": [
+      "psutil",
+      "base",
+      "phoenix_kernel.shared.models",
+      "core"
+    ],
+    "classes": [
+      "LinuxTelemetryProvider"
+    ],
+    "functions": [
+      "get_metrics"
+    ],
+    "calls": [
+      "cpu_percent",
+      "virtual_memory",
+      "TelemetrySnapshot",
+      "get_gpu_sensors",
+      "get",
+      "get",
+      "get",
+      "int"
+    ],
+    "instantiates": [
+      "TelemetrySnapshot"
+    ],
+    "inherits": [
+      "ITelemetryProvider"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/telemetry/providers/windows.py",
+    "imports": [
+      "psutil",
+      "base",
+      "phoenix_kernel.shared.models",
+      "core"
+    ],
+    "classes": [
+      "WindowsTelemetryProvider"
+    ],
+    "functions": [
+      "get_metrics"
+    ],
+    "calls": [
+      "cpu_percent",
+      "virtual_memory",
+      "TelemetrySnapshot",
+      "get_gpu_sensors",
+      "get",
+      "get",
+      "get",
+      "int"
+    ],
+    "instantiates": [
+      "TelemetrySnapshot"
+    ],
+    "inherits": [
+      "ITelemetryProvider"
+    ],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": [
+      "kernel"
+    ]
+  },
+  {
+    "file": "phoenix_kernel/telemetry/providers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/telemetry/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/helpers/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/services/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  },
+  {
+    "file": "phoenix_kernel/validation/tests/__init__.py",
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "calls": [],
+    "instantiates": [],
+    "inherits": [],
+    "http_calls": [],
+    "subprocess": [],
+    "drivers": []
+  }
+]

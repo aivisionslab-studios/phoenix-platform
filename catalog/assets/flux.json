@@ -1,0 +1,17 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Flux.1-schnell Q4_0 (default)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/leejet/FLUX.1-schnell-gguf/resolve/main/flux1-schnell-q4_0.gguf"
+  },
+  "filename": "flux1-schnell-q4_0.gguf",
+  "target_dir": "downloads/images/",
+  "dependencies": [
+    "flux_vae",
+    "flux_clip_l",
+    "flux_t5xxl_fp8"
+  ],
+  "_comment": "PHX-FIX (auditoria Claude): faltava declarar os 3 componentes obrigatorios do perfil flux1-schnell (sd_cpp.py MODEL_PROFILES) como dependencies - sem isso, get_asset('flux') baixava so o GGUF de diffusao, e o primeiro generate sempre falhava com 'Componentes ausentes' (PhoenixDiffusionDriver.execute() nunca baixa componente sozinho, so procura via rglob). T5XXL em fp8 (nao fp16, que o flux.md do leejet recomenda) de proposito: fp16 tem quase o dobro do tamanho e a RX 580 8GB ja estava dando OOM por ~1GB faltando com fp8."
+}

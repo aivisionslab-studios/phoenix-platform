@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX CLIP-L Encoder",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
+  },
+  "filename": "clip_l.safetensors",
+  "target_dir": "downloads/encoders/"
+}

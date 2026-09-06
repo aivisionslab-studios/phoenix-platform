@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Flux.1-schnell Q4_K_M GGUF",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/unsloth/FLUX.1-schnell-GGUF/resolve/main/flux1-schnell-Q4_K_M.gguf?download=true"
+  },
+  "filename": "flux1-schnell-Q4_K_M.gguf",
+  "target_dir": "J:\\Phoenix\\Workstations\\Models\\Image"
+}

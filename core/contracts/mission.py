@@ -1,0 +1,9 @@
+from __future__ import annotations
+from typing import Protocol, runtime_checkable
+from core.domain.workflows import Mission
+
+@runtime_checkable
+class IMissionSDK(Protocol):
+    async def list_available_missions(self) -> list[str]: ...
+    async def create_mission(self, mission_name: str) -> Mission | None: ...
+    async def execute_mission(self, mission: Mission) -> Mission: ...

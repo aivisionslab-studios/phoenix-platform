@@ -1,0 +1,12 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "FLUX VAE (ae.safetensors)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/camenduru/FLUX.1-dev/resolve/main/ae.safetensors"
+  },
+  "filename": "ae.safetensors",
+  "target_dir": "downloads/vae/",
+  "_comment": "PHX-FIX (auditoria 2026-08-20, Secao 14, RODADA 17 -> RODADA 18): a Rodada 17 trocou isto pra black-forest-labs/FLUX.1-schnell assumindo (com base num comentario ja existente em install/common.ps1) que esse repo era nao-gated - ERRADO, a auditoria externa da Rodada 17 confirmou (e eu revalidei buscando a pagina real do Hugging Face) que black-forest-labs/FLUX.1-schnell TAMBEM e gated (\"You need to agree to share your contact information to access this model\"), apesar de licenciado apache-2.0. Ou seja, gated != licenca restritiva - sao coisas independentes no Hugging Face. Trocado pra camenduru/FLUX.1-dev, que revalidei (pagina do repo, secao Files and versions) e NAO mostra nenhum aviso de gated/acesso restrito, e contem ae.safetensors (335MB, tamanho batendo com o esperado) - e um mirror comunitario nao-oficial, entao sem garantia formal de uptime igual um repo oficial, mas e a unica fonte deste arquivo confirmada de verdade como baixavel sem login neste momento. Ver tambem flux_vae_mirror.json, que agora guarda a fonte OFICIAL (gated, marcada requires_auth) pra quem preferir baixar manualmente autenticado."
+}

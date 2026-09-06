@@ -1,0 +1,54 @@
+{
+  "ollama": {
+    "name": "Ollama Engine",
+    "provider": "docker",
+    "image": "ollama/ollama:latest",
+    "ports": [
+      "11434:11434"
+    ],
+    "volumes": [
+      "ollama:/root/.ollama"
+    ],
+    "restart": "unless-stopped"
+  },
+  "open-webui": {
+    "name": "Open WebUI",
+    "provider": "docker",
+    "image": "ghcr.io/open-webui/open-webui:main",
+    "ports": [
+      "3000:8080"
+    ],
+    "volumes": [
+      "open-webui:/app/backend/data"
+    ],
+    "restart": "unless-stopped",
+    "environment": {
+      "OLLAMA_BASE_URL": "http://host.docker.internal:11434"
+    }
+  },
+  "phoenix-diffusion": {
+    "name": "Phoenix Diffusion (bridge nativa Vulkan)",
+    "provider": "bundled",
+    "path": "src/phoenix-diffusion.cpp"
+  },
+  "comfyui": {
+    "name": "ComfyUI",
+    "provider": "git",
+    "url": "https://github.com/comfyanonymous/ComfyUI.git"
+  },
+  "lm_studio": {
+    "name": "LM Studio",
+    "provider": "winget",
+    "winget_id": "ElementLabs.LMStudio"
+  },
+  "openai_api": {
+    "name": "OpenAI API Client",
+    "provider": "pip",
+    "pip_package": "openai"
+  },
+  "mcp": {
+    "name": "Model Context Protocol (MCP)",
+    "provider": "pip",
+    "pip_package": "mcp"
+  }
+}

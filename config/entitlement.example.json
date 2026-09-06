@@ -1,0 +1,10 @@
+{
+  "payload": {
+    "license_id": "PHX-PRO-EXAMPLE",
+    "plan": "pro",
+    "issued_at": "2026-08-27T00:00:00Z",
+    "expires_at": "2027-08-27T00:00:00Z",
+    "machine_fingerprint": "OPTIONAL_SHA256_MACHINE_FINGERPRINT"
+  },
+  "signature": "BASE64_ED25519_SIGNATURE_CREATED_BY_AIVISIONSLAB_PRIVATE_KEY"
+}

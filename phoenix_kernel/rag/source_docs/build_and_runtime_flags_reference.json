@@ -1,0 +1,48 @@
+{
+  "memory_type": "rag_reference",
+  "description": "Flags de compilação e execução usadas nesta stack. Consultar quando o Reasoning Engine decidir compilar/executar algo e precisar dos detalhes exatos.",
+  "compilation_flags": {
+    "llama_cpp": {
+      "cmake": "cmake -B build -DGGML_VULKAN=ON -DGGML_HIPBLAS=OFF -DGGML_HIP=OFF -DGGML_CUDA=OFF",
+      "build": "cmake --build build --config Release -j4",
+      "critical_flag": "-DGGML_VULKAN=ON é obrigatória — sem ela o programa procura Nvidia/CUDA e falha nesta máquina AMD.",
+      "known_warnings": "Avisos C4267/C4244 durante compilação são normais (conversões de tipo esperadas no ggml), não afetam funcionamento."
+    },
+    "phoenix_diffusion": {
+      "source": "src/phoenix-diffusion.cpp (incluído no pacote; nunca clonar durante a instalação)",
+      "cmake": "cmake --preset windows-rx580-vulkan",
+      "build": "cmake --build --preset windows-rx580-vulkan-release --parallel --target phoenix_sd_bridge"
+    },
+    "whisper_cpp": {
+      "cmake": "cmake -B build -DGGML_VULKAN=ON -DGGML_HIP=OFF -DGGML_CUDA=OFF",
+      "build": "cmake --build build --config Release -j4 (ou -j8)"
+    }
+  },
+  "runtime_flags": {
+    "phoenix_diffusion_native": {
+      "auto_fit": "seleciona automaticamente compute e parâmetros entre Vulkan/CPU",
+      "max_vram": "valor negativo detecta VRAM livre e reserva a margem indicada; padrão Phoenix -0.75 GiB",
+      "stream_layers": "faz streaming de camadas quando os parâmetros de difusão ficam na RAM",
+      "vae_tiling": "reduz o pico de memória no decode do VAE",
+      "cfg_scale": "3.5 típico para Flux dev; 1.0 típico para Flux schnell/kontext",
+      "width / height": "768x768 é o teto validado com Flux Q3_K_S nesta máquina"
+    },
+    "llama_server": {
+      "--host 0.0.0.0": "expõe o servidor na rede local, não só localhost",
+      "--port": "porta customizável (8080/8081 usados nos testes)",
+      "--ctx-size": "tamanho do contexto; usar 8192 para modelos MoE grandes com thinking mode",
+      "-ngl": "número de camadas na GPU — EVITAR definir manualmente em modelos MoE grandes; o fitting automático do llama.cpp supera configuração manual nesta máquina",
+      "--no-thinking": "desativa thinking mode explicitamente (disponível em builds recentes)"
+    },
+    "whisper_cli": {
+      "-l": "idioma DE ORIGEM do áudio (nunca o de destino)",
+      "--translate": "traduz para inglês (SEMPRE inglês, é limitação do Whisper)",
+      "--output-txt": "salva transcrição em .txt",
+      "--output-srt": "salva legendas com timestamp em .srt",
+      "--output-vtt": "salva legendas em .vtt",
+      "-t 8": "usa 8 threads de CPU (padrão 4)",
+      "--device 0": "seleciona GPU 0",
+      "--no-gpu": "força CPU (modo lento, ~150x mais lento nesta máquina)"
+    }
+  }
+}

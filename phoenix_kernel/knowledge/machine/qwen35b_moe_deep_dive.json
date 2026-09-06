@@ -1,0 +1,68 @@
+{
+  "memory_type": "machine_experience",
+  "topic": "Execução híbrida de Qwen3.5-35B (MoE) na RX 580 8GB via Vulkan",
+  "source_sessions": ["2026-06-15 (Seção 33)", "2026-06-16 (Seção 34)"],
+  "hypothesis_original": "RX 580 8GB não deveria conseguir rodar um modelo de 35B parâmetros.",
+  "hypothesis_final": "CONFIRMADA COMO FALSA. O problema nunca foi hardware — foi (1) thinking mode + web search esgotando os 4096 tokens de contexto do fitting automático, e (2) timeout do cliente OpenWebUI (não do servidor).",
+  "why_moe_makes_it_possible": "Em MoE, apenas 8 de 256 experts são ativados por token (~3B params ativos de 34.66B totais / 3.1% ativado). Isso permite manter a maior parte dos pesos em RAM via mmap sem precisar computá-los simultaneamente.",
+  "automatic_fitting_sequence": {
+    "description": "llama.cpp SEM flags manuais de camada (-ngl) resolveu a distribuição sozinho em 1.15s.",
+    "steps": [
+      "1. VRAM necessária para modelo completo: 32961 MiB vs 7366 MiB livres → déficit de 26618 MiB.",
+      "2. Reduz contexto automaticamente: 262144 → 4096 tokens (economiza 5347 MiB).",
+      "3. Move todos os 256 experts MoE para RAM via mmap (25613 MiB), deixando só camadas densas residuais na Vulkan (2418 MiB, sobram 3924 MiB livres).",
+      "4. Realoca 41 camadas densas de volta para a GPU (uso: 3048 MiB, sobram 4318 MiB livres).",
+      "5. Preenche com overflow fracionado tipo GATE até uso final de 6255 MiB (sobram 1111 MiB)."
+    ],
+    "final_distribution": {
+      "vulkan0_rx580": "5154 MiB (41 camadas densas + camada de saída)",
+      "cpu_mapped_ram": "26784 MiB (256 experts MoE via mmap)",
+      "extra_buffers_vram": {
+        "kv_cache": "80.00 MiB",
+        "rs_buffer": "251.25 MiB",
+        "compute_buffer": "770.02 MiB",
+        "host_compute_buffer": "16.02 MiB",
+        "output_buffer": "3.79 MiB"
+      },
+      "effective_vram_total_during_inference_gb": "6.2-7.2"
+    }
+  },
+  "four_level_memory_architecture": [
+    {"level": 1, "name": "VRAM RX580 8GB GDDR5", "content": "5154 MiB camadas densas", "bandwidth": "~400 GB/s", "latency": "nanosegundos"},
+    {"level": 2, "name": "RAM DDR4 ECC 32GB (quad-channel)", "content": "26784 MiB experts MoE via mmap", "bandwidth": "~51 GB/s", "latency": "dezenas de ns"},
+    {"level": 3, "name": "SSD NVMe (E:)", "content": "26.55 GiB arquivo .gguf fonte", "bandwidth": "1.7-3.5 GB/s", "usage": "apenas no carregamento inicial"},
+    {"level": 4, "name": "HDD (C: swap)", "content": "swap do Windows ativado quando RAM > 97%", "bandwidth": "~120-180 MB/s", "usage": "pico de 98-100% durante inferência pesada — é o gargalo real"}
+  ],
+  "critical_limitation": "Contexto de 4096 tokens é o gargalo principal. O thinking mode do Qwen3.5 sozinho consome 3000+ tokens antes de qualquer resposta visível, deixando <1000 tokens livres para a resposta final.",
+  "five_tests_summary": [
+    {"id": 1, "config": "thinking ON + web search ON (10 fontes) + geração de imagem ON", "result": "fail", "cause": "prefill de resposta do OpenWebUI incompatível com enable_thinking=1 (erro de protocolo, não de hardware)"},
+    {"id": 2, "config": "thinking ON + web search ON (30 buscas)", "result": "fail", "cause": "contexto esgotado (n_tokens=3285, truncated=1) — buscas injetaram tokens demais para o limite de 4096"},
+    {"id": 3, "config": "thinking ON + web search ON (25 buscas, histórico acumulado)", "result": "fail", "cause": "contexto esgotado no reenvio (n_tokens=4095, truncated=1)"},
+    {"id": 4, "config": "thinking ON + web search OFF", "result": "fail", "cause": "timeout do CLIENTE OpenWebUI — servidor continuou gerando em background, mas a UI desistiu antes"},
+    {"id": 5, "config": "thinking ON + web search OFF + prompt curto (45 tokens)", "result": "success", "cause": "prompt enxuto coube inteiro no fitting; thinking rodou 4min completos e respondeu perfeitamente em português"}
+  ],
+  "session_34_confirmations": [
+    {
+      "test": "curl direto com --max-time 600 (sem timeout de navegador)",
+      "result": "success",
+      "detail": "truncated=0, resposta de 1955 tokens entregue em 266.42s, eval 6.57 tok/s. Prova que o servidor sempre funcionou — o problema era só o timeout do cliente."
+    },
+    {
+      "test": "paralelismo real: curl + OpenWebUI simultâneos",
+      "result": "success",
+      "detail": "llama.cpp processou 2 tasks concorrentes sem crash (task curl: 5.96 tok/s, task webui: 5.08 tok/s). GPU 63°C, VRAM 7.1/8.0GB, RAM 91%."
+    },
+    {
+      "test": "--ctx-size 8192 explícito",
+      "result": "success",
+      "detail": "Resolveu definitivamente o thinking mode sendo cortado. Rodou 9 minutos de raciocínio interno sem estourar contexto, entregou resposta completa em português.",
+      "recommended_production_command": "llama-server.exe -m <modelo Q4_K_M> --host 0.0.0.0 --port 8081 --ctx-size 8192"
+    }
+  ],
+  "recommendation_for_future_sessions": {
+    "quantization": "Preferir Q4_K_M sobre Q6_K nesta máquina (mais rápido: 6.42-6.65 vs 5.57-5.64 tok/s; mais frio: 74°C vs 80°C; menos swap).",
+    "context": "Sempre usar --ctx-size 8192 quando thinking mode estiver ativo.",
+    "interface": "Para chamadas longas, preferir curl/API direta com --max-time alto em vez de depender do timeout do OpenWebUI.",
+    "web_search": "Evitar combinar web search + thinking mode + modelos 35B nesta máquina — estoura contexto facilmente."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "research",
+  "name": "Pesquisa Inteligente",
+  "icon": "🔍",
+  "description": "Busca na web privada e RAG local.",
+  "time": "10-15 min",
+  "space": "5 GB",
+  "min_ram": 8,
+  "rec_vram": 0,
+  "connectors": [
+    "searxng",
+    "chromadb",
+    "ollama",
+    "open_webui"
+  ]
+}
