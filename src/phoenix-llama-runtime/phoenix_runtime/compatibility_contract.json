@@ -1,0 +1,25 @@
+{
+  "required_server_flags": [
+    "--device",
+    "--list-devices",
+    "--override-tensor",
+    "--cpu-moe",
+    "--n-cpu-moe",
+    "--n-gpu-layers",
+    "--fit",
+    "--fit-target",
+    "--fit-ctx",
+    "--op-offload",
+    "--no-op-offload",
+    "--load-mode",
+    "--jinja",
+    "--reasoning-format"
+  ],
+  "required_ngl_values": ["auto", "all"],
+  "required_load_modes": ["auto", "none", "mmap", "mlock", "mmap+mlock", "dio"],
+  "correctness_gate": {
+    "endpoint": "/v1/chat/completions",
+    "marker": "PHOENIX_OK",
+    "reject_question_mark_ratio_gte": 0.35
+  }
+}

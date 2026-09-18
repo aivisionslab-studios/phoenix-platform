@@ -1,0 +1,5 @@
+{
+  "name": "polaris-conservative",
+  "description": "Fallback Polaris conservador: mantém uma layer na GPU, output.weight em CPU e desliga op-offload de tensores host.",
+  "args": ["-ngl", "1", "--device", "{device}", "-ot", "output.weight=CPU", "--no-op-offload", "--fit", "off"]
+}

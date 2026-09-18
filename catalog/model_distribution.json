@@ -1,0 +1,210 @@
+{
+  "schema": "1.0",
+  "policy": {
+    "principle": "supported_does_not_mean_validated",
+    "tiers": [
+      "core",
+      "recommended",
+      "lab",
+      "experimental"
+    ],
+    "auto_rule": "AUTO may select core/recommended when hardware and correctness allow it; lab requires local validation or explicit user choice; experimental is never selected automatically."
+  },
+  "models": [
+    {
+      "id": "qwen3:8b",
+      "kind": "text",
+      "family": "qwen3",
+      "topology": "dense",
+      "tier": "core",
+      "auto_download": true,
+      "default": true,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "installer",
+        "key": "qwen3:8b",
+        "filename": "qwen3-8b-q4_k_m.gguf"
+      },
+      "placement": {
+        "auto": true,
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "hardware_dependent"
+    },
+    {
+      "id": "qwen3-4b-q4km",
+      "kind": "text",
+      "family": "qwen3",
+      "topology": "dense",
+      "tier": "recommended",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "chat",
+        "key": "qwen3-4b-q4km",
+        "filename": "Qwen3-4B-Q4_K_M.gguf"
+      },
+      "placement": {
+        "auto": true,
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "tested_family"
+    },
+    {
+      "id": "deepseek-r1-distill-qwen-7b-q3km",
+      "kind": "text",
+      "family": "deepseek-r1-distill-qwen",
+      "topology": "dense",
+      "tier": "recommended",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "chat",
+        "key": "deepseek-r1-distill-qwen-7b-q3km",
+        "filename": "DeepSeek-R1-Distill-Qwen-7B-Q3_K_M.gguf"
+      },
+      "placement": {
+        "auto": true,
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "hardware_dependent"
+    },
+    {
+      "id": "gemma4-12b-qat-q4_0",
+      "kind": "text",
+      "family": "gemma",
+      "topology": "dense",
+      "tier": "recommended",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "chat",
+        "key": "gemma4-12b-qat-q4_0",
+        "filename": "gemma-4-12b-it-qat-q4_0.gguf"
+      },
+      "placement": {
+        "auto": true,
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "hardware_dependent"
+    },
+    {
+      "id": "qwen3-30b-a3b-q4km-official",
+      "kind": "text",
+      "family": "qwen3",
+      "topology": "moe",
+      "tier": "lab",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "chat",
+        "key": "qwen3-30b-a3b-q4km-official",
+        "filename": "Qwen3-30B-A3B-Q4_K_M.gguf"
+      },
+      "placement": {
+        "auto": "after_local_validation",
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "tested_hybrid_family"
+    },
+    {
+      "id": "qwen3-32b-q4km-official",
+      "kind": "text",
+      "family": "qwen3",
+      "topology": "dense",
+      "tier": "lab",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "llama.cpp",
+        "ollama"
+      ],
+      "download": {
+        "kind": "chat",
+        "key": "qwen3-32b-q4km-official",
+        "filename": "Qwen3-32B-Q4_K_M.gguf"
+      },
+      "placement": {
+        "auto": "after_local_validation",
+        "cpu": true,
+        "gpu": "hardware_dependent",
+        "hybrid": true
+      },
+      "validation": "hardware_dependent"
+    },
+    {
+      "id": "sd15",
+      "kind": "image",
+      "family": "stable-diffusion-1.5",
+      "tier": "core",
+      "auto_download": true,
+      "default": true,
+      "runtimes": [
+        "phoenix-diffusion"
+      ],
+      "download": {
+        "kind": "asset",
+        "key": "sd15"
+      },
+      "placement": {
+        "auto": "phoenix_diffusion",
+        "cpu": true,
+        "gpu": true,
+        "hybrid": true
+      },
+      "validation": "validated_safe_baseline"
+    },
+    {
+      "id": "sdxl",
+      "kind": "image",
+      "family": "sdxl",
+      "tier": "recommended",
+      "auto_download": false,
+      "default": false,
+      "runtimes": [
+        "phoenix-diffusion"
+      ],
+      "download": {
+        "kind": "asset",
+        "key": "sdxl"
+      },
+      "placement": {
+        "auto": "phoenix_diffusion",
+        "cpu": true,
+        "gpu": true,
+        "hybrid": true
+      },
+      "validation": "validated_with_limitations"
+    }
+  ]
+}
+

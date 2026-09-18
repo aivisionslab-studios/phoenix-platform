@@ -1,0 +1,17 @@
+{
+  "runtime_name": "Phoenix Llama Runtime Stable",
+  "runtime_version": "1.0.0",
+  "channel": "stable",
+  "upstream": {
+    "repository": "https://github.com/ggml-org/llama.cpp",
+    "commit": "e71b80510c848c00175924ecf3c40333ccae8eb5",
+    "short_commit": "e71b805"
+  },
+  "policy": {
+    "auto_update_upstream": false,
+    "release_requires_compatibility_tests": true,
+    "runtime_device_source_of_truth": "llama-server --list-devices",
+    "cpu_requires_device_none": true,
+    "prefer_native_ngl_keywords": true
+  }
+}

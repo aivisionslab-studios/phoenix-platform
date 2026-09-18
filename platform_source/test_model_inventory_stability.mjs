@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const app = fs.readFileSync(path.join(__dirname, 'src/components/aviary/AviaryApp.tsx'), 'utf8');
+const server = fs.readFileSync(path.join(__dirname, 'server.ts'), 'utf8');
+let pass=0, fail=0;
+const check=(name,cond)=>{ if(cond){console.log('OK',name);pass++;}else{console.log('FAIL',name);fail++;}};
+check('localStorage faz merge com DEFAULT_PROVIDERS', app.includes('const savedById = new Map') && app.includes('const customs = saved.filter'));
+check('scan falho não zera diskChatModelsRef', app.includes('trackedData.diskChatScanOk === true || trackedData.diskChatUsedCache === true'));
+check('llama offline mantém modelos visíveis como error', app.includes("status: trackedData.llamaServerOnline ? 'connected' : 'error'"));
+check('merge inclui última lista boa', app.includes('...diskChatModelsRef.current'));
+check('Node expõe diagnóstico do scan', server.includes('diskChatScanOk') && server.includes('diskChatErrors'));
+check('timeout de inventário não é mais 2s', server.includes('Timeout de 10s ao ler inventário Chat/GGUF.'));
+console.log(`\n${pass} passaram, ${fail} falharam.`);
+process.exit(fail ? 1 : 0);

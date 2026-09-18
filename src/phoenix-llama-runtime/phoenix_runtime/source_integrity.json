@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "e71b80510c848c00175924ecf3c40333ccae8eb5",
+  "critical_source_sha256": {
+    "common/arg.cpp": "ef918e5a65fe0e6904c45b562147d94daf551aa6b12a4eecfb7cb56b4e37f6b2",
+    "common/common.h": "6e678df90075831853a3b509a7a3fe01e5aa4cbeb1b3ae4364c0ac51442b36c3",
+    "src/llama-model.cpp": "5812601163abc33d90a6ecb9502f7988704d411fc9867e4ee65774e0260eed05",
+    "src/llama-context.cpp": "f45f10fba203a01db1adad902eae0d046e4cfef2386539869434e0603b08fa49",
+    "src/llama.cpp": "9a5176b95bd81c4870a14fce652a78648f83b739aeba2d4cec2bd7537e2eab22",
+    "tools/server/server.cpp": "d43f1468d0ee2960b6c465f03bde00f7e33b939846914a30562f4c7d3d9af4ed",
+    "ggml/src/ggml-backend.cpp": "3991dfa1ccff2b2aae82ef610205f4e5a4db6545ee6724fa3eb6c283ffd1d9d6",
+    "ggml/src/ggml-vulkan/ggml-vulkan.cpp": "08b76b373bb63973e30e096e637b040f2c19be97346a441babbe4119d4a3f5d4"
+  }
+}

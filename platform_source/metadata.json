@@ -1,0 +1,6 @@
+{
+  "name": "Phoenix Engine & Aviary Platform",
+  "description": "Mission Control Datacenter for Phoenix Engine (Port 8000) and Phoenix Aviary Platform (Port 3000) with Vulkan Hardware Revival, Multi-Agent Swarm, and Terminal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

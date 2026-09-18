@@ -1,0 +1,97 @@
+# PHX-FIX (auditoria 2026-08-04): este arquivo só tinha google-cloud-firestore
+# e google-auth - nenhuma das outras dependências reais do projeto (fastapi,
+# chromadb, etc) estava listada aqui. O instalador (install/common.ps1) não
+# lê este arquivo - ele faz `pip install fastapi uvicorn ...` direto - então
+# isso não travava a instalação via Iniciar_Phoenix.bat, mas qualquer setup
+# manual, CI ou container que confie em `pip install -r requirements.txt`
+# como fonte da verdade ficava com o projeto incompleto e quebrando em
+# runtime com ModuleNotFoundError.
+
+fastapi>=0.141.1
+uvicorn>=0.52.4
+python-multipart>=0.0.32
+psutil>=7.2.2
+chromadb>=1.5.9
+astor>=0.8.1
+httpx>=0.28.1
+google-cloud-firestore>=2.29.0
+google-auth>=2.57.0
+
+# PHX-FIX (auditoria completa 2026-08-28): mesma classe de achado dos dois
+# PHX-FIX acima - `cryptography` (verificação Ed25519 do token de licença em
+# phoenix_kernel/licensing/capability_protocol.py, caminho de enforcement
+# comercial Capability V4) e `huggingface_hub` (download de modelo sob
+# demanda em api_server.py) são importadas de verdade em produção mas nunca
+# tinham sido declaradas aqui - faltavam exatamente pelos mesmos motivos já
+# descritos acima (install/common.ps1 as instala direto via pip, então só
+# `pip install -r requirements.txt` sozinho - setup manual/CI/container -
+# ficava incompleto).
+cryptography>=50.0.1
+huggingface_hub>=1.29.0
+
+# PHX-FIX (auditoria 2026-08-20): Document Engine (phoenix_kernel/documents/
+# engine.py) e as rotas /api/documents/read e /api/documents/edit dependem
+# destes 4 pacotes pra PDF, DOCX, XLSX e PPTX. install/common.ps1 já instala
+# os quatro via `pip install ... pymupdf pymupdf4llm python-docx openpyxl
+# python-pptx`, mas eles nunca tinham sido adicionados aqui - então
+# `pip install -r requirements.txt` sozinho (setup manual, CI, container)
+# deixava a Document Engine quebrando com ModuleNotFoundError no primeiro
+# upload de PDF/DOCX/XLSX/PPTX, mesmo com a API subindo normalmente.
+pymupdf>=1.28.2
+pymupdf4llm>=1.28.2
+python-docx>=1.2.0
+openpyxl>=3.1.5
+python-pptx>=1.0.2
+
+# PHX-NEW (2026-08-23): pipeline "Documento -> Audiolivro" (síntese de voz
+# neural com Kokoro-82M, ONNX, Apache 2.0) e detecção automática de idioma
+# por trecho. Testado de verdade nesta auditoria (download real dos pesos
+# via GitHub Releases de thewh1teagle/kokoro-onnx, tag model-files-v1.0,
+# porque huggingface.co não distribui esses arquivos por lá) e síntese real
+# funcionando em pt/en com troca de voz automática. soundfile já era usado
+# indiretamente pelo projeto; listado aqui explicitamente porque
+# audiobook.py e kokoro_tts.py dependem dele diretamente.
+kokoro-onnx>=0.6.1
+phonemizer>=3.4.0
+espeakng-loader>=0.2.4
+py3langid>=0.3.0
+soundfile>=0.14.0
+
+# onnxruntime: CPU por padrão. GPU (Windows + qualquer placa DX12, inclusive
+# AMD sem CUDA/ROCm) é opcional via onnxruntime-directml, MAS testado de
+# verdade nesta auditoria numa RX 580 real e FALHOU em todos os blocos
+# (onnxruntime-directml não executa o nó ConvTranspose do vocoder do Kokoro
+# nessa GPU/driver, erro nativo do Windows 80070057 "Parâmetro incorreto")
+# - fique em CPU até esse gap de suporte a operadores ser resolvido em
+# uma versão futura (driver AMD mais novo ou release futuro do onnxruntime-directml).
+# Os dois pacotes são
+# MUTUAMENTE EXCLUSIVOS (mesmo módulo Python), então só um dos dois deve
+# estar instalado, nunca ambos. kokoro-onnx detecta sozinho qual está
+# presente e usa GPU automaticamente se for o caso (ver
+# kokoro_onnx/session.py::resolve_providers() - zero mudança de código
+# necessária aqui). install/common.ps1 escolhe automaticamente com base na
+# variável de ambiente PHOENIX_TTS_DEVICE (ver install_phoenix.ps1) - troque
+# "CPU" por "GPU" lá pra ativar. Instalação manual equivalente:
+#   pip install onnxruntime>=1.25.0          # CPU (padrão)
+#   pip install onnxruntime-directml         # GPU (Windows, experimental)
+onnxruntime>=1.29.0
+
+# Windows apenas (sensores de hardware / WMI) - ver install/windows.ps1
+pywin32>=306; sys_platform == "win32"
+WMI>=1.5.1; sys_platform == "win32"
+pythonnet>=3.0.3; sys_platform == "win32"
+HardwareMonitor>=1.0; sys_platform == "win32"
+
+# PHX-FIX (achado real do usuário 2026-08-28): pytest/pytest-asyncio nunca
+# tinham sido declarados aqui nem em nenhum install/*.ps1 - diferente de
+# google-auth/cryptography/huggingface_hub (que já chegavam de qualquer
+# jeito como dependência transitiva de chromadb/google-cloud-firestore,
+# verificado com `pip install --dry-run --report` antes desta auditoria
+# mexer em qualquer coisa), pytest e pytest-asyncio não são trazidos de
+# brinde por nenhum pacote de produção - são só ferramenta de teste. Sem
+# isso aqui, TESTS/ (mais de 250 testes) não roda em nenhum ambiente que
+# monte a venv só via `pip install -r requirements.txt` (CI, setup manual,
+# container) - o instalador oficial (install/common.ps1) foi corrigido em
+# paralelo pra instalar os dois também.
+pytest>=9.1.1
+pytest-asyncio>=1.4.0

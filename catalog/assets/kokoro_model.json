@@ -1,0 +1,14 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Kokoro-82M (modelo neural, ONNX)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx"
+  },
+  "filename": "kokoro-v1.0.onnx",
+  "target_dir": "Kokoro/",
+  "category": "Voice",
+  "notes": "Modelo neural Kokoro-82M (~310MB, formato ONNX). Sozinho não sintetiza nada - precisa também do arquivo de vozes (ver kokoro_voices.json); os dois juntos formam o motor de voz padrão de toda a Phoenix (chat, Texto Livre e Documento->Audiolivro) desde a v47. Caminho de destino ('Voice/Kokoro/') é exatamente onde phoenix_kernel/runtime/drivers/kokoro_tts.py (_find_model_files) procura.",
+  "_comment": "PHX-NEW (2026-08-23, pedido do usuário depois de ver a tela 'Documento -> Audiolivro' recusar com 'baixe manualmente e coloque na pasta': ele esperou que a Phoenix baixasse sozinha, do jeito que já faz pra outros modelos via AssetManager/catalog de assets - ex: catalog/assets/sd15.json, catalog/assets/whisper_base.json - em vez de mandar o usuário pro GitHub com o navegador. URL confirmada de verdade nesta sessão via 'curl -sIL' (não chutada): HTTP 302 -> 200, Content-Length 325532387 bytes, redireciona pra um link assinado do Azure Blob (release-assets.githubusercontent.com) que urllib.request (usado pelo HttpProvider) segue sozinho, sem precisar de nenhuma lógica extra de redirecionamento."
+}

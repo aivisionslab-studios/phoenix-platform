@@ -1,0 +1,89 @@
+# Phoenix Platform — normalização de texto e arquivos binários
+* text=auto
+
+# Texto Unix/LF
+*.sh text eol=lf
+*.py text eol=lf
+*.pyi text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+*.xml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.c text eol=lf
+*.cc text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.rs text eol=lf
+*.go text eol=lf
+
+# Scripts Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Imagens
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.bmp binary
+*.tif binary
+*.tiff binary
+*.ico binary
+*.svg text eol=lf
+
+# Áudio/vídeo
+*.mp3 binary
+*.wav binary
+*.flac binary
+*.ogg binary
+*.mp4 binary
+*.mkv binary
+*.mov binary
+*.avi binary
+*.webm binary
+
+# Documentos e pacotes
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+*.zip binary
+*.7z binary
+*.rar binary
+*.gz binary
+
+# Binários/builds/modelos
+*.exe binary
+*.dll binary
+*.lib binary
+*.pdb binary
+*.bin binary
+*.gguf binary
+*.ggml binary
+*.safetensors binary
+*.ckpt binary
+*.onnx binary
+*.pt binary
+*.pth binary

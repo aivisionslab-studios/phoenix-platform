@@ -1,0 +1,40 @@
+{
+  "x": {
+    "status": "FAILED_CORRECTNESS",
+    "runtime": "llama.cpp",
+    "model": "qwen",
+    "placement": "gpu"
+  },
+  "31c5df8178dcf2b06f7185c65bec7a126c8a540e67cb8f08707ea49428f063dc": {
+    "status": "FAILED_CORRECTNESS",
+    "detail": "bad-gpu",
+    "runtime": "llama.cpp",
+    "model": "qwen",
+    "placement": "gpu",
+    "device": "Vulkan0"
+  },
+  "e983950e8b86a7af346c1918cd34b0fc963278db2baf1481be73088e30cfc1a8": {
+    "status": "VALIDATED",
+    "detail": "PHOENIX_OK",
+    "runtime": "llama.cpp",
+    "model": "qwen",
+    "placement": "hybrid",
+    "device": "Vulkan0"
+  },
+  "4b02909bc537904729ac44b45be927cd1eb4f62f20751f4cccb0fd87ab36e421": {
+    "status": "FAILED_CORRECTNESS",
+    "detail": "resposta inesperada do self-test: '????????????????????????'",
+    "runtime": "llama.cpp",
+    "model": "qwen3:8b",
+    "placement": "hybrid",
+    "device": "Vulkan0"
+  },
+  "8d407d09326c0b564127d3c186623d8047ce23ab921510a2e8d758d0cde3dc16": {
+    "status": "FAILED_CORRECTNESS",
+    "detail": "resposta inesperada do self-test: '????????????????????????'",
+    "runtime": "llama.cpp",
+    "model": "MiniCPM-V-2_6-Q6_K_L",
+    "placement": "hybrid",
+    "device": "Vulkan0"
+  }
+}

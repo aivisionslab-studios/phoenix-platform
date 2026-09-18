@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Animagine XL",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://civitai.com/api/download/models/293564"
+  },
+  "filename": "animagineXL.safetensors",
+  "target_dir": "downloads/images/"
+}

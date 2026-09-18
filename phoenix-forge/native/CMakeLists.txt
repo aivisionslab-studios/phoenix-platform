@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.20)
+project(phoenix_forge_native LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(Vulkan REQUIRED)
+add_executable(phoenix-forge-native src/main.cpp)
+target_compile_definitions(phoenix-forge-native PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
+target_link_libraries(phoenix-forge-native PRIVATE Vulkan::Vulkan)
+if(WIN32)
+  target_link_libraries(phoenix-forge-native PRIVATE dxgi PowrProf)
+endif()
+if(Vulkan_GLSLC_EXECUTABLE)
+  add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/stress.spv
+    COMMAND ${Vulkan_GLSLC_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/shaders/stress.comp -o ${CMAKE_CURRENT_BINARY_DIR}/stress.spv
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/shaders/stress.comp
+    VERBATIM)
+  add_custom_target(phoenix-forge-shader ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/stress.spv)
+  add_dependencies(phoenix-forge-native phoenix-forge-shader)
+endif()
+if(MSVC)
+  target_compile_options(phoenix-forge-native PRIVATE /W4 /EHsc /permissive-)
+else()
+  target_compile_options(phoenix-forge-native PRIVATE -Wall -Wextra)
+endif()

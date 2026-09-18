@@ -1,0 +1,13 @@
+{
+  "schema": "phoenix.forge.section-manifest/v1",
+  "release": "0.11.0",
+  "limit_bytes_per_section": 20971520,
+  "sections": [
+    {"name": "native", "bytes": 45257, "limit_ok": true},
+    {"name": "python_core", "bytes": 187787, "limit_ok": true},
+    {"name": "tests", "bytes": 34195, "limit_ok": true},
+    {"name": "research", "bytes": 140178, "limit_ok": true},
+    {"name": "web", "bytes": 2745, "limit_ok": true}
+  ],
+  "note": "Generated source sections only; no proprietary third-party executables are redistributed."
+}

@@ -1,0 +1,674 @@
+# Binary inventory: GPU-Z-unpacked(1).exe
+
+- Size: 53617440 bytes
+- SHA-256: `3200f813a6df6fe8103659b8922108e08970dcfc81f7388a864cad4d13461662`
+- Format: `/mnt/data/GPU-Z-unpacked(1).exe: PE32 executable for MS Windows 5.01 (GUI), Intel i386, 5 sections`
+
+## Imported DLLs
+- ADVAPI32.dll
+- COMCTL32.dll
+- GDI32.dll
+- IMM32.dll
+- KERNEL32.DLL
+- MSIMG32.dll
+- NETAPI32.dll
+- OLEACC.dll
+- OLEAUT32.dll
+- PSAPI.DLL
+- SETUPAPI.dll
+- SHELL32.dll
+- SHLWAPI.dll
+- USER32.dll
+- UxTheme.dll
+- VERSION.dll
+- WININET.dll
+- WINMM.dll
+- WINSPOOL.DRV
+- ole32.dll
+
+## Hardware-related strings (sample)
+- `CreateFileTransactedW`
+- `resource deadlock would occur`
+- `ADL_Main_Control_Create`
+- `ADL2_Main_ControlX2_Create`
+- `ADL2_Main_Control_Create`
+- `ADL2_Main_Control_Destroy`
+- `ADL_Main_Control_Destroy`
+- `ADL_Adapter_NumberOfAdapters_Get`
+- `ADL_Adapter_AdapterInfo_Get`
+- `ADL_Adapter_Active_Get`
+- `ADL2_Adapter_Graphic_Core_Info_Get`
+- `ADL_Adapter_MemoryInfo_Get`
+- `ADL_Adapter_MemoryInfo3_Get`
+- `ADL_Overdrive5_CurrentActivity_Get`
+- `ADL_Display_WriteAndReadI2C`
+- `ADL_Adapter_Accessibility_Get`
+- `ADL_Overdrive5_FanSpeed_Get`
+- `ADL2_OverdriveN_FanControl_Get`
+- `ADL_Overdrive5_ODParameters_Get`
+- `ADL_Overdrive5_ODPerformanceLevels_Get`
+- `ADL_Overdrive5_ODPerformanceLevels_Set`
+- `ADL2_OverdriveN_SystemClocks_Get`
+- `ADL2_OverdriveN_MemoryClocks_Get`
+- `ADL2_OverdriveN_SystemClocksX2_Get`
+- `ADL2_OverdriveN_MemoryClocksX2_Get`
+- `ADL_Overdrive5_PowerControlInfo_Get`
+- `ADL_Overdrive5_PowerControl_Get`
+- `ADL_Overdrive5_Temperature_Get`
+- `ADL2_Adapter_VRAMUsage_Get`
+- `ADL_PowerXpress_Config_Caps`
+- `ADL_Overdrive_Caps`
+- `ADL2_OverdriveN_Capabilities_Get`
+- `ADL2_OverdriveN_CapabilitiesX2_Get`
+- `ADL2_OverdriveN_PerformanceStatus_Get`
+- `ADL2_OverdriveN_Temperature_Get`
+- `ADL2_Adapter_PMLog_Support_Get`
+- `ADL2_New_QueryPMLogData_Get`
+- `ADL2_Desktop_Device_Create`
+- `ADL2_Adapter_PMLog_Start`
+- `ADL2_Desktop_Device_Destroy`
+- `ADL2_Adapter_PMLog_Stop`
+- `ADL2_Overdrive8_Init_SettingX2_Get`
+- `ADL2_Overdrive8_Current_SettingX2_Get`
+- `ADL_Adapter_ObservedGameClockInfo_Get`
+- `ADL_Adapter_Crossfire_Caps`
+- `ADL_Adapter_Crossfire_Get`
+- `ADL_Adapter_VideoBiosInfo_Get`
+- `nvapi_QueryInterface`
+- `LoadLibraryExA`
+- `LoadLibraryA`
+- `LoadLibraryExW`
+- `CreateFileMappingW`
+- `LoadLibraryW`
+- `DeviceIoControl`
+- `CreateFileW`
+- `SetupDiCreateDeviceInfoList`
+- `SetupDiGetDeviceInfoListDetailW`
+- `SetupDiEnumDeviceInfo`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetClassDevsExW`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiGetClassDevsW`
+- `CM_Get_Parent`
+- `SetupDiOpenDevRegKey`
+- `SetupDiOpenDeviceInfoW`
+- `SetupDiGetDeviceInstanceIdW`
+- `SetupDiEnumDeviceInterfaces`
+- `SetupDiGetDeviceInterfaceDetailW`
+- `CM_Get_Device_IDW`
+- `OpenClipboard`
+- `3 ".*/1<ADLRWKQVHMQHNQJOSGKPCHLBGKCGJ>BE9<?036$'*`
+- `TThreadLocalCounter'`
+- `TThreadLocalCounter`
+- `TSetupDisablePage`
+- `ReadListBegin`
+- `ReadListEnd`
+- `TThreadList<System.IInterface>&`
+- `TThreadList<System.IInterface>(`
+- `%TThreadList<System.Classes.TIntConst>&`
+- `%TThreadList<System.Classes.TIntConst>dcH`
+- `&TThreadList<System.Classes.TPropFixup>&`
+- `&TThreadList<System.Classes.TPropFixup><`
+- `#TThreadList<System.Classes.TThread>&`
+- `#TThreadList<System.Classes.TThread>`
+- `LoadLibraryA`
+- `LoadLibraryExW`
+- `LoadLibraryW`
+- `CreateFileW`
+- `SetThreadLocale`
+- `GetThreadLocale`
+- `ossl_gcm_get_ctx_params`
+- `ossl_ccm_get_ctx_params`
+- `nvapi_QueryInterface`
+- `nvapi_pepQueryInterface`
+- `resource deadlock would occur`
+- `Resource deadlock avoided`
+- `Offset Idx Flags VBIOS    Timestamp           PS  PE  SS  SE  SecBase NVFLASH`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSDiscard`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSDiscard`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSDiscard`
+- `Error: UEFI merge, VBIOS image, cannot find the place for inserting new UEFI file. ROM Index: `
+- `Emulation VBIOS`
+- `Production VBIOS`
+- `Bring-up VBIOS`
+- `VBIOS Version   : `
+- `vbios_version`
+- `vbios_version`
+- `GF117 E1303 ES Gen3 boot VBIOS for Intel`
+- `       PUSHPOLL_PAYLOAD_CMD_VB_PATCH_S.vbiosObjectType = `
+- ` Warning: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR unsupported: - No IFR VBIOS image. `
+- `       VBIOS image RomDir size = `
+- ` Error: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR error: - ROM Directory invalid in VBIOS image. `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_VB_PATCH error: - Unsupported VBIOS patching object `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_VB_PATCH error: - ROM Directory size mis-match between the copy in VBIOS image and uCode provided: `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_READ vbiosObjectType = `
+- ` Error: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR error: - ROM Directory size in VBIOS Image larger than uCode expected: `
+- `       VBIOS image RomDir size = `
+- `NV_UCODE_CMD_COMMAND_OTP_READLOCK `
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_DEBUG_FUSE_BOARD`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_DEVID_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_NOT_FOUND`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_PARSE_FAIL`
+- `NV_UCODE_ERR_CODE_LOAD_VBIOS_VERIFY_UCODE_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_KA_NOT_FOUND`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_TYPE_INVALID`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_VERIFY_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HAT_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_BIOS_SIG_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_INIT_FAIL`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_OFFSETS_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_SCRIPTS_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_TABLES_SIG_INVALID`
+- ` FWSECLIC VBIOS_VERIFY_COMPLETE`
+- `NV_UCODE_CMD_COMMAND_OTP_READLOCK`
+- `vv send vv command to Falcon to verify VBIOS `
+- `Usage: vv [vbios image file name] `
+- `command NV_UCODE_CMD_COMMAND_OTP_READLOCK completed`
+- `               Feature: Nvflash Skip VBIOS SIG Check `
+- `RKSL NVVBIOS`
+- ` VBIOS image failed certification sanity check.`
+- ` VBIOS image failed certification sanity check.`
+- `       Preserve FNV Hash size larger than the placeholder inside VBIOS image.`
+- `       VBIOS Signature Check failed. `
+- `       Preserve FNV hash not generated to VBIOS image. `
+- `  Copyright (C) 1995-2013 Jean-loup Gailly and Mark Adler`
+- `  Jean-loup Gailly        Mark Adler`
+- `  jloup@gzip.org          madler@alumni.caltech.edu`
+- `CM_Get_DevNode_Status(), Error code = `
+- `NVAPI: failed to unload.`
+- `Delete the cached vbios from registry`
+- `Cannot enumerate GPUs in the system by NVAPI for setting D3 cold capability.`
+- `NVAPI failed to unload.`
+- `NvAPI_EnumNvidiaDisplayHandle Error: `
+- `Cannot enumerate GPUs in the system by NVAPI`
+- `Error: Invalid Vbios Factory Version (too big)`
+- `Updating OBD vbios factory version with input data.`
+- `Error:  BCRT_ERROR_CODE_CERT20_BIT_2_VDPA_VBIOS_TABLE_NOT_FOUND `
+- `Error:  BCRT_ERROR_CODE_CERT20_BIT_2_VDPA_VBIOS_TABLE_VERSION_MATCH_FAILED `
+- `Error:  BCRT_ERROR_CODE_CERT30_BIT_2_VDPA_VBIOS_TABLE_VERSION_MATCH_FAILED `
+- `Error:  BCRT_ERROR_CODE_CERT30_BIT_2_VDPA_VBIOS_TABLE_NOT_FOUND `
+- `vbios magic number: `
+- `Error: VBIOS Certification process failed.`
+- `Error: VBIOS Certification process for NVR failed.`
+- `Verify data by checking the vbios image and data security.`
+- `Completed the stress test, restoring the original ROM image...`
+- `Completed the shmoo test, restoring the original ROM image...`
+- `VBIOS Version   : `
+- `Skip overriding Vbios Factory Version to OBD`
+- `VbiosFactoryVersion: `
+- `Reading VBIOS image for creating License placeholder...`
+- `Start VBIOS verification`
+- `ERROR: VBIOS uncertified, Update aborted`
+- `VBIOS verification error, update aborted.`
+- `Storing updated firmware image...`
+- `Storing updated firmware image.`
+- `Action: Override subvendor strap.`
+- `VBIOS verification failed, NV_STATUS_ERR_CODE_EROT_VERIFY_FW_FAILED.`
+- `VBIOS update successful.`
+- `VBIOS update finished. Error code:`
+- `VBIOS update start.`
+- `VBIOS update failed.`
+- `VBIOS Cert with failure after merged UEFI firmware.`
+- `VBIOS Cert with failure after merged XUSB firmware.`
+- `Read I2C Device table from Vbios image in EEPROM completed`
+- `Capture a exception while access the I2C Device table from vbios image.`
+- `Reading VBIOS image for reading BRD information.`
+- `VbiosFactoryVersion`
+- `Refresh InfoROM Backup (IB) block from the source vbios in EEPROM.`
+- `Update InfoROM Backup (IB) block from the new VBIOS file.`
+- `Preserve InfoROM Backup (IB) block from the source vbios in EEPROM.`
+- `Failed to preserve InfoROM GXI data due to the supplied vbios's IR does not contain the GXI object.`
+- `Failed to preserve InfoROM BRD data due to the supplied vbios's IR does not contain the BRD object.`
+- `Delete the current InfoROM block from the target vbios image.`
+- `Failed to preserve Inforom BBO data due to vbios's IR does not contain the BBO placeholder.`
+- `Reading VBIOS image for displaying OBD information...`
+- `Failed to preserve InfoROM data due to the adapter vbios does not contain InfoROM RO image.`
+- `Failed to preserve InfoROM data due to the supplied vbios does not contain InfoROM RO image.`
+- `Refactor current vbios's NBSI_INFO_ROM for super image.`
+- `Action: Delete Vbios.`
+- `Delete Vbios?`
+- `Erasing the Vbios erases all Vbios related data from the EEPROM part including preservation (nvtune) data.`
+- `Delete Vbios confirmation skipped.`
+- `Deleting Vbios image from EEPROM...`
+- `Action: Tune Vbios Preservation Data.`
+- `Delete Vbios completed.`
+- `Delete Vbios failed.`
+- `VPDA not finalized. VBIOS Security Check failed`
+- `Storing application image to MCU`
+- `Invalid offset of OTA header for a VBIOS firmware image.`
+- `Invalid firmware for a VBIOS firmware image.`
+- `VBIOS firmware image`
+- `A power cycle (turn power off then on) would be needed for restoring the hardware to default state.`
+- `Reserved space of storing CIE data conflicts with application image`
+- `Calculate the defaulting location of storing CIE data...`
+- `Calculate the defaulting location of storing persistent-RGB color...`
+- `Reserved space of storing persistent-RGB color conflicts with application image region`
+- `Calculate the defaulting location of storing bridge ID ROM data...`
+- `Reserved space of storing bridge ID ROM data conflicts with application image region`
+- `Read VBIOS completed.`
+- `Reading VBIOS image from EEPROM.`
+- `Reading VBIOS image for updating OEM information.`
+- `Reading VBIOS image for reading OBD information.`
+- `Reading VBIOS image for Updating BRD information.`
+- `Reading VBIOS image for flashing License.`
+- `Reading VBIOS image for erasing Inforom.`
+- `Reading VBIOS image for reading License information.`
+- `Reading VBIOS image for updating License information.`
+- `Reading VBIOS image for updating UPR information.`
+- `Reading VBIOS image for reading UPR information.`
+- `Reading VBIOS image for writing BRO object`
+- `Reading VBIOS image for writing CGP object`
+- `Reading VBIOS image for reading CGP information.`
+- `Reading VBIOS image for writing PTD object`
+- `Skipping VBIOS Verification / Devinit`
+- `VBIOS Verification / Devinit skipped!`
+- `Provide a license file for updating VBIOS.`
+- `Check if Build GUID match with VBIOS image`
+- `Match exact VBIOS version string`
+- `Match VBIOS session ID`
+- `Permit a downgrade of vbios version older than OBD Vbios Factory Version `
+- `if OBD Vbios Factory Version is already populated`
+- ` --license=License.hulk vbios.rom`
+- `VbiosFactoryVersion%s%s%s`
+- `ATTENTION: Ensure M/B supports large BAR1 VBIOS(`
+- `Update VBIOS firmware:           `
+- `Save VBIOS firmware to file:     `
+- `Display VBIOS version:           `
+- `The specified VBIOS image is not valid for a firmware update over CEC.`
+- `A CEC signing support VBIOS image is required, please contact the`
+- `You are intending to flash the VBIOS firmware image through CEC.`
+- `You MUST update CEC signing support VBIOS firmware`
+- `signing support VBIOS firmware.`
+- `Restoring original firmware from EEPROM on this graphics card...`
+- `NOTE: Exception caught in restoring firmware: `
+- `Retry restoring firmware...`
+- `File does not contain VBIOS Firmware.`
+- `VBIOS Variant: `
+- `VBIOS Version: `
+- ` --sanitizefs vbios.rom`
+- `Please specify VBIOS image for --sanitizefs.`
+- `Please specify VBIOS image with file extension .rom`
+- `Reading VBIOS image for updating NVPN information.`
+- `Reading VBIOS image for updating Board Searial Number information.`
+- `Reading VBIOS image to retrieve the ICT flashed-SN information.`
+- `Reading VBIOS image for deleting Power Policy.`
+- `Reading VBIOS image for adding Power Policy.`
+- `Reading VBIOS image for deleting APP profile.`
+- `Reading VBIOS image for listing power policies.`
+- `Reading VBIOS image for adding TGP APP profile.`
+- `Reading VBIOS image for flashing Inforom image.`
+- `Reading VBIOS image for listing APP profiles.`
+- `Reading VBIOS image for displaying IMG version.`
+- `Reading VBIOS image for updating Inforom Backup region.`
+- `Reading VBIOS image for displaying OBD information.`
+- `Reading VBIOS image for dumping FS information.`
+- `Reading VBIOS image for flashing  Inforom FS`
+- `Reading VBIOS image for repair Inforom FS`
+- `Reading VBIOS image for displaying OBJ information.`
+- `Reading VBIOS image for creating FS.`
+- `Reading VBIOS image for clearing the specific object.`
+- `Reading VBIOS image for clearing the PBL object.`
+- `Reading VBIOS image for repairing Inforom.`
+- `Reading VBIOS image for removing InfoROM glob.`
+- `Reading VBIOS image for writing RRL object.`
+- `Reading VBIOS image for reading BBO information.`
+- `Reading VBIOS image for writing BBO object`
+- `Reading VBIOS image to dump GXI information.`
+- `Reading VBIOS image for updating the specific object.`
+- `Reading VBIOS image for recovering inforom.`
+- `Reading VBIOS image for displaying OEM information.`
+- `Reading VBIOS image for Updating OBD information.`
+- `The existing InfoROM image is valid. Restoring the InfoROM from`
+- `SetupDiDestroyDeviceInfoList`
+- `CM_Get_DevNode_Status`
+- `SetupDiGetClassDevsA`
+- `SetupDiCallClassInstaller`
+- `SetupDiSetClassInstallParamsA`
+- `SetupDiEnumDeviceInfo`
+- `SetupDiGetDeviceRegistryPropertyA`
+- `SetupDiGetClassInstallParamsA`
+- `CM_Get_Device_IDA`
+- `SetupDiEnumDeviceInterfaces`
+- `SetupDiGetDeviceInterfaceDetailA`
+- `DeviceIoControl`
+- `CreateFileA`
+- `LoadLibraryA`
+- `LoadLibraryW`
+- `LoadLibraryExW`
+- `CreateFileW`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetDevicePropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetClassDevsW`
+- `SetupDiEnumDeviceInterfaces`
+- `SetupDiGetDeviceInterfaceDetailW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `LoadLibraryW`
+- `CM_Get_Device_ID_ExW`
+- `SetupDiGetClassDevsExW`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiEnumDeviceInfo`
+- `SetupDiCreateDeviceInfoListExW`
+- `SetupDiGetDeviceInfoListDetailW`
+- `SetupDiOpenDeviceInfoW`
+- `SetupDiClassGuidsFromNameExW`
+- `SetupDiGetClassDescriptionExW`
+- `SetupDiGetDriverInfoDetailW`
+- `SetupDiSetDeviceInstallParamsW`
+- `CM_Get_First_Log_Conf_Ex`
+- `SetupDiDestroyDriverInfoList`
+- `SetupDiCallClassInstaller`
+- `SetupDiOpenClassRegKeyExW`
+- `CM_Get_Res_Des_Data_Ex`
+- `SetupDiGetDriverInstallParamsW`
+- `CM_Get_Next_Res_Des_Ex`
+- `SetupDiEnumDriverInfoW`
+- `CM_Get_Res_Des_Data_Size_Ex`
+- `SetupDiSetSelectedDriverW`
+- `SetupDiOpenDevRegKey`
+- `SetupDiGetDeviceInstallParamsW`
+- `SetupDiBuildDriverInfoList`
+- `CM_Get_DevNode_Status_Ex`
+- `SetupDiCreateDeviceInfoList`
+- `SetupDiCreateDeviceInfoW`
+- `SetupDiBuildClassInfoListExW`
+- `SetupDiGetINFClassW`
+- `SetupDiSetDeviceRegistryPropertyW`
+- `SetupDiClassNameFromGuidExW`
+- `SetupDiSetClassInstallParamsW`
+- `LoadLibraryW`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiEnumDeviceInfo`
+- `CM_Get_Device_ID_ExW`
+- `SetupDiGetDeviceInfoListDetailW`
+- `SetupDiOpenDeviceInfoW`
+- `SetupDiGetClassDevsExW`
+- `SetupDiCreateDeviceInfoListExW`
+- `SetupDiClassGuidsFromNameExW`
+- `CM_Get_DevNode_Status_Ex`
+- `CM_Get_Res_Des_Data_Ex`
+- `CM_Get_Res_Des_Data_Size_Ex`
+- `CM_Get_Next_Res_Des_Ex`
+- `CM_Get_First_Log_Conf_Ex`
+- `SetupDiDestroyDriverInfoList`
+- `SetupDiGetDriverInfoDetailW`
+- `SetupDiOpenDevRegKey`
+- `SetupDiEnumDriverInfoW`
+- `SetupDiBuildDriverInfoList`
+- `SetupDiSetDeviceInstallParamsW`
+- `SetupDiGetDeviceInstallParamsW`
+- `SetupDiCallClassInstaller`
+- `SetupDiSetSelectedDriverW`
+- `SetupDiGetDriverInstallParamsW`
+- `SetupDiOpenClassRegKeyExW`
+- `SetupDiGetClassDescriptionExW`
+- `SetupDiSetClassInstallParamsW`
+- `SetupDiSetDeviceRegistryPropertyW`
+- `SetupDiClassNameFromGuidExW`
+- `SetupDiBuildClassInfoListExW`
+- `SetupDiCreateDeviceInfoW`
+- `SetupDiCreateDeviceInfoList`
+- `SetupDiGetINFClassW`
+- `ossl_gcm_get_ctx_params`
+- `ossl_ccm_get_ctx_params`
+- `nvapi_QueryInterface`
+- `nvapi_pepQueryInterface`
+- `resource deadlock would occur`
+- `Resource deadlock avoided`
+- `Offset Idx Flags VBIOS    Timestamp           PS  PE  SS  SE  SecBase NVFLASH`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSDiscard`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSDiscard`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDataResident`
+- `LegacyVBIOSRuntime`
+- `LegacyVBIOSDiscard`
+- `Error: UEFI merge, VBIOS image, cannot find the place for inserting new UEFI file. ROM Index: `
+- `Emulation VBIOS`
+- `Production VBIOS`
+- `Bring-up VBIOS`
+- `VBIOS Version   : `
+- `vbios_version`
+- `vbios_version`
+- `GF117 E1303 ES Gen3 boot VBIOS for Intel`
+- ` Error: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR error: - ROM Directory invalid in VBIOS image. `
+- ` Warning: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR unsupported: - No IFR VBIOS image. `
+- `       VBIOS image RomDir size = `
+- ` Error: PushPoll CMD NV_UCODE_PUSHPOLL_PAYLOAD_CMD_GET_ROMDIR error: - ROM Directory size in VBIOS Image larger than uCode expected: `
+- `       VBIOS image RomDir size = `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_READ vbiosObjectType = `
+- `NV_UCODE_CMD_COMMAND_OTP_READLOCK `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_VB_PATCH error: - ROM Directory size mis-match between the copy in VBIOS image and uCode provided: `
+- `       PUSHPOLL_PAYLOAD_CMD_VB_PATCH_S.vbiosObjectType = `
+- ` Error: PushPoll NV_UCODE_PUSHPOLL_PAYLOAD_CMD_VB_PATCH error: - Unsupported VBIOS patching object `
+- `NV_UCODE_ERR_CODE_LOAD_VBIOS_VERIFY_UCODE_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_PARSE_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_NOT_FOUND`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_DEVID_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_DEBUG_FUSE_BOARD`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_INIT_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_BIOS_SIG_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HAT_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_CERT_VERIFY_FAIL`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_TYPE_INVALID`
+- `NV_UCODE_ERR_CODE_CMD_VBIOS_VERIFY_HULK_KA_NOT_FOUND`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_OFFSETS_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_TABLES_SIG_INVALID`
+- `NV_UCODE_ERR_CODE_VBIOS_DEVINIT_SCRIPTS_SIG_INVALID`
+- ` FWSECLIC VBIOS_VERIFY_COMPLETE`
+- `NV_UCODE_CMD_COMMAND_OTP_READLOCK`
+- `command NV_UCODE_CMD_COMMAND_OTP_READLOCK completed`
+- `Usage: vv [vbios image file name] `
+- `vv send vv command to Falcon to verify VBIOS `
+- `               Feature: Nvflash Skip VBIOS SIG Check `
+- `RKSL NVVBIOS`
+- ` VBIOS image failed certification sanity check.`
+- ` VBIOS image failed certification sanity check.`
+- `       VBIOS Signature Check failed. `
+- `       Preserve FNV Hash size larger than the placeholder inside VBIOS image.`
+- `       Preserve FNV hash not generated to VBIOS image. `
+- `  Copyright (C) 1995-2013 Jean-loup Gailly and Mark Adler`
+- `  Jean-loup Gailly        Mark Adler`
+- `  jloup@gzip.org          madler@alumni.caltech.edu`
+- `CM_Get_DevNode_Status(), Error code = `
+- `NVAPI: failed to unload.`
+- `Delete the cached vbios from registry`
+- `Cannot enumerate GPUs in the system by NVAPI for setting D3 cold capability.`
+- `NVAPI failed to unload.`
+- `NvAPI_EnumNvidiaDisplayHandle Error: `
+- `Cannot enumerate GPUs in the system by NVAPI`
+- `Error: Invalid Vbios Factory Version (too big)`
+- `Updating OBD vbios factory version with input data.`
+- `Error:  BCRT_ERROR_CODE_CERT20_BIT_2_VDPA_VBIOS_TABLE_VERSION_MATCH_FAILED `
+- `Error:  BCRT_ERROR_CODE_CERT20_BIT_2_VDPA_VBIOS_TABLE_NOT_FOUND `
+- `Error:  BCRT_ERROR_CODE_CERT30_BIT_2_VDPA_VBIOS_TABLE_VERSION_MATCH_FAILED `
+- `Error:  BCRT_ERROR_CODE_CERT30_BIT_2_VDPA_VBIOS_TABLE_NOT_FOUND `
+- `vbios magic number: `
+- `Error: VBIOS Certification process failed.`
+- `Error: VBIOS Certification process for NVR failed.`
+- `Start VBIOS verification`
+- `ERROR: VBIOS uncertified, Update aborted`
+- `VBIOS verification error, update aborted.`
+- `Storing updated firmware image...`
+- `Storing updated firmware image.`
+- `Action: Override subvendor strap.`
+- `VBIOS verification failed, NV_STATUS_ERR_CODE_EROT_VERIFY_FW_FAILED.`
+- `VBIOS update successful.`
+- `VBIOS update failed.`
+- `VBIOS update finished. Error code:`
+- `VBIOS update start.`
+- `VBIOS Cert with failure after merged UEFI firmware.`
+- `VBIOS Cert with failure after merged XUSB firmware.`
+- `Capture a exception while access the I2C Device table from vbios image.`
+- `Read I2C Device table from Vbios image in EEPROM completed`
+- `Reading VBIOS image for reading BRD information.`
+- `Update InfoROM Backup (IB) block from the new VBIOS file.`
+- `VbiosFactoryVersion`
+- `Preserve InfoROM Backup (IB) block from the source vbios in EEPROM.`
+- `Refresh InfoROM Backup (IB) block from the source vbios in EEPROM.`
+- `Failed to preserve InfoROM GXI data due to the supplied vbios's IR does not contain the GXI object.`
+- `Failed to preserve InfoROM BRD data due to the supplied vbios's IR does not contain the BRD object.`
+- `Reading VBIOS image for displaying OBD information...`
+- `Delete the current InfoROM block from the target vbios image.`
+- `Failed to preserve Inforom BBO data due to vbios's IR does not contain the BBO placeholder.`
+- `Failed to preserve InfoROM data due to the adapter vbios does not contain InfoROM RO image.`
+- `Failed to preserve InfoROM data due to the supplied vbios does not contain InfoROM RO image.`
+- `Refactor current vbios's NBSI_INFO_ROM for super image.`
+- `Action: Delete Vbios.`
+- `Erasing the Vbios erases all Vbios related data from the EEPROM part including preservation (nvtune) data.`
+- `Delete Vbios confirmation skipped.`
+- `Deleting Vbios image from EEPROM...`
+- `Delete Vbios completed.`
+- `Delete Vbios failed.`
+- `Delete Vbios?`
+- `Action: Tune Vbios Preservation Data.`
+- `Completed the stress test, restoring the original ROM image...`
+- `Verify data by checking the vbios image and data security.`
+- `Completed the shmoo test, restoring the original ROM image...`
+- `VBIOS Version   : `
+- `Skip overriding Vbios Factory Version to OBD`
+- `VbiosFactoryVersion: `
+- `Reading VBIOS image for creating License placeholder...`
+- `VPDA not finalized. VBIOS Security Check failed`
+- `Storing application image to MCU`
+- `Invalid firmware for a VBIOS firmware image.`
+- `Invalid offset of OTA header for a VBIOS firmware image.`
+- `VBIOS firmware image`
+- `A power cycle (turn power off then on) would be needed for restoring the hardware to default state.`
+- `Calculate the defaulting location of storing CIE data...`
+- `Reserved space of storing CIE data conflicts with application image`
+- `Reserved space of storing bridge ID ROM data conflicts with application image region`
+- `Calculate the defaulting location of storing bridge ID ROM data...`
+- `Reserved space of storing persistent-RGB color conflicts with application image region`
+- `Calculate the defaulting location of storing persistent-RGB color...`
+- `Read VBIOS completed.`
+- `Reading VBIOS image from EEPROM.`
+- `VbiosFactoryVersion%s%s%s`
+- `ATTENTION: Ensure M/B supports large BAR1 VBIOS(`
+- `Save VBIOS firmware to file:     `
+- `Update VBIOS firmware:           `
+- `Display VBIOS version:           `
+- `signing support VBIOS firmware.`
+- `The specified VBIOS image is not valid for a firmware update over CEC.`
+- `A CEC signing support VBIOS image is required, please contact the`
+- `You MUST update CEC signing support VBIOS firmware`
+- `You are intending to flash the VBIOS firmware image through CEC.`
+- `NOTE: Exception caught in restoring firmware: `
+- `Retry restoring firmware...`
+- `Restoring original firmware from EEPROM on this graphics card...`
+- `File does not contain VBIOS Firmware.`
+- `VBIOS Variant: `
+- `VBIOS Version: `
+- ` --sanitizefs vbios.rom`
+- `Please specify VBIOS image for --sanitizefs.`
+- `Please specify VBIOS image with file extension .rom`
+- `Reading VBIOS image for updating NVPN information.`
+- `Reading VBIOS image for adding Power Policy.`
+- `Reading VBIOS image to retrieve the ICT flashed-SN information.`
+- `Reading VBIOS image for updating Board Searial Number information.`
+- `Reading VBIOS image for listing power policies.`
+- `Reading VBIOS image for deleting Power Policy.`
+- `Reading VBIOS image for deleting APP profile.`
+- `Reading VBIOS image for adding TGP APP profile.`
+- `Reading VBIOS image for flashing Inforom image.`
+- `Reading VBIOS image for listing APP profiles.`
+- `Reading VBIOS image for displaying IMG version.`
+- `Reading VBIOS image for updating Inforom Backup region.`
+- `Reading VBIOS image for flashing  Inforom FS`
+- `Reading VBIOS image for displaying OBD information.`
+- `Reading VBIOS image for repair Inforom FS`
+- `Reading VBIOS image for dumping FS information.`
+- `Reading VBIOS image for creating FS.`
+- `Reading VBIOS image for displaying OBJ information.`
+- `Reading VBIOS image for clearing the specific object.`
+- `Reading VBIOS image for clearing the PBL object.`
+- `Reading VBIOS image for repairing Inforom.`
+- `Reading VBIOS image for removing InfoROM glob.`
+- `Reading VBIOS image for writing RRL object.`
+- `Reading VBIOS image for reading BBO information.`
+- `Reading VBIOS image for writing BBO object`
+- `Reading VBIOS image to dump GXI information.`
+- `Reading VBIOS image for updating the specific object.`
+- `The existing InfoROM image is valid. Restoring the InfoROM from`
+- `Reading VBIOS image for recovering inforom.`
+- `Reading VBIOS image for Updating OBD information.`
+- `Reading VBIOS image for displaying OEM information.`
+- `Reading VBIOS image for updating OEM information.`
+- `Reading VBIOS image for Updating BRD information.`
+- `Reading VBIOS image for reading OBD information.`
+- `Reading VBIOS image for erasing Inforom.`
+- `Reading VBIOS image for flashing License.`
+- `Reading VBIOS image for reading License information.`
+- `Reading VBIOS image for updating License information.`
+- `Reading VBIOS image for writing CGP object`
+- `Reading VBIOS image for updating UPR information.`
+- `Reading VBIOS image for reading UPR information.`
+- `Reading VBIOS image for writing PTD object`
+- `Reading VBIOS image for writing BRO object`
+- `Reading VBIOS image for reading CGP information.`
+- `Skipping VBIOS Verification / Devinit`
+- `VBIOS Verification / Devinit skipped!`
+- `Provide a license file for updating VBIOS.`
+- `Check if Build GUID match with VBIOS image`
+- `Match exact VBIOS version string`
+- `Match VBIOS session ID`
+- `Permit a downgrade of vbios version older than OBD Vbios Factory Version `
+- `if OBD Vbios Factory Version is already populated`
+- ` --license=License.hulk vbios.rom`
+- `SetupDiDestroyDeviceInfoList`
+- `CM_Get_DevNode_Status`
+- `SetupDiGetClassDevsA`
+- `SetupDiCallClassInstaller`
+- `SetupDiSetClassInstallParamsA`
+- `SetupDiEnumDeviceInfo`
+- `SetupDiGetDeviceRegistryPropertyA`
+- `SetupDiGetClassInstallParamsA`
+- `CM_Get_Device_IDA`
+- `SetupDiEnumDeviceInterfaces`
+- `SetupDiGetDeviceInterfaceDetailA`
+- `DeviceIoControl`
+- `CreateFileA`
+- `LoadLibraryA`
+- `LoadLibraryW`
+- `LoadLibraryExW`
+- `CreateFileW`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetDevicePropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetClassDevsW`
+- `SetupDiEnumDeviceInterfaces`
+- `SetupDiGetDeviceInterfaceDetailW`
+- `SetupDiDestroyDeviceInfoList`
+- `SetupDiGetDeviceRegistryPropertyW`
+- `SetupDiDestroyDeviceInfoList`
+- `CreateFileTransactedW`
+- `CreateFileW`
+- `LoadLibraryW`
+- `LoadLibraryExW`
+- `LoadLibraryA`
+- `LoadLibraryW`
+- `LoadLibraryExW`
+- `CreateFileW`
+- `LoadLibraryExA`
+- `LoadLibraryW`
+- `LoadLibraryExW`
+- `CreateFileW`
+- `LoadLibraryExA`

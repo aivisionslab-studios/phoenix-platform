@@ -1,0 +1,37 @@
+{
+  "format": 1,
+  "project": "phoenix-diffusion.cpp",
+  "upstream_base": {
+    "repository": "https://github.com/leejet/stable-diffusion.cpp.git",
+    "commit": "6b3edaaf32cc19e5bb2d819c788bd557eddc8eba",
+    "short_commit": "6b3edaa",
+    "license": "MIT"
+  },
+  "dependencies": {
+    "ggml": {
+      "repository": "https://github.com/leejet/ggml.git",
+      "commit": "e20c3a14aa70ee84ca58499814206dd08d8026bc",
+      "path": "ggml",
+      "bundled": true,
+      "source_archive_sha256": "3dde7c76c0dc2bce436ab16258baafbf3f1a1dbf933a3583ca32471aadb0e160"
+    },
+    "sdcpp_webui": {
+      "repository": "https://github.com/leejet/sdcpp-webui.git",
+      "commit": "c4bce3d6b3f236614cca21014f076083b7270ba8",
+      "path": "examples/server/frontend",
+      "optional": true
+    },
+    "libwebp": {
+      "repository": "https://github.com/webmproject/libwebp.git",
+      "commit": "0c9546f7efc61eac7f79ae115c3f99c91c21c443",
+      "path": "thirdparty/libwebp",
+      "optional": true
+    },
+    "libwebm": {
+      "repository": "https://github.com/webmproject/libwebm.git",
+      "commit": "5bf12267eea773a32fcf4949de52b0add158a8d5",
+      "path": "thirdparty/libwebm",
+      "optional": true
+    }
+  }
+}

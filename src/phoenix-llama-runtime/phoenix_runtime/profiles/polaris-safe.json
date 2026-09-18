@@ -1,0 +1,5 @@
+{
+  "name": "polaris-safe",
+  "description": "Perfil de compatibilidade para Polaris: uma layer em Vulkan e output.weight na CPU.",
+  "args": ["-ngl", "1", "--device", "{device}", "-ot", "output.weight=CPU", "--op-offload", "--fit", "off"]
+}

@@ -1,0 +1,42 @@
+; Phoenix Forge Privileged Driver source foundation
+; No binary is bundled in this release.
+; Production installation requires a separately built and signed Phoenix driver.
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%Phoenix%
+DriverVer=09/16/2026,0.25.0.6
+CatalogFile=PhoenixForgePrivileged.cat
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+[SourceDisksFiles]
+PhoenixForgePrivileged.sys = 1
+
+[DefaultInstall.NTamd64]
+CopyFiles = DriverCopyFiles
+
+[DefaultInstall.NTamd64.Services]
+AddService = PhoenixForgePrivileged,0x00000002,ServiceInstall
+
+[DriverCopyFiles]
+PhoenixForgePrivileged.sys
+
+[ServiceInstall]
+DisplayName    = %ServiceName%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\PhoenixForgePrivileged.sys
+
+[Strings]
+Phoenix="AIVisionsLab / Phoenix"
+DiskName="Phoenix Forge Privileged Driver"
+ServiceName="Phoenix Forge Privileged Driver"

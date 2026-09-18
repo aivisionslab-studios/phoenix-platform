@@ -1,0 +1,17 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "SDXL Base 1.0 (default)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+  },
+  "filename": "sd_xl_base_1.0.safetensors",
+  "target_dir": "downloads/images/",
+  "category": "Image",
+  "dependencies": [
+    "sdxl_vae_fix"
+  ],
+  "notes": "O SDXL operacional da Phoenix e um conjunto atomico: checkpoint base + VAE FP16 corrigido. O download e o estado INSTALADO so podem concluir quando os dois arquivos existem.",
+  "_comment": "PHX-PHASE5: removido target_dir absoluto de uma máquina de teste; PhoenixPaths resolve o workspace real."
+}

@@ -1,0 +1,5 @@
+{
+  "name": "moe-hybrid",
+  "description": "Híbrido para Mixture-of-Experts: fitter nativo + experts na CPU.",
+  "args": ["-ngl", "auto", "--device", "{device}", "--cpu-moe", "--op-offload", "--fit", "on", "--fit-target", "1536", "--fit-ctx", "8192"]
+}

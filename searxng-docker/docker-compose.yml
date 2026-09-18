@@ -1,0 +1,13 @@
+services:
+  searxng-phoenix:
+    container_name: searxng-phoenix
+    image: searxng/searxng:latest
+    ports: ["8080:8080"]
+    volumes: ["./searxng-phoenix:/etc/searxng:rw"]
+    restart: unless-stopped
+  searxng-webui:
+    container_name: searxng-webui
+    image: searxng/searxng:latest
+    ports: ["8088:8080"]
+    volumes: ["./searxng-webui:/etc/searxng:rw"]
+    restart: unless-stopped

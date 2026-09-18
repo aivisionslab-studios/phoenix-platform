@@ -1,0 +1,7 @@
+{
+  "schema_version": 2,
+  "product": "PHOENIX 4.5",
+  "policy_version": 1,
+  "keys": [],
+  "note": "Public release signing keys only. policy_version is monotonic. Never place a private key in the repository or release ZIP."
+}

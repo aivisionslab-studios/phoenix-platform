@@ -1,0 +1,14 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Kokoro-82M (banco de vozes)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"
+  },
+  "filename": "voices-v1.0.bin",
+  "target_dir": "Kokoro/",
+  "category": "Voice",
+  "notes": "Banco com as 8 vozes/idiomas do Kokoro (~27MB - Dora/PT-BR, Heart/EN, etc.). Complementa kokoro_model.json (o modelo em si) - os dois arquivos juntos, na mesma pasta Voice/Kokoro/, são exigidos por phoenix_kernel/runtime/drivers/kokoro_tts.py (is_installed()).",
+  "_comment": "PHX-NEW (2026-08-23, mesmo pedido/contexto de kokoro_model.json - ver aquele arquivo). URL confirmada via 'curl -sIL' nesta sessão: HTTP 302 -> 200, Content-Length 28214398 bytes, mesmo domínio de release assinado do GitHub."
+}

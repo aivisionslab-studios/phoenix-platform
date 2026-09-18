@@ -1,0 +1,5 @@
+{
+  "name": "gpu",
+  "description": "GPU máxima. Usa semântica nativa 'all'; o device é resolvido em runtime por --list-devices.",
+  "args": ["-ngl", "all", "--device", "{device}", "--op-offload", "--fit", "off"]
+}

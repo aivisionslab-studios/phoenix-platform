@@ -1,0 +1,5 @@
+{
+  "name": "polaris-safe-nommap",
+  "description": "Perfil experimental/benchmark: polaris-safe com --load-mode none para medir impacto de tensor override em CPU.",
+  "args": ["-ngl", "1", "--device", "{device}", "-ot", "output.weight=CPU", "--op-offload", "--fit", "off", "--load-mode", "none"]
+}

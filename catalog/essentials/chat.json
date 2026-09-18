@@ -1,0 +1,14 @@
+{
+  "id": "chat",
+  "name": "Conversar com IA",
+  "icon": "💬",
+  "description": "Instala tudo para conversar com IA localmente.",
+  "time": "15-30 min",
+  "space": "10 GB",
+  "min_ram": 8,
+  "rec_vram": 4,
+  "connectors": [
+    "ollama",
+    "open_webui"
+  ]
+}

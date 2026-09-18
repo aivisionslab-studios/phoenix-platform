@@ -1,0 +1,36 @@
+[
+  {
+    "id": "git",
+    "name": "Git",
+    "category": "infrastructure",
+    "strategy": "winget",
+    "winget_id": "Git.Git",
+    "validation": { "command": "git", "args": ["--version"] }
+  },
+  {
+    "id": "docker",
+    "name": "Docker Desktop",
+    "category": "infrastructure",
+    "strategy": "winget",
+    "winget_id": "Docker.DockerDesktop",
+    "validation": { "command": "docker", "args": ["--version"] }
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "category": "runtime",
+    "strategy": "winget",
+    "winget_id": "Ollama.Ollama",
+    "validation": { "command": "ollama", "args": ["--version"] }
+  },
+  {
+    "id": "llama_cpp",
+    "name": "llama.cpp (Vulkan)",
+    "category": "runtime",
+    "strategy": "cmake",
+    "source": { "type": "git", "url": "https://github.com/ggerganov/llama.cpp" },
+    "build_flags": ["-DGGML_VULKAN=ON"],
+    "env_requirements": ["git", "cmake", "vulkan_sdk"],
+    "validation": { "command": "llama-server", "args": ["--version"] }
+  }
+]

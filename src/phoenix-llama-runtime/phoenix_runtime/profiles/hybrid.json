@@ -1,0 +1,5 @@
+{
+  "name": "hybrid",
+  "description": "Híbrido automático usando o fitter nativo do llama.cpp.",
+  "args": ["-ngl", "auto", "--device", "{device}", "--op-offload", "--fit", "on", "--fit-target", "1536", "--fit-ctx", "8192"]
+}

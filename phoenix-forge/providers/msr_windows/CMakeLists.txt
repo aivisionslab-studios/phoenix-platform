@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(phoenix_msr_windows_provider LANGUAGES CXX)
+add_executable(phoenix-msr-windows main.cpp)
+target_compile_features(phoenix-msr-windows PRIVATE cxx_std_17)
+if(MSVC)
+  target_compile_options(phoenix-msr-windows PRIVATE /W4 /EHsc /WX)
+endif()

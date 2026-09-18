@@ -1,0 +1,13 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Stable Diffusion 1.5 (pruned, ema-only)",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors?download=true"
+  },
+  "filename": "sd15-v1-5-pruned-emaonly.safetensors",
+  "target_dir": "downloads/images/",
+  "notes": "Checkpoint único (~4.27GB) - VAE e CLIP já vêm embutidos, sem componentes separados. Roda no perfil genérico do sd_cpp.py (DEFAULT_PROFILE: -m direto, 512x512 nativo, sem --vae-on-cpu - cabe inteiro nos 8GB de VRAM sem precisar de offload pra CPU).",
+  "_comment": "PHX-NEW (2026-08-22, pedido do usuário: baixar SD1.5 de verdade - até agora só existia a entrada 'sd15' em catalog/models.json, sem asset correspondente, então a opção 'SD 1.5' do seletor de imagem sempre caía no fallback 'usa o que tiver instalado' e nunca no SD1.5 de fato). Fonte verificada via API do HuggingFace (não chutada): repo https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5 é público (gated=false), arquivo v1-5-pruned-emaonly.safetensors existe com 4265146304 bytes. Nome de arquivo de destino escolhido DE PROPÓSITO com 'sd15' embutido - o nome original do HuggingFace ('v1-5-pruned-emaonly.safetensors') NÃO contém nenhuma keyword reconhecida por _IMAGE_ARCH_PATTERNS (resident_manager.py) nem pelos file_patterns de 'sd15' em catalog/models.json ('dreamshaper','sd15','sd-1','sd1.5','sd_1_5'). Sem o 'sd15' no nome, isso seria a MESMA classe de bug já achada duas vezes nesta auditoria com o SDXL ('sd_xl_base_1.0' não batendo em 'sdxl' por causa do underscore) - o arquivo baixaria certinho, mas nunca seria reconhecido como SD1.5 pelo seletor de modelo."
+}

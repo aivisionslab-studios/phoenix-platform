@@ -1,0 +1,4 @@
+leejet/stable-diffusion.cpp
+6b3edaaf32cc19e5bb2d819c788bd557eddc8eba
+
+Phoenix policy: this upstream base is frozen. Upstream changes are imported only after explicit compatibility tests.

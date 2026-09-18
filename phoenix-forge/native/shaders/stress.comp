@@ -1,0 +1,14 @@
+#version 450
+layout(local_size_x = 256) in;
+layout(set = 0, binding = 0) buffer Data { uint values[]; } dataBuf;
+layout(push_constant) uniform Push { uint seed; uint rounds; uint base_index; uint element_count; } pc;
+void main() {
+    uint local_i = gl_GlobalInvocationID.x;
+    uint i = pc.base_index + local_i;
+    if (i >= pc.element_count) return;
+    uint x = dataBuf.values[i] ^ pc.seed ^ i;
+    for (uint r = 0; r < pc.rounds; ++r) {
+        x = (x * 1664525u + 1013904223u) ^ (x >> 13u) ^ (x << 7u);
+    }
+    dataBuf.values[i] = x;
+}

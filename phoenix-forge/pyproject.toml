@@ -1,0 +1,27 @@
+[project]
+name = "phoenix-forge"
+version = "0.25.0rc6.post15"
+description = "Phoenix Forge — Hardware Intelligence Platform"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "psutil>=6.0",
+  "pydantic>=2.8",
+  "httpx>=0.27",
+  "pillow>=10.0",
+  "google-cloud-firestore>=2.19.0",
+]
+
+[project.scripts]
+phoenix-forge = "phoenix_forge.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["phoenix_forge*"]
+exclude = ["web*", "native*", "reports*", "research*", "tests*"]

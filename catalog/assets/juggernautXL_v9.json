@@ -1,0 +1,11 @@
+{
+  "schema": "1.0",
+  "type": "asset",
+  "name": "Juggernaut XL v9",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://civitai.com/api/download/models/357609"
+  },
+  "filename": "juggernautXL_v9.safetensors",
+  "target_dir": "downloads/images/"
+}

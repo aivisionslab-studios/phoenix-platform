@@ -1,0 +1,7 @@
+{
+  "schema": "phoenix.forge.privileged-driver-trust-policy/v1",
+  "mode": "production_signature_required",
+  "trusted_signer_thumbprints": [],
+  "allow_unsigned": false,
+  "allow_hash_only": false
+}

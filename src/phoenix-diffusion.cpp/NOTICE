@@ -1,0 +1,15 @@
+Phoenix Diffusion.cpp is a Phoenix-maintained fork/runtime distribution based on
+leejet/stable-diffusion.cpp, originally licensed under the MIT License.
+
+Upstream base used for this repository snapshot:
+  https://github.com/leejet/stable-diffusion.cpp
+  commit 6b3edaaf32cc19e5bb2d819c788bd557eddc8eba
+
+The upstream MIT copyright/license notice is preserved in LICENSE and
+LICENSES/LEEJET_STABLE_DIFFUSION_MIT.txt.
+
+Files under phoenix/ and Phoenix-specific scripts/docs are additions maintained
+by AIVisionsLab Studios and are licensed under the MIT terms in
+LICENSES/PHOENIX_ADDITIONS_LICENSE.txt.
+
+No KoboldCpp source files are included in this repository.

@@ -1,0 +1,5 @@
+{
+  "name": "cpu",
+  "description": "CPU estrito. Desliga offload de camadas e de operações e remove devices de aceleração.",
+  "args": ["-ngl", "0", "--device", "none", "--no-op-offload", "--fit", "off"]
+}

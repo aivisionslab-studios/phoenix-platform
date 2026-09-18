@@ -1,0 +1,833 @@
+# ============================================================
+# PHOENIX PLATFORM — PUBLIC REPOSITORY BOUNDARY
+# Tudo abaixo é local, privado, gerado, pesado ou histórico.
+# Não deve ser publicado no branch principal.
+# ============================================================
+
+# ============================================================
+# 1. CREDENCIAIS, TOKENS, CHAVES E SEGREDOS
+# ============================================================
+.env
+.env.*
+!.env.example
+!**/.env.example
+!platform_source/.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+
+*firebase_service_account*.json
+*service_account*.json
+*credentials*.json
+*credential*.json
+*secrets*.json
+*secret*.json
+
+data/firebase_service_account.json
+data/config/firestore_credentials.json
+
+# Credenciais de cloud/SDKs locais
+.aws/
+.azure/
+.gcloud/
+
+# ============================================================
+# 2. IDENTIDADE / ESTADO LOCAL DA MÁQUINA
+# ============================================================
+data/telemetry_consent.flag
+data/license_accepted.flag
+
+data/config/machine_id.json
+data/config/machine.json
+data/machine_id.txt
+data/machine_id.json
+
+data/text_engine_preference.json
+data/text_execution_preference.json
+data/engine_preference.json
+
+data/entitlement.json
+data/resident_memory.json
+data/shared_pool_last_pull.json
+
+phoenix_kernel/knowledge/machine/hardware_profile.json
+
+# ============================================================
+# 3. RAG / MEMÓRIA / CONHECIMENTO LOCAL DO USUÁRIO
+# ============================================================
+data/chroma_db/
+data/rag_user_registry.json
+data/.rag_user_registry.key
+data/rag_usage_ledger.json
+data/rag_integrity.manifest
+
+# Bancos locais / SQLite
+data/hardware.db
+data/knowledge.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
+
+# ============================================================
+# 4. LOGS, TELEMETRIA, DUMPS E ESTADO DE RUNTIME
+# ============================================================
+data/logs/
+/logs/
+logs/
+runtime_state/
+
+*.log
+*.trace
+*.stackdump
+*.dmp
+*.dump
+
+/state_dump.json
+/diagnostic_report.json
+/diagnostic_report*.json
+/*_report.json
+/*_report.txt
+/*_dump.json
+/*_dump.txt
+
+# ============================================================
+# 5. MODELOS, PESOS, CACHE DE IA E REPOSITÓRIOS DE TERCEIROS
+# ============================================================
+repos/
+data/models_cache/
+models/
+checkpoints/
+
+*.gguf
+*.ggml
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+
+# Evita blobs de modelos baixados por ferramentas
+.huggingface/
+.cache/huggingface/
+.cache/torch/
+
+# ============================================================
+# 6. OUTPUTS GERADOS — IMAGEM / ÁUDIO / VÍDEO / EXPORTAÇÕES
+# ============================================================
+output/
+/output/
+outputs/
+data/Outputs/
+
+generated/
+generations/
+renders/
+exports/
+
+# ============================================================
+# 7. PYTHON
+# ============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.nox/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+test-results/
+
+.venv/
+.audit-venv/
+venv/
+env/
+
+build/
+dist/
+pip-wheel-metadata/
+wheels/
+
+# ============================================================
+# 8. NODE / FRONTEND
+# ============================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+.parcel-cache/
+
+web/platform_dist/
+playwright-report/
+
+# ============================================================
+# 9. BINÁRIOS E ARTEFATOS COMPILADOS
+# Devem ir para GitHub Releases quando forem distribuições.
+# ============================================================
+*.dll
+*.exe
+*.msi
+*.msix
+*.appx
+*.appxbundle
+*.deb
+*.rpm
+*.pkg
+*.dmg
+*.app
+*.bin
+*.obj
+*.o
+*.a
+*.lib
+*.exp
+*.ilk
+*.pdb
+
+bin/
+obj/
+
+# ============================================================
+# 10. PACOTES / ARQUIVOS COMPACTADOS
+# ============================================================
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+
+# ============================================================
+# 11. ARQUIVOS PESSOAIS E MÍDIA SOLTOS NA RAIZ
+# Documentação oficial dentro de docs/ permanece permitida.
+# ============================================================
+/*.pdf
+/*.doc
+/*.docx
+/*.xls
+/*.xlsx
+/*.ppt
+/*.pptx
+/*.rtf
+/*.odt
+/*.ods
+/*.odp
+/*.csv
+
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.gif
+/*.bmp
+/*.tif
+/*.tiff
+
+/*.mp3
+/*.wav
+/*.m4a
+/*.flac
+/*.ogg
+
+/*.mp4
+/*.mkv
+/*.mov
+/*.avi
+/*.webm
+
+# ============================================================
+# 12. BACKUPS, PATCHES E ARQUIVOS TEMPORÁRIOS
+# ============================================================
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.tmp
+*.temp
+*.swp
+*.swo
+*.before_hotfix_*
+*~
+
+* - Copy.*
+* - Cópia.*
+*Copia de *
+*Cópia de *
+
+# ============================================================
+# 13. WINDOWS / SO / EDITORES
+# ============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+Novo*Documento*de*Texto*.txt
+*/Novo\(a\)*Documento*de*Texto*.txt
+
+# ============================================================
+# 14. CONFIGURAÇÕES LOCAIS DE SERVIÇOS
+# ============================================================
+searxng-docker/searxng-phoenix/settings.yml
+searxng-docker/searxng-webui/settings.yml
+
+# ============================================================
+# 15. PASTAS PRIVADAS / INTERNAS
+# ============================================================
+private_server_reference/
+_archive_patches_antigos/
+_deprecated/
+
+internal/
+.private/
+private/
+.local/
+
+# ============================================================
+# 16. DOCUMENTAÇÃO GERADA AUTOMATICAMENTE
+# ============================================================
+docs/PHOENIX_PROJECT_MAP.md
+
+# ============================================================
+# 17. CACHES GERAIS
+# ============================================================
+.cache/
+.cache/**
+*.cache
+
+# ============================================================
+# 18. ARTEFATOS ITERATIVOS DO PHOENIX / FORGE
+# ============================================================
+
+# Auditorias, snapshots e árvores intermediárias
+architecture_audit_*/
+forge_audit/
+shadow_reference_resolution_*/
+shadow_tree_deep_analysis_*/
+shadow_tree_verification_*/
+
+archive/
+backups/
+
+# Árvores completas/versionadas geradas na raiz
+/PHOENIX_R*/
+/PHOENIX_*/
+/phoenix-forge-v*/
+/phoenix_forge_v*/
+/forge-v*/
+/forge_v*/
+
+# Payloads, staging e release temporário
+/payload/
+/staging/
+/release-staging/
+/release_tmp/
+/release-temp/
+/release_build/
+/release-build/
+/package/
+/packages_tmp/
+
+# ============================================================
+# 19. INSTALADORES / TESTES ITERATIVOS GERADOS NA RAIZ
+# ============================================================
+/Aplicar_Forge_*
+/TESTAR_Forge_*
+/TESTAR_PUBLIC_GUARD*
+/VERIFICAR_VERSAO_Forge_*
+/VERIFICAR_SHADOW_TREE_*
+
+/INSTALAR_Forge_*
+/INSTALADOR_Forge_*
+/Installer_Forge_*
+/Install_Forge_*
+
+/Aplicar_Phoenix_*
+/TESTAR_Phoenix_*
+/INSTALAR_Phoenix_*
+/INSTALADOR_Phoenix_*
+
+# ============================================================
+# 20. RELATÓRIOS DE AUDITORIA / CERTIFICAÇÃO / BUILD
+# ============================================================
+/AUDITORIA_*
+/CAPABILITY_CLOSURE_REPORT_*
+/INSTALACAO_Forge_*
+/CERTIFICACAO_*
+/CERTIFICATION_*
+/VALIDACAO_*
+/VALIDATION_*
+/RESULTADO_*
+/resultado-*
+
+/batch_*.json
+/build_release_*
+/build_windows_*
+/build_linux_*
+/baixar_sd*
+
+# ============================================================
+# 21. CHANGELOGS / RELEASE NOTES DE MICROVERSÕES TEMPORÁRIAS
+# Preserva CHANGELOG.md e docs oficiais.
+# ============================================================
+/CHANGELOG_0*
+/CHANGELOG_v0*
+/RELEASE_NOTES_0*
+/RELEASE_NOTES_v0*
+
+# ============================================================
+# 22. SCRIPTS DE MANUTENÇÃO / SESSÃO / MIGRAÇÃO
+# ============================================================
+/1_ANALISAR_LIMPEZA*
+/1_PREVIEW_SHADOW*
+/2_APLICAR_LIMPEZA*
+/2_APLICAR_SHADOW*
+/ANALISAR_SHADOW*
+/workspace_cleanup_plan*
+/verify_release_*
+
+/Testar_Tudo_Phoenix_*
+/certify_phoenix_*
+/Criar_Pacote_*
+/create_support_*
+/Estado_Phoenix*
+/upgrade_phoenix*
+/upgrade_policy*
+/update_security_*
+/truth_rc*
+/testlist*
+/testlist_rc*
+/VerificarIntegridade_*
+/GERAR_AUDITORIA_*
+/CORRECAO_RAG_*
+/CONFIGURAR_FIRESTORE*
+
+# arquivos experimentais/avulsos conhecidos
+/contest
+/platform_source/_test_chat_timeout_wrapper.cjs
+
+# ============================================================
+# 23. PUBLIC GUARD / SHADOW — ARTEFATOS GERADOS
+# Mantém código-fonte oficial do mecanismo, mas não seus bundles,
+# snapshots, caches e resultados locais.
+# ============================================================
+.public_guard_bundle/
+*.bundle
+
+public_guard_output/
+public_guard_report*/
+shadow_output/
+shadow_report*/
+shadow_quarantine/
+quarantine/
+
+# ============================================================
+# 24. WORKSPACE TEMPORÁRIO
+# ============================================================
+/prova_teste_watchdog/
+/temp/
+/tmp/
+/downloads/
+
+# ============================================================
+# 25. IDE / ASSISTENTES / SESSÕES LOCAIS
+# ============================================================
+.cursor/
+.claude/
+.copilot/
+.history/
+
+# ============================================================
+# 26. ARQUIVOS QUE DEVEM PERMANECER PUBLICÁVEIS
+# Exceções explícitas contra regras futuras mais amplas.
+# ============================================================
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
+!LICENSE.md
+!CHANGELOG.md
+!SECURITY.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+
+# ============================================================
+# 27. ARQUIVOS LOCAIS DE FERRAMENTAS / RELATÓRIOS ADICIONAIS
+# ============================================================
+*.pid
+*.pid.lock
+*.lock.local
+*.session
+*.session.json
+*.local.json
+
+# Benchmarks e evidências produzidos localmente
+benchmark-results/
+benchmark_results/
+evidence-output/
+evidence_output/
+qualification-output/
+qualification_output/
+
+# Crash/minidumps do Windows
+*.mdmp
+
+# Arquivos de download incompleto
+*.part
+*.partial
+*.crdownload
+*.download
+
+# ============================================================
+# PHOENIX  ARTEFATOS INTERNOS / HISTÓRICOS
+# ============================================================
+
+# Forge installers históricos
+/INSTALAR_Forge_*
+/INSTALADOR_Forge_*
+/Installer_Forge_*
+/Install_Forge_*
+
+# LEIA-ME / README de microversões antigas
+/LEIA-ME_0*
+/README_0*
+/README_v0*
+
+# Patches temporários e históricos
+/APLICAR_PATCH_*
+/Aplicar_Patch_*
+/APLICAR_PATCH*
+/Aplicar_Patch*
+
+# Documentação temporária de desenvolvimento
+/ATUALIZACAO_DOCUMENTAL_*
+/RELATORIO_DESENVOLVIMENTO_*
+/NOTAS_DESENVOLVIMENTO_*
+
+# Public Guard gerado
+/.public_guard_bundle
+/.public_guard_bundle/
+/.public_guard_bundle*
+
+/public_guard_output/
+/public_guard_report*/
+
+# Snapshots / versões / backups
+/PHOENIX_R*/
+/phoenix-forge-v*/
+/phoenix_forge_v*/
+/forge-v*/
+/forge_v*/
+/shadow_*/
+/architecture_audit_*/
+/forge_audit/
+/backups/
+/archive/
+
+# Benchmark / qualification / evidence
+/benchmark-results/
+/benchmark_results/
+/evidence-output/
+/evidence_output/
+/qualification-output/
+/qualification_output/
+/qualification-results/
+/qualification_results/
+
+/benchmark-report*/
+/benchmark_report*/
+/evidence-report*/
+/evidence_report*/
+
+# Resultados locais de hardware
+/resultado-vram-*.json
+/ledger-final-*.json
+/*_benchmark.json
+/*_benchmark.txt
+/*_qualification.json
+/*_qualification.txt
+/*_evidence.json
+/*_evidence.txt
+
+
+# ============================================================
+# PHOENIX - FINAL PUBLIC ROOT CLEANUP
+# ============================================================
+/PATCH_RAG_*.md
+/PATCH_*.md
+/HOTFIX_*.md
+/PHOENIX_R6_*.md
+/PHOENIX_R6*.md
+/PHOENIX_SHADOW_*
+/RESOLVER_REFERENCIAS_SHADOW_*
+/RODAR_SHADOW_*
+/SHADOW_*
+/PHOENIX_WINDOWS_VERIFICATION_LEDGER.json
+/PHOENIX_CAPABILITY_EVIDENCE_MAP.json
+/Phoenix_Workspace_Cleanup_Safe*.ps1
+/LIMPAR_PHOENIX.ps1
+/RC*_TEST_RESULTS*.json
+/RC*_SELFTEST_RESULTS*.json
+/TEST_RESULTS_*.json
+/TEST_RESULT_*.json
+/RELEASE_CERTIFICATE_*.txt
+/RELEASE_CERTIFICATE_*.json
+/REMEDIATION_MAP_*.json
+/RODAR_AUDITORIA_*
+/audit_phase*_closure.py
+/audit_*_closure.py
+/TESTAR_*.bat
+/TESTAR_*.ps1
+/testar_*.bat
+/testar_*.ps1
+/UPDATE_README.md
+/Verificar_GitIgnore_Phoenix.ps1
+/README_PHOENIX_GITHUB_FINAL.md
+/test_inventory.json
+/*_TEST_INVENTORY.json
+/phoenix_patch_manifest.sha256
+
+# ============================================================
+# PHOENIX - FINAL PUBLIC ROOT CLEANUP V2
+# Somente artefatos soltos na raiz. Nao bloqueia codigo
+# organizado dentro de phoenix-forge/, tools/, src/, etc.
+# ============================================================
+
+/PATCH_RAG_*.md
+/PATCH_*.md
+/HOTFIX_*.md
+
+/PHOENIX_R6_*.md
+/PHOENIX_R6*.md
+
+/PHOENIX_SHADOW_*
+/RESOLVER_REFERENCIAS_SHADOW_*
+/RODAR_SHADOW_*
+/SHADOW_*
+
+/PHOENIX_WINDOWS_VERIFICATION_LEDGER.json
+/PHOENIX_CAPABILITY_EVIDENCE_MAP.json
+
+/Phoenix_Workspace_Cleanup_Safe*.ps1
+/LIMPAR_PHOENIX.ps1
+
+/RC*_TEST_RESULTS*.json
+/RC*_SELFTEST_RESULTS*.json
+/TEST_RESULTS_*.json
+/TEST_RESULT_*.json
+
+/RELEASE_CERTIFICATE_*.txt
+/RELEASE_CERTIFICATE_*.json
+/REMEDIATION_MAP_*.json
+
+/RODAR_AUDITORIA_*
+/audit_phase*_closure.py
+/audit_*_closure.py
+
+/TESTAR_*.bat
+/TESTAR_*.ps1
+/testar_*.bat
+/testar_*.ps1
+
+/UPDATE_README.md
+/Verificar_GitIgnore_Phoenix.ps1
+/README_PHOENIX_GITHUB_FINAL.md
+
+/test_inventory.json
+/*_TEST_INVENTORY.json
+/phoenix_patch_manifest.sha256
+
+# Arquivos temporarios usados apenas na limpeza/publicacao
+/LIMPAR_GITHUB_PHOENIX_FINAL.ps1
+/LIMPAR_GITHUB_PHOENIX_FINAL_V2.ps1
+
+# Metadado interno de desenvolvimento/release truth
+/PHOENIX_RELEASE_METADATA_TRUTH.json
+
+
+# Arquivos usados somente na limpeza/publicacao do GitHub
+/LIMPAR_GITHUB_PHOENIX_FINAL.ps1
+/LIMPAR_GITHUB_PHOENIX_FINAL_V2.ps1
+
+# Metadado interno de desenvolvimento
+/PHOENIX_RELEASE_METADATA_TRUTH.json
+
+
+# ============================================================
+# PHOENIX - ROOT/LOCAL STATE - NEVER PUBLISH
+# ============================================================
+
+# Readmes auxiliares/legados soltos na raiz
+/LEIA-ME.txt
+/LEIA-ME_PUBLIC_GUARD.txt
+
+# Scripts temporarios usados apenas para limpar/publicar o GitHub
+/LIMPAR_GITHUB_PHOENIX_FINAL.ps1
+/LIMPAR_GITHUB_PHOENIX_FINAL_V2.ps1
+/LIMPAR_GITHUB_PHOENIX_FINAL_V3.ps1
+
+# Metadado interno de desenvolvimento
+/PHOENIX_RELEASE_METADATA_TRUTH.json
+
+# Estado local/runtime gerado
+/data/startup_integrity_cache.json
+/data/update_release_state.json
+/data/migration_state.json
+/data/rag_schema_state.json
+
+# Arquivos auxiliares desta manutencao
+/Verificar_GitIgnore_Phoenix.ps1
+/README_PHOENIX_GITHUB_FINAL.md
+/UPDATE_README.md
+
+/LIMPAR_GITHUB_PHOENIX_FINAL_V4.ps1
+
+# ============================================================
+# PHOENIX - INTERNAL VALIDATION / TEST INFRA - NEVER PUBLISH
+# ============================================================
+
+/PUBLIC_GUARD/
+/TESTS/
+/TEST_FIXTURES/
+
+/phoenix-forge/tools/public_guard_v2/
+
+# Scripts de limpeza/publicacao locais
+/LIMPAR_GITHUB_PHOENIX_FINAL*.ps1
+
+# ============================================================
+# PHOENIX - RAG PRIVATE SURFACE - NEVER PUBLISH
+# ============================================================
+
+# Entradas conhecidas na raiz
+/Migrar_RAG.bat
+/rag_reindex_migration.py
+
+# Patches / documentaÃ§Ã£o / scripts explicitamente RAG
+/APLICAR_PATCH_RAG_*
+/PATCH_RAG_*
+
+# DiretÃ³rios chamados rag
+**/rag/
+**/RAG/
+
+# Arquivos com token rag em nomes convencionais
+**/rag_*
+**/*_rag_*
+**/*_rag.*
+**/RAG_*
+**/*_RAG_*
+**/*_RAG.*
+
+# Chroma / repositÃ³rio de conhecimento
+**/chroma/
+**/chroma_*
+**/*_chroma_*
+**/*_chroma.*
+**/knowledge_repository*
+**/*_knowledge_repository*
+
+# Este utilitÃ¡rio tambÃ©m Ã© local
+/LIMPAR_GITHUB_PHOENIX_FINAL_V6.ps1
+/api_server.py
+/catalog/essentials/assistant.json
+/catalog/studios/research.json
+/data/knowledge_base.json
+/docs/GEMINI_MERGE_AUDIT_20260902.md
+/docs/MANUAL_PHOENIX_3.0.md
+/docs/PHOENIX_CALL_GRAPH.md
+/docs/PHOENIX_DEPENDENCY_GRAPH.json
+/docs/PHOENIX_DEPENDENCY_SCHEMA_MIGRATION_CONTRACT.md
+/docs/PHOENIX_DOMAIN_WORKFLOW_SERVICES_CONTRACT.md
+/docs/PHOENIX_EXECUTION_ORCHESTRATOR.md
+/docs/PHOENIX_INTERRUPTED_UPDATE_RECOVERY.md
+/docs/PHOENIX_PHASE6_CLOSURE_AUDIT.md
+/docs/PHOENIX_PHASE7_CLOSURE_AUDIT.md
+/docs/PHOENIX_POST_INSTALL_CERTIFICATION.md
+/docs/PHOENIX_RELEASE_DISTRIBUTION_CONTRACT.md
+/docs/PHOENIX_RELEASE_PROVENANCE_CONTRACT.md
+/docs/PHOENIX_RELEASE_SMOKE_TEST_MATRIX.md
+/docs/PHOENIX_RESIDENT_AUXILIARY_CONTRACT.md
+/docs/PHOENIX_SANITIZED_SUPPORT_BUNDLE.md
+/docs/PHOENIX_STATUS.md
+/docs/PHOENIX_UPGRADE_ROLLBACK_SAFETY.md
+/docs/PHOENIX_WORKFLOW_PROGRESS_CONTRACT.md
+/docs/PUBLIC_REPOSITORY_BOUNDARY.md
+/docs/SECURITY.md
+/install/common.ps1
+/install/storage_scanner.ps1
+/installed_release_state.py
+/institutional/docs/API.md
+/institutional/docs/ARCHITECTURE.md
+/institutional/docs/ARCHITECTURE_CURRENT.md
+/institutional/docs/CHANGELOG.md
+/institutional/docs/DOCUMENT_PIPELINE.md
+/institutional/docs/FAQ.md
+/institutional/docs/INVESTIGACAO_RESPOSTA_CORTADA.md
+/institutional/docs/MAPA_TESTES.md
+/institutional/docs/MISSIONS.md
+/institutional/docs/PHILOSOPHY.md
+/institutional/docs/PLANNER.md
+/institutional/docs/RECUPERACAO_FUNCIONALIDADES_PHOENIX.md
+/institutional/docs/ROADMAP.md
+/institutional/docs/SECURITY.md
+/institutional/docs/TROUBLESHOOTING.md
+/institutional/legal/DATA_COLLECTION.md
+/institutional/legal/PRIVACY_POLICY.md
+/institutional/legal/TELEMETRY_POLICY.md
+/kernel.py
+/migration_contract.json
+/phoenix_migrations.py
+/phoenix-forge/phoenix_forge/modules/project_hygiene.py
+/phoenix-forge/PHOENIX_FORGE_0130.md
+/phoenix-forge/tools/shadow_hygiene/verifier/VERIFICAR_SHADOW_TREE_PHOENIX.py
+/platform_source/server.ts
+/platform_source/src/components/aviary/ArenaView.tsx
+/platform_source/src/components/aviary/AviaryApp.tsx
+/platform_source/src/components/aviary/ChatView.tsx
+/platform_source/src/components/aviary/ManualModal.tsx
+/platform_source/src/components/aviary/ParametersDrawer.tsx
+/platform_source/src/components/AviarySwarmPanel.tsx
+/platform_source/src/components/engine/EngineMissionControl.tsx
+/platform_source/src/components/Header.tsx
+/platform_source/src/components/MetricCards.tsx
+/platform_source/src/components/PortBridgePanel.tsx
+/platform_source/src/components/RagDrawer.tsx
+/platform_source/src/components/TerminalConsole.tsx
+/platform_source/src/data/modelsData.ts
+/platform_source/src/types.ts
+/release_build_manifest.json
+/release_manifest.json
+/Reparar_Phoenix_Diffusion.bat
+/smoke_test_release.py
+/src/phoenix-llama-runtime/docs/function-calling.md
+/src/phoenix-llama-runtime/phoenix_runtime/phoenix_integration.json
+/src/phoenix-llama-runtime/tools/server/bench/speed-bench/README.md
+/startup_integrity_policy.json
+/tools/repository/Prepare-PublicRepo.ps1

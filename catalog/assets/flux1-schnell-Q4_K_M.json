@@ -1,0 +1,16 @@
+{
+  "schema": "1.0",
+  "enabled": false,
+  "disabled_reason": "Flux Schnell foi retirado do produto ativo. Use SD 1.5 ou SDXL.",
+  "type": "asset",
+  "name": "Flux.1-schnell Q4_K_M GGUF",
+  "provider": "http",
+  "provider_data": {
+    "url": "https://huggingface.co/unsloth/FLUX.1-schnell-GGUF/resolve/main/flux1-schnell-Q4_K_M.gguf?download=true"
+  },
+  "filename": "flux1-schnell-Q4_K_M.gguf",
+  "target_dir": "downloads/images/",
+  "category": "Image",
+  "_comment": "PHX-PHASE5: removido target_dir absoluto de uma máquina de teste; PhoenixPaths resolve o workspace real."
+}
+

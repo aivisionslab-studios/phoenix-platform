@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "product": "PHOENIX 4.5",
+  "phoenix_version": "4.5.0",
+  "channel": "stable",
+  "release_sequence": 11,
+  "notes": [
+    "release_sequence is monotonic within each update channel.",
+    "Change channel/sequence deliberately for each published release; signed-update authenticity and anti-rollback are separate controls."
+  ]
+}

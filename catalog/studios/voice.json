@@ -1,0 +1,15 @@
+{
+  "id": "voice",
+  "name": "Studio de Voz Offline",
+  "icon": "🎙️",
+  "description": "Transcrição (STT), síntese (TTS) e clonagem de voz local.",
+  "time": "15-20 min",
+  "space": "8 GB",
+  "min_ram": 8,
+  "rec_vram": 4,
+  "connectors": [
+    "whisper_cpp",
+    "kokoro",
+    "ffmpeg"
+  ]
+}

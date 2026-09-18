@@ -1,0 +1,170 @@
+{
+  "_comment": "Catálogo de capacidades da Phoenix Engine (ModelRegistry - Fase 2). Cada modelo declara 'roles' (que capacidades ele cobre) e opcionalmente aparece em 'default_for_roles' (qual role ele resolve quando ninguém pede um modelo específico). O ModelRegistry (phoenix_kernel/models/registry.py) lê este arquivo. IMPORTANTE: este arquivo é DIFERENTE de catalog/downloads.json (usado pelo ModelManager para URLs de download) e de catalog/assets/*.json (usado pelo AssetManager) - os três NUNCA devem compartilhar o mesmo caminho de arquivo, isso já causou a perda silenciosa deste catálogo uma vez.",
+  "roles": [
+    "chat",
+    "reasoning",
+    "code",
+    "document_understanding",
+    "vision",
+    "image_generation",
+    "speech_synthesis",
+    "speech_to_text"
+  ],
+  "models": [
+    {
+      "id": "qwen3:8b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "chat",
+        "reasoning",
+        "document_understanding"
+      ],
+      "default_for_roles": [
+        "chat",
+        "reasoning",
+        "document_understanding"
+      ],
+      "file_patterns": [
+        "qwen3-8b",
+        "qwen3_8b",
+        "qwen3:8b"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo de texto padrão nativo da Phoenix. Placement não é fixo: Phoenix AUTO decide CPU/GPU/HÍBRIDO por hardware, GGUF e correctness.",
+      "topology": "dense",
+      "distribution_tier": "core"
+    },
+    {
+      "id": "qwen2.5-coder:32b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "code"
+      ],
+      "default_for_roles": [
+        "code"
+      ],
+      "file_patterns": [
+        "qwen2.5-coder",
+        "qwen2_5-coder",
+        "coder-32b"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Alternativa para tarefas de código - referenciada no SYSTEM_PROMPT do ReasoningEngine, ainda não baixada por padrão."
+    },
+    {
+      "id": "qwen3:8b",
+      "runtime": "ollama",
+      "roles": [
+        "chat",
+        "reasoning"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "ollama"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Segunda engine opcional. Não é baixada automaticamente quando o GGUF nativo existe; o usuário pode escolher Ollama e então instalar/puxar sua cópia.",
+      "distribution_tier": "optional"
+    },
+    {
+      "id": "deepseek-r1:8b",
+      "runtime": "llama.cpp",
+      "roles": [
+        "reasoning"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "deepseek-r1",
+        "deepseek_r1"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Alternativa para raciocínio complexo - não é default (qwen3:8b continua sendo o default de 'reasoning')."
+    },
+    {
+      "id": "minicpmv",
+      "runtime": "vision",
+      "roles": [
+        "vision"
+      ],
+      "default_for_roles": [
+        "vision"
+      ],
+      "file_patterns": [
+        "minicpm-v",
+        "minicpmv",
+        "minicpm_v"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Único modelo de visão da Golden Baseline. Roteia pro driver 'vision' (MiniCPM-V via llama-mtmd-cli). PHX-FIX (2026-08-28): antes declarava vram_mb_estimate=6500 (tratado como runtime GPU-pesado em _vram_guard) - desatualizado desde que a Política de roteamento de hardware definitiva (ver README) passou a forçar -ngl 0 (CPU) neste driver, deixando a GPU 100% reservada pra geração de imagem. 0 reflete o comportamento real hoje; se o driver algum dia ganhar suporte a offload de GPU, este valor precisa voltar a refletir isso."
+    },
+    {
+      "id": "sdxl",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "sdxl",
+        "xl-base",
+        "xl_base"
+      ],
+      "vram_mb_estimate": 6400,
+      "notes": "Modelo recomendado opcional. Phoenix Diffusion decide a mecânica interna de placement; não é mais o safe baseline do primeiro boot.",
+      "distribution_tier": "recommended"
+    },
+    {
+      "id": "sd15",
+      "runtime": "sdxl",
+      "roles": [
+        "image_generation"
+      ],
+      "default_for_roles": [
+        "image_generation"
+      ],
+      "file_patterns": [
+        "dreamshaper",
+        "sd15",
+        "sd-1",
+        "sd1.5",
+        "sd_1_5"
+      ],
+      "vram_mb_estimate": 2000,
+      "notes": "Safe baseline de imagem da Phoenix: checkpoint único e caminho nativo validado. Baixado automaticamente; Phoenix Diffusion decide CPU/GPU/HÍBRIDO internamente.",
+      "distribution_tier": "core"
+    },
+    {
+      "id": "whisper-base",
+      "runtime": "whisper",
+      "roles": [
+        "speech_to_text"
+      ],
+      "default_for_roles": [
+        "speech_to_text"
+      ],
+      "file_patterns": [
+        "ggml-base",
+        "whisper-base",
+        "whisper_base"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo base multilingual (~142MB). Roda em CPU. Default de transcrição."
+    },
+    {
+      "id": "whisper-medium",
+      "runtime": "whisper",
+      "roles": [
+        "speech_to_text"
+      ],
+      "default_for_roles": [],
+      "file_patterns": [
+        "ggml-medium",
+        "whisper-medium",
+        "whisper_medium"
+      ],
+      "vram_mb_estimate": 0,
+      "notes": "Modelo medium Q5 (~515MB). Melhor precisão para português."
+    }
+  ]
+}
+

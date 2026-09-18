@@ -1,0 +1,2 @@
+# Research / implementation boundary
+Phoenix Forge is an original implementation. GPU-Z and OCCT binaries were studied to understand architectural categories such as provider layering, vendor telemetry, VBIOS parsing, independent stress workers and watchdog orchestration. Phoenix Forge does not redistribute or copy their proprietary code, assets, internal databases, stress kernels or private algorithms. Vendor/OS functionality is implemented against public/documented APIs or independent code.

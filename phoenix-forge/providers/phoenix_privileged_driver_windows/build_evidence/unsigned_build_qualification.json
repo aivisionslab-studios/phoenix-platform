@@ -1,0 +1,15 @@
+﻿{
+    "schema":  "phoenix.forge.unsigned-driver-qualification/v1",
+    "generated_at":  "2026-09-16T17:58:50.0189951-03:00",
+    "build_requested":  true,
+    "install_requested":  false,
+    "service_start_requested":  false,
+    "signing_requested":  false,
+    "test_signing_requested":  false,
+    "driver_path":  null,
+    "sha256":  null,
+    "file_size":  null,
+    "authenticode_status":  null,
+    "status":  "BUILD_FAILED",
+    "exit_code":  1
+}
